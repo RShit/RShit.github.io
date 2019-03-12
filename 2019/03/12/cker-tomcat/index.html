@@ -14,24 +14,24 @@
     
     
     
-    <title>html | Hexo</title>
+    <title>docker&amp;tomcat | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content>
-    <meta name="description" content="##form表单外不同的按钮提交到不同的url1234567891011121314151617181920&amp;lt;form  hidden=&amp;quot;&amp;quot; id=&amp;quot;form&amp;quot; method=&amp;quot;post&amp;quot;&amp;gt;	&amp;lt;input type=&amp;quot;text&amp;quot; value=&amp;quot;&amp;quot; name=&amp;quot;rel&amp;qu">
+    <meta name="description" content="docker 启动和停止docker-compose down:停止当前tomcat应用 docker-compose up -d: 启动tomcat应用 docker 简介 image(镜像)：对比iso镜像文件，不可操作，只能被pull下载下来使用或push将自己的镜像上传上去 container(容器):    对比iso镜像中的live cd模式，不用直接安装需要的东西即可直接使用。但是一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="html">
-<meta property="og:url" content="https://github.com/RShit/2019/03/08/html/index.html">
+<meta property="og:title" content="docker&amp;tomcat">
+<meta property="og:url" content="https://github.com/RShit/2019/03/12/cker-tomcat/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="##form表单外不同的按钮提交到不同的url1234567891011121314151617181920&amp;lt;form  hidden=&amp;quot;&amp;quot; id=&amp;quot;form&amp;quot; method=&amp;quot;post&amp;quot;&amp;gt;	&amp;lt;input type=&amp;quot;text&amp;quot; value=&amp;quot;&amp;quot; name=&amp;quot;rel&amp;qu">
+<meta property="og:description" content="docker 启动和停止docker-compose down:停止当前tomcat应用 docker-compose up -d: 启动tomcat应用 docker 简介 image(镜像)：对比iso镜像文件，不可操作，只能被pull下载下来使用或push将自己的镜像上传上去 container(容器):    对比iso镜像中的live cd模式，不用直接安装需要的东西即可直接使用。但是一">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-08T07:36:09.911Z">
+<meta property="og:updated_time" content="2019-03-12T03:19:04.260Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="html">
-<meta name="twitter:description" content="##form表单外不同的按钮提交到不同的url1234567891011121314151617181920&amp;lt;form  hidden=&amp;quot;&amp;quot; id=&amp;quot;form&amp;quot; method=&amp;quot;post&amp;quot;&amp;gt;	&amp;lt;input type=&amp;quot;text&amp;quot; value=&amp;quot;&amp;quot; name=&amp;quot;rel&amp;qu">
+<meta name="twitter:title" content="docker&amp;tomcat">
+<meta name="twitter:description" content="docker 启动和停止docker-compose down:停止当前tomcat应用 docker-compose up -d: 启动tomcat应用 docker 简介 image(镜像)：对比iso镜像文件，不可操作，只能被pull下载下来使用或push将自己的镜像上传上去 container(容器):    对比iso镜像中的live cd模式，不用直接安装需要的东西即可直接使用。但是一">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -124,7 +124,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">html</div>
+        <div class="flex-col header-title ellipsis">docker&amp;tomcat</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -146,11 +146,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">html</h1>
+        <h1 class="title">docker&amp;tomcat</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-03-08T07:24:00.000Z" itemprop="datePublished" class="page-time">
-  2019-03-08
+                <time datetime="2019-03-12T03:08:55.000Z" itemprop="datePublished" class="page-time">
+  2019-03-12
 </time>
 
 
@@ -166,13 +166,20 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-启动和停止"><span class="post-toc-number">1.</span> <span class="post-toc-text">docker 启动和停止</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-简介"><span class="post-toc-number">2.</span> <span class="post-toc-text">docker 简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-compose"><span class="post-toc-number">3.</span> <span class="post-toc-text">docker compose</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#映射端口"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">映射端口</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#启动注意"><span class="post-toc-number">3.2.</span> <span class="post-toc-text">启动注意</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-html" class="post-article article-type-post fade" itemprop="blogPost">
+
+<article id="post-cker-tomcat" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">html</h1>
+        <h1 class="post-card-title">docker&tomcat</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-03-08 15:24:00" datetime="2019-03-08T07:24:00.000Z" itemprop="datePublished">2019-03-08</time>
+            <time class="post-time" title="2019-03-12 11:08:55" datetime="2019-03-12T03:08:55.000Z" itemprop="datePublished">2019-03-12</time>
 
             
 
@@ -185,7 +192,14 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>##form表单外不同的按钮提交到不同的url<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">&lt;form  hidden=&quot;&quot; id=&quot;form&quot; method=&quot;post&quot;&gt;</span><br><span class="line">	&lt;input type=&quot;text&quot; value=&quot;&quot; name=&quot;rel&quot; id=&quot;rel&quot;&gt;</span><br><span class="line">	&lt;input type=&quot;text&quot; value=&quot;&quot; name=&quot;answer&quot; id=&quot;answer&quot;&gt;</span><br><span class="line">	&lt;input type=&quot;text&quot; value=&quot;&quot; name=&quot;curPage&quot; id=&quot;curPage&quot;&gt;</span><br><span class="line">	&lt;input type=&quot;text&quot; value=&quot;&quot; name=&quot;examName&quot; id=&quot;examName&quot;&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line">&lt;button typr=&apos;button&apos; id=&apos;but1&apos; class=&apos;but1&apos;&gt;&lt;/button&gt;</span><br><span class="line">&lt;button typr=&apos;button&apos; id=&apos;but2&apos; class=&apos;but2&apos;&gt;&lt;/button&gt;</span><br><span class="line">&lt;script&gt;</span><br><span class="line">    $(document).on(&apos;click&apos;,&apos;button.but1&apos;,function()&#123;</span><br><span class="line">        $(&quot;#form&quot;).attr(&quot;action&quot;,&quot;url&quot;);</span><br><span class="line">        $(&quot;#form&quot;).submit();</span><br><span class="line">    &#125;)</span><br><span class="line">    </span><br><span class="line">    $(document).on(&apos;click&apos;,&apos;button.but1&apos;,function()&#123;</span><br><span class="line">        $(&quot;#form&quot;).attr(&quot;action&quot;,&quot;url&quot;);</span><br><span class="line">        $(&quot;#form&quot;).submit();</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+            <h3 id="docker-启动和停止"><a href="#docker-启动和停止" class="headerlink" title="docker 启动和停止"></a>docker 启动和停止</h3><p><code>docker-compose down</code>:停止当前tomcat应用</p>
+<p><code>docker-compose up -d</code>: 启动tomcat应用</p>
+<h3 id="docker-简介"><a href="#docker-简介" class="headerlink" title="docker 简介"></a>docker 简介</h3><p> <strong>image(镜像)</strong>：对比iso镜像文件，不可操作，只能被pull下载下来使用或push将自己的镜像上传上去</p>
+<p><strong>container(容器)</strong>:<br>    对比iso镜像中的live cd模式，不用直接安装需要的东西即可直接使用。但是一旦容器关闭，那么在容器中安装的vim或gcc都将会被销毁。如果要保存这些，就需要将当前容器封装成自己的镜像。</p>
+<p><strong>repository(仓库)</strong>：<br>    类似于git，既可以将自己在git上下载下来的代码上传上去，也可以将自己上传上去的代码下载下来。只需要有别人的镜像的名字，标签。自己也可以将自己的镜像设置为私有。</p>
+<h3 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker compose"></a>docker compose</h3><h4 id="映射端口"><a href="#映射端口" class="headerlink" title="映射端口"></a>映射端口</h4><p><code>docker compose run -p 7001:8000 web python a.py runserver 0.0.0.0:8000</code> ：将容器的8000端口映射到宿主机上的7001端口</p>
+<p>使用-p命令映射端口后，访问web应用需访问宿主机的端口7001</p>
+<h4 id="启动注意"><a href="#启动注意" class="headerlink" title="启动注意"></a>启动注意</h4><p><code>docker compose run</code>启动一个容器时，如果service中有<code>--link</code>指定的其他服务没有运行，会先运行这些服务，–link依赖的这些服务都运行后，才会执行指定的命令。如果不想启动依赖的其他服务，可以使用<code>--no-deps</code>标识。<code>docker compnse run --no-deps web python manage.py shell</code> </p>
 
         </div>
 
@@ -194,12 +208,12 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-03-08T07:36:09.911Z" itemprop="dateUpdated">2019-03-08 15:36:09</time>
+    最終更新：<time datetime="2019-03-12T03:19:04.260Z" itemprop="dateUpdated">2019-03-12 11:19:04</time>
 </span><br>
 
 
         
-        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/03/08/html/" target="_blank" rel="external">https://github.com/RShit/2019/03/08/html/</a>
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/03/12/cker-tomcat/" target="_blank" rel="external">https://github.com/RShit/2019/03/12/cker-tomcat/</a>
         
     </div>
     
@@ -228,7 +242,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/03/08/html/&title=《html》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/03/12/cker-tomcat/&title=《docker&tomcat》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -238,22 +252,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/03/08/html/&title=《html》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/03/12/cker-tomcat/&title=《docker&tomcat》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/03/08/html/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/03/12/cker-tomcat/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《html》 — Hexo&url=https://github.com/RShit/2019/03/08/html/&via=https://github.com/RShit" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker&tomcat》 — Hexo&url=https://github.com/RShit/2019/03/12/cker-tomcat/&via=https://github.com/RShit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/03/08/html/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/03/12/cker-tomcat/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -273,21 +287,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/03/12/js特殊用法/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">js特殊用法</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/03/07/hello-world/" id="post-next" class="post-nav-link">
+      <a href="/2019/03/12/inal/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">Hello World</h4>
+        <h4 class="title">jfinal</h4>
       </a>
     </div>
   
@@ -384,7 +391,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/03/08/html/&title=《html》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/03/12/cker-tomcat/&title=《docker&tomcat》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -394,22 +401,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/03/08/html/&title=《html》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/03/12/cker-tomcat/&title=《docker&tomcat》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/03/08/html/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/03/12/cker-tomcat/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《html》 — Hexo&url=https://github.com/RShit/2019/03/08/html/&via=https://github.com/RShit" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker&tomcat》 — Hexo&url=https://github.com/RShit/2019/03/12/cker-tomcat/&via=https://github.com/RShit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/03/08/html/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/03/12/cker-tomcat/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -420,7 +427,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/03/08/html/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/03/12/cker-tomcat/" alt="微信分享二维码">
 </div>
 
 

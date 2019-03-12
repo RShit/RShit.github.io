@@ -31,7 +31,7 @@
 <meta property="og:image" content="https://github.com/2019/03/12/js特殊用法/clipboard.png">
 <meta property="og:image" content="https://github.com/2019/03/12/js特殊用法/clipboard1.png">
 <meta property="og:image" content="https://github.com/2019/03/12/js特殊用法/clipboard3.png">
-<meta property="og:updated_time" content="2019-03-12T03:27:43.982Z">
+<meta property="og:updated_time" content="2019-03-12T03:32:36.366Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js特殊用法">
 <meta name="twitter:description" content="jquery获取jsonJS里使用$!{string}获取原格式的字符串；   出现此种错误时，将${}改为$!{}使用 js 动态元素选择器var i=1; var head=&amp;quot;head&amp;quot;+i; $(&amp;quot;#&amp;quot;+head+&amp;quot;&amp;quot;);  使用js处理双击、选中事件jquery 处理方式$(document.body).on(&amp;apos;mous">
@@ -173,7 +173,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jquery"><span class="post-toc-number">1.</span> <span class="post-toc-text">jquery</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取json"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">获取json</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#js-动态元素选择器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">js 动态元素选择器</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用js处理双击、选中事件"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用js处理双击、选中事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jquery-处理方式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">jquery 处理方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dom处理方式："><span class="post-toc-number">2.2.</span> <span class="post-toc-text">dom处理方式：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#释放鼠标处理函数"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">释放鼠标处理函数</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jquery"><span class="post-toc-number">1.</span> <span class="post-toc-text">jquery</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取json"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">获取json</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#js-动态元素选择器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">js 动态元素选择器</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用js处理双击、选中事件"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用js处理双击、选中事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jquery-处理方式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">jquery 处理方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dom处理方式："><span class="post-toc-number">2.2.</span> <span class="post-toc-text">dom处理方式：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#释放鼠标处理函数"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">释放鼠标处理函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js计算"><span class="post-toc-number">3.</span> <span class="post-toc-text">js计算</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js给指定一篇文章添加行号"><span class="post-toc-number">4.</span> <span class="post-toc-text">js给指定一篇文章添加行号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js对象转换"><span class="post-toc-number">5.</span> <span class="post-toc-text">js对象转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jquery对象dom对象"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">jquery对象dom对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#dom对象转换为jquery对象："><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">dom对象转换为jquery对象：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#jquery对象转换为dom对象："><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">jquery对象转换为dom对象：</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -218,6 +218,56 @@ $(&quot;#&quot;+head+&quot;&quot;);
         layer.msg(text);
     }
 }
+</code></pre><h3 id="js计算"><a href="#js计算" class="headerlink" title="js计算"></a>js计算</h3><pre><code>parseInt(5/2); 舍弃小数部分，取整数
+
+Math.ceil(5/2);向上取整，有小时就整数加一
+
+Math.round(5/2);四舍五入
+
+Math.floor(5/2);向下取整
+</code></pre><h3 id="js给指定一篇文章添加行号"><a href="#js给指定一篇文章添加行号" class="headerlink" title="js给指定一篇文章添加行号"></a>js给指定一篇文章添加行号</h3><pre><code>function getLineNum(){
+</code></pre><p>var $lineNum=$(“#lineNum”);</p>
+<p>$lineNum.empty();</p>
+<p>var rowNum=Math.round(document.getElementById(“contentT”).scrollHeight/parseFloat($(“#contentT”).css(“line-height”)));</p>
+<p>console.log(“$(‘.article fl’).height():”+document.getElementById(“contentT”).scrollHeight);</p>
+<p>console.log(“parseFloat($(‘.article fl’).css(‘line-height’)):”+parseFloat($(“#contentT”).css(“line-height”)));</p>
+<p>console.log(rowNum);</p>
+<p>for(var i=1;i&lt;rowNum;i++){</p>
+<pre><code>var flag=false;
+if(headNum&gt;1){
+    for(var j=2;j&lt;=headNum;j++){
+        var headId=&quot;head&quot;+j;
+        var $headEle=$(&quot;#&quot;+headId+&quot;&quot;);
+        var offsetTop=$headEle.position().top;
+        var headRow=Math.round(offsetTop/parseFloat($(&quot;#contentT&quot;).css(&quot;line-height&quot;)));
+        headRow=headRow+1;
+        if(headRow==i){
+            flag=true;
+            break;
+        }
+    }
+}
+if(flag){
+    if(i%5==0||i==1){
+        $lineNum.append(&quot;&lt;br&gt;&lt;p&gt;&quot;+i+&quot;&lt;/p&gt;&quot;);
+    }else{
+        $lineNum.append(&quot;&lt;br&gt;&lt;br&gt;&quot;);
+    }
+}else{
+    if(i%5==0){
+        $lineNum.append(&quot;&lt;p&gt;&quot;+i+&quot;&lt;/p&gt;&quot;);
+    }else if(i==1){
+        $lineNum.append(&quot;&lt;p&gt;&quot;+i+&quot;&lt;/p&gt;&quot;);
+    }else{
+        $lineNum.append(&quot;&lt;br&gt;&quot;);
+    }
+}
+</code></pre><p>}<br>};</p>
+<h3 id="js对象转换"><a href="#js对象转换" class="headerlink" title="js对象转换"></a>js对象转换</h3><h4 id="jquery对象dom对象"><a href="#jquery对象dom对象" class="headerlink" title="jquery对象dom对象"></a>jquery对象<->dom对象</-></h4><h5 id="dom对象转换为jquery对象："><a href="#dom对象转换为jquery对象：" class="headerlink" title="dom对象转换为jquery对象："></a>dom对象转换为jquery对象：</h5><pre><code>var d=document.getElementById(&quot;id&quot;);    //对象d为DOM对象
+var s=$(d);                            //对象s为Jquery对象
+</code></pre><h5 id="jquery对象转换为dom对象："><a href="#jquery对象转换为dom对象：" class="headerlink" title="jquery对象转换为dom对象："></a>jquery对象转换为dom对象：</h5><pre><code>var d=document.getElementById(&quot;id&quot;);   //对象d为DOM对象
+var s=$(d);                    //对象s为Jquery对象
+var dd=s.get(0)                 //对象dd为DOM对象
 </code></pre>
         </div>
 
@@ -226,7 +276,7 @@ $(&quot;#&quot;+head+&quot;&quot;);
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-03-12T03:27:43.982Z" itemprop="dateUpdated">2019-03-12 11:27:43</time>
+    最終更新：<time datetime="2019-03-12T03:32:36.366Z" itemprop="dateUpdated">2019-03-12 11:32:36</time>
 </span><br>
 
 

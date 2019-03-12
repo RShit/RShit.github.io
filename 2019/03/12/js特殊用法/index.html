@@ -21,20 +21,20 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="jquery获取jsonJS里使用$!{string}获取原格式的字符串；   出现此种错误时，将${}改为$!{}使用 js 动态元素选择器var i=1; var head=&amp;quot;head&amp;quot;+i; $(&amp;quot;#&amp;quot;+head+&amp;quot;&amp;quot;);">
+    <meta name="description" content="jquery获取jsonJS里使用$!{string}获取原格式的字符串；   出现此种错误时，将${}改为$!{}使用 js 动态元素选择器var i=1; var head=&amp;quot;head&amp;quot;+i; $(&amp;quot;#&amp;quot;+head+&amp;quot;&amp;quot;);  使用js处理双击、选中事件jquery 处理方式$(document.body).on(&amp;apos;mous">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js特殊用法">
 <meta property="og:url" content="https://github.com/RShit/2019/03/12/js特殊用法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="jquery获取jsonJS里使用$!{string}获取原格式的字符串；   出现此种错误时，将${}改为$!{}使用 js 动态元素选择器var i=1; var head=&amp;quot;head&amp;quot;+i; $(&amp;quot;#&amp;quot;+head+&amp;quot;&amp;quot;);">
+<meta property="og:description" content="jquery获取jsonJS里使用$!{string}获取原格式的字符串；   出现此种错误时，将${}改为$!{}使用 js 动态元素选择器var i=1; var head=&amp;quot;head&amp;quot;+i; $(&amp;quot;#&amp;quot;+head+&amp;quot;&amp;quot;);  使用js处理双击、选中事件jquery 处理方式$(document.body).on(&amp;apos;mous">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/2019/03/12/js特殊用法/clipboard.png">
 <meta property="og:image" content="https://github.com/2019/03/12/js特殊用法/clipboard1.png">
 <meta property="og:image" content="https://github.com/2019/03/12/js特殊用法/clipboard3.png">
-<meta property="og:updated_time" content="2019-03-12T03:21:53.078Z">
+<meta property="og:updated_time" content="2019-03-12T03:27:43.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js特殊用法">
-<meta name="twitter:description" content="jquery获取jsonJS里使用$!{string}获取原格式的字符串；   出现此种错误时，将${}改为$!{}使用 js 动态元素选择器var i=1; var head=&amp;quot;head&amp;quot;+i; $(&amp;quot;#&amp;quot;+head+&amp;quot;&amp;quot;);">
+<meta name="twitter:description" content="jquery获取jsonJS里使用$!{string}获取原格式的字符串；   出现此种错误时，将${}改为$!{}使用 js 动态元素选择器var i=1; var head=&amp;quot;head&amp;quot;+i; $(&amp;quot;#&amp;quot;+head+&amp;quot;&amp;quot;);  使用js处理双击、选中事件jquery 处理方式$(document.body).on(&amp;apos;mous">
 <meta name="twitter:image" content="https://github.com/2019/03/12/js特殊用法/clipboard.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
@@ -173,7 +173,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jquery获取json"><span class="post-toc-number">1.</span> <span class="post-toc-text">jquery获取json</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#js-动态元素选择器"><span class="post-toc-number">2.</span> <span class="post-toc-text">js 动态元素选择器</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jquery"><span class="post-toc-number">1.</span> <span class="post-toc-text">jquery</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取json"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">获取json</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#js-动态元素选择器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">js 动态元素选择器</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用js处理双击、选中事件"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用js处理双击、选中事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jquery-处理方式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">jquery 处理方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dom处理方式："><span class="post-toc-number">2.2.</span> <span class="post-toc-text">dom处理方式：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#释放鼠标处理函数"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">释放鼠标处理函数</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -196,7 +196,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h4 id="jquery获取json"><a href="#jquery获取json" class="headerlink" title="jquery获取json"></a>jquery获取json</h4><p>JS里使用<code>$!{string}</code>获取原格式的字符串；</p>
+            <h3 id="jquery"><a href="#jquery" class="headerlink" title="jquery"></a>jquery</h3><h4 id="获取json"><a href="#获取json" class="headerlink" title="获取json"></a>获取json</h4><p>JS里使用<code>$!{string}</code>获取原格式的字符串；</p>
 <img src="/2019/03/12/js特殊用法/clipboard.png" title="图片1">
 <img src="/2019/03/12/js特殊用法/clipboard1.png" title="图片2">
 <p>出现此种错误时，将<code>${}</code>改为<code>$!{}</code>使用</p>
@@ -204,6 +204,21 @@
 var head=&quot;head&quot;+i;
 $(&quot;#&quot;+head+&quot;&quot;);
 </code></pre><img src="/2019/03/12/js特殊用法/clipboard3.png" title="图片3">
+<h3 id="使用js处理双击、选中事件"><a href="#使用js处理双击、选中事件" class="headerlink" title="使用js处理双击、选中事件"></a>使用js处理双击、选中事件</h3><h4 id="jquery-处理方式"><a href="#jquery-处理方式" class="headerlink" title="jquery 处理方式"></a>jquery 处理方式</h4><pre><code>$(document.body).on(&apos;mouseup&apos;,&quot;#content&quot;,mouseUp);
+</code></pre><h4 id="dom处理方式："><a href="#dom处理方式：" class="headerlink" title="dom处理方式："></a>dom处理方式：</h4><pre><code>document.addEventListener(&quot;dblclick&quot;, doubleClick, true);
+</code></pre><h4 id="释放鼠标处理函数"><a href="#释放鼠标处理函数" class="headerlink" title="释放鼠标处理函数"></a>释放鼠标处理函数</h4><pre><code>function mouseUp() {
+    var text = &quot;&quot;;
+    if (window.getSelection) {
+        text = window.getSelection().toString();
+    } else if (document.selection &amp;&amp; document.selection.type != &quot;Control&quot;) {
+        text = document.selection.createRange().text;
+    }
+    if (&quot;&quot; != text&amp;&amp;&quot; &quot; != text) {
+        $(&quot;#checkText&quot;).val(text);
+        layer.msg(text);
+    }
+}
+</code></pre>
         </div>
 
         <blockquote class="post-copyright">
@@ -211,7 +226,7 @@ $(&quot;#&quot;+head+&quot;&quot;);
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-03-12T03:21:53.078Z" itemprop="dateUpdated">2019-03-12 11:21:53</time>
+    最終更新：<time datetime="2019-03-12T03:27:43.982Z" itemprop="dateUpdated">2019-03-12 11:27:43</time>
 </span><br>
 
 

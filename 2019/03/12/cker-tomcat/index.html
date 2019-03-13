@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="docker 简介 image(镜像)：对比iso镜像文件，不可操作，只能被pull下载下来使用或push将自己的镜像上传上去 container(容器):    对比iso镜像中的live cd模式，不用直接安装需要的东西即可直接使用。但是一旦容器关闭，那么在容器中安装的vim或gcc都将会被销毁。如果要保存这些，就需要将当前容器封装成自己的镜像。 repository(仓库)：    类似于g">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-03-12T03:39:31.487Z">
+<meta property="og:updated_time" content="2019-03-13T01:12:26.202Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker&amp;tomcat">
 <meta name="twitter:description" content="docker 简介 image(镜像)：对比iso镜像文件，不可操作，只能被pull下载下来使用或push将自己的镜像上传上去 container(容器):    对比iso镜像中的live cd模式，不用直接安装需要的东西即可直接使用。但是一旦容器关闭，那么在容器中安装的vim或gcc都将会被销毁。如果要保存这些，就需要将当前容器封装成自己的镜像。 repository(仓库)：    类似于g">
@@ -102,7 +102,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -141,7 +141,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">docker 简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-启动和停止"><span class="post-toc-number">2.</span> <span class="post-toc-text">docker 启动和停止</span></a></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">docker 简介</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-启动和停止"><span class="post-toc-number">2.</span> <span class="post-toc-text">docker 启动和停止</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#docker-compose"><span class="post-toc-number">3.</span> <span class="post-toc-text">docker compose</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#映射端口"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">映射端口</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -167,7 +167,8 @@
             <h3 id="docker-简介"><a href="#docker-简介" class="headerlink" title="docker 简介"></a>docker 简介</h3><p> <strong>image(镜像)</strong>：对比iso镜像文件，不可操作，只能被pull下载下来使用或push将自己的镜像上传上去</p>
 <p><strong>container(容器)</strong>:<br>    对比iso镜像中的live cd模式，不用直接安装需要的东西即可直接使用。但是一旦容器关闭，那么在容器中安装的vim或gcc都将会被销毁。如果要保存这些，就需要将当前容器封装成自己的镜像。</p>
 <p><strong>repository(仓库)</strong>：<br>    类似于git，既可以将自己在git上下载下来的代码上传上去，也可以将自己上传上去的代码下载下来。只需要有别人的镜像的名字，标签。自己也可以将自己的镜像设置为私有。</p>
-<h3 id="docker-启动和停止"><a href="#docker-启动和停止" class="headerlink" title="docker 启动和停止"></a>docker 启动和停止</h3><figure class="highlight plain"><figcaption><span>down```:停止当前tomcat应用</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">```docker-compose up -d```: 启动tomcat应用</span><br><span class="line"></span><br><span class="line">    </span><br><span class="line">###	docker compose</span><br><span class="line"></span><br><span class="line">####	映射端口</span><br><span class="line"></span><br><span class="line">```docker compose run -p 7001:8000 web python a.py runserver 0.0.0.0:8000``` ：将容器的8000端口映射到宿主机上的7001端口</span><br><span class="line"></span><br><span class="line">使用-p命令映射端口后，访问web应用需访问宿主机的端口7001</span><br><span class="line"></span><br><span class="line">####	启动注意</span><br><span class="line"></span><br><span class="line">```docker compose run```启动一个容器时，如果service中有```--link```指定的其他服务没有运行，会先运行这些服务，--link依赖的这些服务都运行后，才会执行指定的命令。如果不想启动依赖的其他服务，可以使用```--no-deps```标识。```docker compnse run --no-deps web python manage.py shell</span><br></pre></td></tr></table></figure>
+<h3 id="docker-启动和停止"><a href="#docker-启动和停止" class="headerlink" title="docker 启动和停止"></a>docker 启动和停止</h3><p>停止当前tomcat应用：<figure class="highlight plain"><figcaption><span>down```</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">启动tomcat应用：```docker-compose up -d</span><br></pre></td></tr></table></figure></p>
+<h3 id="docker-compose"><a href="#docker-compose" class="headerlink" title="docker compose"></a>docker compose</h3><h4 id="映射端口"><a href="#映射端口" class="headerlink" title="映射端口"></a>映射端口</h4><figure class="highlight docker"><figcaption><span>compose run -p 7001:8000 web python a.py runserver 0.0.0.0:8000``` ：将容器的8000端口映射到宿主机上的7001端口</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">使用-p命令映射端口后，访问web应用需访问宿主机的端口<span class="number">7001</span></span><br><span class="line"></span><br><span class="line"><span class="comment">####	启动注意</span></span><br><span class="line"></span><br><span class="line">```docker compose <span class="keyword">run</span>```启动一个容器时，如果service中有```--link```指定的其他服务没有运行，会先运行这些服务，--link依赖的这些服务都运行后，才会执行指定的命令。如果不想启动依赖的其他服务，可以使用```--no-deps```标识。```docker compnse run --no-deps web python manage.py shell</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -175,7 +176,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-03-12T03:39:31.487Z" itemprop="dateUpdated">2019-03-12 11:39:31</time>
+    最后更新时间：<time datetime="2019-03-13T01:12:26.202Z" itemprop="dateUpdated">2019-03-13 09:12:26</time>
 </span><br>
 
 
@@ -367,7 +368,7 @@
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">

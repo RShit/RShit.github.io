@@ -21,21 +21,17 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="jquery获取jsonJS里使用$!{string}获取原格式的字符串；   出现此种错误时，将${}改为$!{}使用 js 动态元素选择器var i=1; var head=&amp;quot;head&amp;quot;+i; $(&amp;quot;#&amp;quot;+head+&amp;quot;&amp;quot;);  使用js处理双击、选中事件jquery 处理方式$(document.body).on(&amp;apos;mous">
+    <meta name="description" content="jquery获取jsonJS里使用12345678910111213141516171819202122&amp;#123;% asset_img clipboard.png 图片1 %&amp;#125;&amp;#123;% asset_img clipboard1.png 图片2 %&amp;#125;出现此种错误时，将```$&amp;#123;&amp;#125;```改为```$!&amp;#123;&amp;#125;```使用####	js 动">
 <meta property="og:type" content="article">
 <meta property="og:title" content="js特殊用法">
 <meta property="og:url" content="https://github.com/RShit/2019/03/12/js特殊用法/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="jquery获取jsonJS里使用$!{string}获取原格式的字符串；   出现此种错误时，将${}改为$!{}使用 js 动态元素选择器var i=1; var head=&amp;quot;head&amp;quot;+i; $(&amp;quot;#&amp;quot;+head+&amp;quot;&amp;quot;);  使用js处理双击、选中事件jquery 处理方式$(document.body).on(&amp;apos;mous">
+<meta property="og:description" content="jquery获取jsonJS里使用12345678910111213141516171819202122&amp;#123;% asset_img clipboard.png 图片1 %&amp;#125;&amp;#123;% asset_img clipboard1.png 图片2 %&amp;#125;出现此种错误时，将```$&amp;#123;&amp;#125;```改为```$!&amp;#123;&amp;#125;```使用####	js 动">
 <meta property="og:locale" content="default">
-<meta property="og:image" content="https://github.com/2019/03/12/js特殊用法/clipboard.png">
-<meta property="og:image" content="https://github.com/2019/03/12/js特殊用法/clipboard1.png">
-<meta property="og:image" content="https://github.com/2019/03/12/js特殊用法/clipboard3.png">
-<meta property="og:updated_time" content="2019-03-12T03:46:31.582Z">
+<meta property="og:updated_time" content="2019-03-15T03:18:16.006Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="js特殊用法">
-<meta name="twitter:description" content="jquery获取jsonJS里使用$!{string}获取原格式的字符串；   出现此种错误时，将${}改为$!{}使用 js 动态元素选择器var i=1; var head=&amp;quot;head&amp;quot;+i; $(&amp;quot;#&amp;quot;+head+&amp;quot;&amp;quot;);  使用js处理双击、选中事件jquery 处理方式$(document.body).on(&amp;apos;mous">
-<meta name="twitter:image" content="https://github.com/2019/03/12/js特殊用法/clipboard.png">
+<meta name="twitter:description" content="jquery获取jsonJS里使用12345678910111213141516171819202122&amp;#123;% asset_img clipboard.png 图片1 %&amp;#125;&amp;#123;% asset_img clipboard1.png 图片2 %&amp;#125;出现此种错误时，将```$&amp;#123;&amp;#125;```改为```$!&amp;#123;&amp;#125;```使用####	js 动">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -145,7 +141,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jquery"><span class="post-toc-number">1.</span> <span class="post-toc-text">jquery</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取json"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">获取json</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#js-动态元素选择器"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">js 动态元素选择器</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#使用js处理双击、选中事件"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用js处理双击、选中事件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jquery-处理方式"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">jquery 处理方式</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#dom处理方式："><span class="post-toc-number">2.2.</span> <span class="post-toc-text">dom处理方式：</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#释放鼠标处理函数"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">释放鼠标处理函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js计算"><span class="post-toc-number">3.</span> <span class="post-toc-text">js计算</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js给指定一篇文章添加行号"><span class="post-toc-number">4.</span> <span class="post-toc-text">js给指定一篇文章添加行号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js对象转换"><span class="post-toc-number">5.</span> <span class="post-toc-text">js对象转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jquery对象dom对象"><span class="post-toc-number">5.1.</span> <span class="post-toc-text">jquery对象dom对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#dom对象转换为jquery对象："><span class="post-toc-number">5.1.1.</span> <span class="post-toc-text">dom对象转换为jquery对象：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#jquery对象转换为dom对象："><span class="post-toc-number">5.1.2.</span> <span class="post-toc-text">jquery对象转换为dom对象：</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#jquery"><span class="post-toc-number">1.</span> <span class="post-toc-text">jquery</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#获取json"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">获取json</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#释放鼠标处理函数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">释放鼠标处理函数</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js计算"><span class="post-toc-number">2.</span> <span class="post-toc-text">js计算</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js给指定一篇文章添加行号"><span class="post-toc-number">3.</span> <span class="post-toc-text">js给指定一篇文章添加行号</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#js对象转换"><span class="post-toc-number">4.</span> <span class="post-toc-text">js对象转换</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#jquery对象dom对象"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">jquery对象dom对象</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#dom对象转换为jquery对象："><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">dom对象转换为jquery对象：</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#jquery对象转换为dom对象："><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">jquery对象转换为dom对象：</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -168,17 +164,8 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h3 id="jquery"><a href="#jquery" class="headerlink" title="jquery"></a>jquery</h3><h4 id="获取json"><a href="#获取json" class="headerlink" title="获取json"></a>获取json</h4><p>JS里使用<code>$!{string}</code>获取原格式的字符串；</p>
-<img src="/2019/03/12/js特殊用法/clipboard.png" title="图片1">
-<img src="/2019/03/12/js特殊用法/clipboard1.png" title="图片2">
-<p>出现此种错误时，将<code>${}</code>改为<code>$!{}</code>使用</p>
-<h4 id="js-动态元素选择器"><a href="#js-动态元素选择器" class="headerlink" title="js 动态元素选择器"></a>js 动态元素选择器</h4><pre><code>var i=1;
-var head=&quot;head&quot;+i;
-$(&quot;#&quot;+head+&quot;&quot;);
-</code></pre><img src="/2019/03/12/js特殊用法/clipboard3.png" title="图片3">
-<h3 id="使用js处理双击、选中事件"><a href="#使用js处理双击、选中事件" class="headerlink" title="使用js处理双击、选中事件"></a>使用js处理双击、选中事件</h3><h4 id="jquery-处理方式"><a href="#jquery-处理方式" class="headerlink" title="jquery 处理方式"></a>jquery 处理方式</h4><pre><code>$(document.body).on(&apos;mouseup&apos;,&quot;#content&quot;,mouseUp);
-</code></pre><h4 id="dom处理方式："><a href="#dom处理方式：" class="headerlink" title="dom处理方式："></a>dom处理方式：</h4><pre><code>document.addEventListener(&quot;dblclick&quot;, doubleClick, true);
-</code></pre><h4 id="释放鼠标处理函数"><a href="#释放鼠标处理函数" class="headerlink" title="释放鼠标处理函数"></a>释放鼠标处理函数</h4><pre><code>function mouseUp() {
+            <h3 id="jquery"><a href="#jquery" class="headerlink" title="jquery"></a>jquery</h3><h4 id="获取json"><a href="#获取json" class="headerlink" title="获取json"></a>获取json</h4><p>JS里使用<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">&#123;% asset_img clipboard.png 图片1 %&#125;</span><br><span class="line">&#123;% asset_img clipboard1.png 图片2 %&#125;</span><br><span class="line"></span><br><span class="line">出现此种错误时，将```$&#123;&#125;```改为```$!&#123;&#125;```使用</span><br><span class="line"></span><br><span class="line">####	js 动态元素选择器</span><br><span class="line"></span><br><span class="line">	var i=1;</span><br><span class="line">	var head=&quot;head&quot;+i;</span><br><span class="line">	$(&quot;#&quot;+head+&quot;&quot;);</span><br><span class="line">   </span><br><span class="line">&#123;% asset_img clipboard3.png 图片3 %&#125;</span><br><span class="line"></span><br><span class="line">###	使用js处理双击、选中事件</span><br><span class="line">####	jquery 处理方式</span><br><span class="line">	$(document.body).on(&apos;mouseup&apos;,&quot;#content&quot;,mouseUp);</span><br><span class="line">    </span><br><span class="line">####	dom处理方式：</span><br><span class="line"></span><br><span class="line">```javascript</span><br><span class="line">document.addEventListener(&quot;dblclick&quot;, doubleClick, true);</span><br></pre></td></tr></table></figure></p>
+<h4 id="释放鼠标处理函数"><a href="#释放鼠标处理函数" class="headerlink" title="释放鼠标处理函数"></a>释放鼠标处理函数</h4><pre><code>function mouseUp() {
     var text = &quot;&quot;;
     if (window.getSelection) {
         text = window.getSelection().toString();
@@ -256,7 +243,7 @@ var dd=s.get(0)                 //对象dd为DOM对象
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-03-12T03:46:31.582Z" itemprop="dateUpdated">2019-03-12 11:46:31</time>
+    Last updated: <time datetime="2019-03-15T03:18:16.006Z" itemprop="dateUpdated">2019-03-15 11:18:16</time>
 </span><br>
 
 

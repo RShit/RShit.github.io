@@ -34,7 +34,7 @@
 <meta property="og:image" content="https://github.com/2019/03/15/ringBoot/idea-4.png">
 <meta property="og:image" content="https://github.com/2019/03/15/ringBoot/idea-5.png">
 <meta property="og:image" content="https://github.com/2019/03/15/ringBoot/idea-6.png">
-<meta property="og:updated_time" content="2019-03-15T02:43:49.034Z">
+<meta property="og:updated_time" content="2019-03-15T02:45:37.305Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot">
 <meta name="twitter:description" content="什么是spring bootSpring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。用我的话来理解，就是spring boot其实不是什么新的框架，它默认配置了很多框架的使用方式，就像maven整合了所有的jar包，spring boot整合了所有的框架（不知">
@@ -185,14 +185,13 @@
 <p>很简单，我仅仅只需要非常少的几个配置就可以迅速方便的搭建起来一套web项目或者是构建一个微服务！</p>
 <h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="maven构建项目"><a href="#maven构建项目" class="headerlink" title="maven构建项目"></a>maven构建项目</h3><p><strong>使用工具：</strong><br>IntelliJ IDEA 2018.3.4、jdk1.8.0_201</p>
 <img src="/2019/03/15/ringBoot/idea-1.png" title="idea">
-<p>在idea界面点击 <strong><em>Create New project</em></strong>,</p>
-<p>然后点击<strong><em>Next</em></strong></p>
+<p>在idea界面点击 <strong><em>Create New project</em></strong>,然后点击<strong><em>Next</em></strong></p>
 <img src="/2019/03/15/ringBoot/idea-2.png" title="idea">
-<p>选择<strong><em>Spring Initializar</em></strong>点击下一步</p>
+<p>选择<strong><em>Spring Initializar</em></strong>点击<strong><em>Next</em></strong></p>
 <img src="/2019/03/15/ringBoot/idea-3.png" title="idea">
 <p>设置初始java包结构点击<strong><em>Next</em></strong></p>
 <img src="/2019/03/15/ringBoot/idea-4.png" title="idea">
-<p>在此步骤选择springboot集成的其他框架，如mysql<br>然后点击下一步</p>
+<p>在此步骤选择springboot集成的其他框架，如mysql<br>然后点击<strong><em>Next</em></strong></p>
 <img src="/2019/03/15/ringBoot/idea-5.png" title="idea">输入项目名称，点击<strong><em>finish</em></strong>即可完成创建springboot项目<br><br><strong>项目结构如下：</strong><img src="/2019/03/15/ringBoot/idea-6.png" title="springboot %<br><br>- src/main/java/: 程序开发及主程序入口<br>- src/main/resources/: 配置文件<br>- src/test: 测试程序<br><br>#### 引入web模块<br>##### 1、在pom文件中添加web模块依赖<br><br> <figure class=highlight plain><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br></pre></td><td class=code><pre><span class=line>&lt;dependency&gt;</span><br><span class=line> &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class=line> &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class=line>&lt;/dependency&gt;</span><br></pre></td></tr></table></figure> <p> <strong>pom.xml文件中默认有两个模块：</strong></p> <p>spring-boot-starter：核心模块，包括自动配置支持、日志和YAML；</p> <p>spring-boot-starter-test：测试模块，包括JUnit、Hamcrest、Mockito。</p> <h5 id=2、编写><a href=#2、编写 class=headerlink title=2、编写></a>2、编写<figure class=highlight plain><table><tr><td class=gutter><pre><span class=line>1</span><br><span class=line>2</span><br><span class=line>3</span><br><span class=line>4</span><br><span class=line>5</span><br><span class=line>6</span><br><span class=line>7</span><br><span class=line>8</span><br><span class=line>9</span><br><span class=line>10</span><br><span class=line>11</span><br><span class=line>12</span><br><span class=line>13</span><br><span class=line>14</span><br><span class=line>15</span><br><span class=line>16</span><br></pre></td><td class=code><pre><span class=line> </span><br><span class=line> @RestController</span><br><span class=line> public class HelloWorldController &#123;</span><br><span class=line> @RequestMapping(&quot;/hello&quot;)</span><br><span class=line> private String hello()&#123;</span><br><span class=line> return &quot;hello world&quot;;</span><br><span class=line> &#125;</span><br><span class=line> &#125;</span><br><span class=line> </span><br><span class=line> @RestController的意思就是controller里面的方法都以json格式输出，不用再写什么jackjson配置的了！</span><br><span class=line></span><br><span class=line>##### 3、启动主程序</span><br><span class=line> 在浏览器打开(http://127.0.0.1:8080/hello),即可看到结果</span><br><span class=line> </span><br><span class=line>#### 开发环境的调试</span><br><span class=line>springBoot对调试支持很好，修改之后可以实时生效，需要添加以下的配置：</span><br></pre></td></tr></table></figure></h5><dependencies><br><br> <dependency><br><br> <groupId>org.springframework.boot</groupId><br><br> <artifactId>spring-boot-devtools</artifactId><br><br> <optional>true</optional><br><br> </dependency><br><br></dependencies> <build> <pre><code>&lt;plugins&gt;
 
     &lt;plugin&gt;
@@ -216,7 +215,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-03-15T02:43:49.034Z" itemprop="dateUpdated">2019-03-15 10:43:49</time>
+    Last updated: <time datetime="2019-03-15T02:45:37.305Z" itemprop="dateUpdated">2019-03-15 10:45:37</time>
 </span><br>
 
 

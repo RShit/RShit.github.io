@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>词汇APP后台 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="词汇APP所有接口微信接口微信报名登记服务 EnrollController  save： 保存数据，保存数据是判断请求ip数量，如果过多(≥50)即提示访问过于频繁。     EnrollService  save 参数：jsonObj，用户信息 bean类：OthWeinxEnroll，对应数据库表名：oth_weinx_enroll，保存微信报名信息 向报名人发送邮件提示报名成功。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="词汇APP后台">
+<meta property="og:url" content="https://github.com/RShit/2019/05/14/汇APP后台/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="词汇APP所有接口微信接口微信报名登记服务 EnrollController  save： 保存数据，保存数据是判断请求ip数量，如果过多(≥50)即提示访问过于频繁。     EnrollService  save 参数：jsonObj，用户信息 bean类：OthWeinxEnroll，对应数据库表名：oth_weinx_enroll，保存微信报名信息 向报名人发送邮件提示报名成功。">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2019-05-14T10:29:49.724Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="词汇APP后台">
+<meta name="twitter:description" content="词汇APP所有接口微信接口微信报名登记服务 EnrollController  save： 保存数据，保存数据是判断请求ip数量，如果过多(≥50)即提示访问过于频繁。     EnrollService  save 参数：jsonObj，用户信息 bean类：OthWeinxEnroll，对应数据库表名：oth_weinx_enroll，保存微信报名信息 向报名人发送邮件提示报名成功。">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">刘奶奶找牛奶奶买榴莲牛奶</h5>
+          <a href="mailto:446109730@qq.com" title="446109730@qq.com" class="mail">446109730@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RShit" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">词汇APP后台</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">词汇APP后台</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-05-14T10:29:26.000Z" itemprop="datePublished" class="page-time">
+  2019-05-14
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#词汇APP"><span class="post-toc-number">1.</span> <span class="post-toc-text">词汇APP</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#所有接口"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">所有接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#微信接口"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">微信接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#微信报名登记服务"><span class="post-toc-number">1.1.1.1.</span> <span class="post-toc-text">微信报名登记服务</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#app接口"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">app接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全部类："><span class="post-toc-number">1.1.2.1.</span> <span class="post-toc-text">全部类：</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#系统后台接口"><span class="post-toc-number">1.1.3.</span> <span class="post-toc-text">系统后台接口</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#全部类"><span class="post-toc-number">1.1.3.1.</span> <span class="post-toc-text">全部类</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-汇APP后台" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">词汇APP后台</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-05-14 18:29:26" datetime="2019-05-14T10:29:26.000Z" itemprop="datePublished">2019-05-14</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="词汇APP"><a href="#词汇APP" class="headerlink" title="词汇APP"></a>词汇APP</h1><h2 id="所有接口"><a href="#所有接口" class="headerlink" title="所有接口"></a>所有接口</h2><h3 id="微信接口"><a href="#微信接口" class="headerlink" title="微信接口"></a>微信接口</h3><h4 id="微信报名登记服务"><a href="#微信报名登记服务" class="headerlink" title="微信报名登记服务"></a>微信报名登记服务</h4><ul>
+<li><p>EnrollController</p>
+<ul>
+<li>save：<ul>
+<li>保存数据，保存数据是判断请求ip数量，如果过多(≥50)即提示访问过于频繁。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>EnrollService</p>
+<ul>
+<li>save<ul>
+<li>参数：jsonObj，用户信息</li>
+<li>bean类：OthWeinxEnroll，对应数据库表名：oth_weinx_enroll，保存微信报名信息</li>
+<li>向报名人发送邮件提示报名成功。</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="app接口"><a href="#app接口" class="headerlink" title="app接口"></a>app接口</h3><h4 id="全部类："><a href="#全部类：" class="headerlink" title="全部类："></a>全部类：</h4><ul>
+<li>commom<ul>
+<li>aop：拦截器<ul>
+<li>FrontApiAuthInterceptor：所有app接口拦截器，判断是否已登录</li>
+<li>FrontLoginInterceptor：从被拦截controller中获取cookie中的数据，如果没数据则删除session，否则自动登录</li>
+<li>FrontWebAuthInterceptor：所有web页面接口的拦截器，判断是否登录，如果没登录则跳转至登录界面</li>
+<li>GlobalInterceptor：日志记录</li>
+</ul>
+</li>
+<li>controller<ul>
+<li>FrontBaseController_NeedLoginApi：获取登录用户信息，及更新登录用户状态，处理分页信息获取每页返回的记录数如果超出1000条只返回1000</li>
+<li>FrontBaseController_Open：从被拦截controller中获取cookie中的数据，如果没数据则删除session，否则自动登录。</li>
+</ul>
+</li>
+<li>enumerate：全部数据枚举类<ul>
+<li>ClzStatus：班级状态枚举类：0:未发布 1:报名中 2:上课中 3: 维护 4: 已经删除 10:已经结束</li>
+<li>GroupType：班级状态GROUP_STATUS 1 班级类型 GROUP_TYPE 2  班级创建时间 GROUP_TIME 3</li>
+<li>Role：TEACHER 教师 1  ASSISTANT 助教 2</li>
+<li>Stu_Class_Status：未付费 0 正常 1 退费 4 </li>
+<li>UserStatus：正常 1  删除 -4  被锁定 -1  注册未激活 0</li>
+<li>UserType：管理员 1  教师 2  助教 3  学生 4</li>
+</ul>
+</li>
+<li>global：系统全局配置变量<ul>
+<li>CC_User：完美计划的用户系统常量定义类</li>
+<li>G：推送、分享、广告(得到启动图的接口， 广告图接口)</li>
+<li>PplanJFinalConfig:系统启动类</li>
+</ul>
+</li>
+<li>learning<ul>
+<li>CommonLearningInfoController：继承FrontBaseController_NeedLoginApi类，接口/common/learning/info/ 映射的公用学习信息API Controller</li>
+</ul>
+</li>
+<li>login：实现系统登录的所有文件夹<ul>
+<li>RegisterService：注册接口<ul>
+<li>loginOrResginByWx：微信注册用户<ul>
+<li>参数：String wxOpenId, String wxNickName, int sex, String avator, String unionId</li>
+<li>实现思路：<ul>
+<li>判断unionId为空时取将wxOpenId的值赋给unionId</li>
+<li>通过wxOpenId获取用户信息，如果用户存在则修改头像、WxUnionId后更新用户信息，如不存在则保存新的用户信息，最后返回用户信息。</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>loginOrResginByWb：微版注册用户<ul>
+<li>参数：String wbOpenId, String wbNickName, int sex, String avator</li>
+<li>实现思路：通过wbOpenId获取用户信息，如果用户存在则直接返回用户信息，如不存在则保存新的用户信息后返回用户信息。</li>
+</ul>
+</li>
+<li>boundPhoneNumber：绑定手机业务，如果手机号被绑定过，直接把wxOpenId覆盖到原来的账号上，并把此uid数据真删除<ul>
+<li>参数：int uid, String phoneNumber</li>
+<li>实现过程：通过手机号查找用户信息，如果可以查到在，则将新的用户信息赋值给旧的用户信息，后修改旧的用户信息，删除新信息。否则直接将手机号添加至新账号。</li>
+</ul>
+</li>
+<li>loginOrResginByPhone：通过手机号注册返回用户信息<ul>
+<li>参数：String phoneNumber</li>
+</ul>
+</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>model：登录用到的model类</li>
+<li>router：配置登录接口对应的controller<ul>
+<li>ApiFrontRoutes_Pplan：配置登录接口对应的controller</li>
+</ul>
+</li>
+<li>user：用户信息处理类<ul>
+<li>UserService：用户信息处理类</li>
+</ul>
+</li>
+<li>util：公共工具类<ul>
+<li>AjaxUtil：ajax处理类</li>
+<li>CommonUtil：数据处理类</li>
+<li>DataFormatUtil：数据处理</li>
+<li>UserUtil：用户信息判断工具类</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tools：特殊数据处理类</li>
+<li>wordapp：单词数据处理<ul>
+<li>adminsiste：管理员处理<ul>
+<li>base：基本信息处理<ul>
+<li>BaseController：基本信息处理<ul>
+<li>editUser：修改信息</li>
+<li>getUserList：获取用户列表</li>
+<li>loadDropdown：加载下拉菜单</li>
+<li>getClassList：加载班级数据</li>
+<li>updateStatus：更改班级状态</li>
+<li>getUserInfo：获取用户信息</li>
+<li>changeUserStatus：变更用户状态</li>
+<li>addClassOrEdit：添加班级或修改</li>
+<li>returnsClzName：返回班级名称</li>
+<li>getStuList：返回班级学生列表</li>
+<li>updateClzStu：修改班级学生状态</li>
+<li>addClzStuOrEdit：班级添加学生或修改学生信息</li>
+<li>getUserClz：返回班级学生信息</li>
+<li>getClz：回写班级信息</li>
+<li>teaLoadDropdown：教师、助教  获取下拉列表</li>
+<li>getTeaClassList：教师、助教 下获取表格</li>
+</ul>
+</li>
+<li>BaseService：基本信息处理具体实现类<ul>
+<li>同controller方法</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>classmanage：班级管理<ul>
+<li>ClassManageController：班级管理<ul>
+<li>userStudyDetail：获取用户学习详情</li>
+<li>toeflTarget：托福目标成绩</li>
+<li>toeflGrade：托福成绩</li>
+<li>getRecentTarget：</li>
+<li>chunkLearnDetail：学习情况–语块</li>
+<li>wordLearnDetail：学习情况-词汇</li>
+<li>unitLearnDetail：学习情况–单元</li>
+<li>wordsInfor：单词学习情况</li>
+<li>wrongInfor：错误</li>
+<li>tagFilter：过滤标签</li>
+<li>getTitle：页面标题</li>
+<li>getTypeList：所有类别— 初学、重学..</li>
+<li>getUserInfor：汇总信息</li>
+<li>levelLearnTime：学习耗时</li>
+<li>unitLearnTime：每个单元的耗时情况</li>
+<li>classInfor：班级的具体信息</li>
+<li>classStuInfor：班级下所有学生信息</li>
+<li>classStuInfor：管理员收藏的学生</li>
+<li>addFavorUser：添加收藏</li>
+<li>delteFavorUser：取消收藏</li>
+<li>favorClazz：管理员收藏的班级</li>
+<li>addFavorClazz：收藏</li>
+<li>delteFavorClazz：取消收藏</li>
+<li>classList:全部班级</li>
+<li>userRecordList：用户的使用记录</li>
+<li>recordTypeList：使用记录的类别— 初学、重学..</li>
+<li>getDefautlDateRange：获取系统默认的时间范围，目前是当前时间到一个月前</li>
+<li>levelList：所有level</li>
+<li>areanRecordTable：用户打擂详情</li>
+<li>pkRecordTable：用户pk详情</li>
+</ul>
+</li>
+<li>ClassManageService：班级管理具体实现<ul>
+<li>方法同上</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>common：拦截器、路由配置等</li>
+<li>menu：菜单管理</li>
+<li>model：管理员处理的所有model</li>
+<li>operationdata：系统数据处理<ul>
+<li>SystemUserDataControllor<ul>
+<li>getSystemUserTJ：获取系统用户情况的统计信息</li>
+<li>getDefautlDateRange：获取系统默认的显示数据的时间范围</li>
+</ul>
+</li>
+<li>SystemUserDataService<ul>
+<li>方法同上</li>
+</ul>
+</li>
+<li>UsageDetailsControllor<ul>
+<li>loadDropDown： 返回下拉列表</li>
+<li>getDetailsList： 返回学习明细列表</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>studyInfor:学习信息管理<ul>
+<li>StudyInforContorller：<ul>
+<li>levelList：所有level</li>
+<li>unitList：全部单元</li>
+<li>classList：全部班级</li>
+<li>wordList：全部单词</li>
+<li>wordWrongDetail：错误单词详情</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>arena：打擂接口<ul>
+<li>controller<ul>
+<li>ArenaListController：提供擂台相关列表接口<ul>
+<li>currentDLList：获取当前打擂人数(含个人打擂、应战打擂信息)</li>
+<li>todayRankList：获取今日排行榜</li>
+<li>totalRankList：获取总排行榜</li>
+<li>recentPkList：获取PK动态信息</li>
+<li>myPKList：获取我的PK记录</li>
+<li>pkMilitaryExploitsList：获取战绩排行榜信息</li>
+<li>mySinglePKList：获取 我的打擂记录</li>
+</ul>
+</li>
+<li>ArenaProcessController：提供擂台PK过程中处理接口<ul>
+<li>reqOpponentList：获取对手信息列表</li>
+<li>launchSingleArena：发起个人打擂</li>
+<li>launchPKArena：发起PK打擂</li>
+<li>reqPkArenaRecord：获取应战擂台信息</li>
+<li>submitSingleArenaRecord：单人打擂提交数据</li>
+<li>submitPKArenaRecord：获取应战擂台信息</li>
+<li>reqPkReport：获取擂台PK结果集</li>
+<li>reqSinglePkReport：获取擂台PK结果集</li>
+<li>reqPKList：获取应战列表</li>
+<li>toUserCancelPK：应战者取消应战</li>
+<li>submitDeviceNumber：上报设备名称</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>service<ul>
+<li>ArenaListService：提供当前正在打擂记录、今日排行、总排行、PK动态、PK战绩、我的打擂记录的数据</li>
+<li>ArenaProcessService：提供打擂过程中的业务逻辑</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>bean：实体类</li>
+<li>event:事件处理，包括推送，每日任务推送</li>
+<li>global：常量及数据初始化</li>
+<li>learning：学习信息处理<ul>
+<li>bean：数据实体类</li>
+<li>controller：接口处理<ul>
+<li>LearningInfoController：学习信息<ul>
+<li>levelList：词汇和语块： 所有级别学习概况 </li>
+<li>oneSubLevel：一个subLevel的概况信息，根据登录用户，如果没有开启的级别，返回错误代码 unit list页面拆分的一部分数据</li>
+<li>unitList：获取一个学生在一个SubLevel的下所有unit list概况，没有开启的unit，无userUnitRel关联对象数据</li>
+<li>userSubLevelReport:用户的一个具体级别(subLevel)的学习报告数据</li>
+<li>userUnitReport:单元报告</li>
+<li>unitListInLevel0:Level 0的unit list</li>
+<li>wordsInUnit:”Level 0 的某个unit下的所有单词</li>
+<li>clearCache: 清理缓存</li>
+<li>subLevelTarget：</li>
+</ul>
+</li>
+<li>LearningProcessController：正在学习<ul>
+<li>userUnitIndexData：用户点击一个unit进入获取得到的数据</li>
+<li>userUnitSubmitSelectedKnownWords:提交熟词选择 （不是测试提交）</li>
+<li>userUnitSubmitKnownWordsTestData:用户提交熟词测试数据</li>
+<li>getUserUnitKnownWordsData:获取用户在一个unit熟词测试数据,只有在熟词测试全部提交之后，才能访问</li>
+<li>getLearnDataFromUserGroup:得到一个userGroup下的学习资源、学习数据, 参数为 groupId</li>
+<li>getUserGroupReport:得到一个userGroup的学习报告数据</li>
+<li>submitUserGroupTestData:得到一个userGroup的学习报告数据</li>
+<li>submitUserGroupViewData:学习6步前面3步浏览操作，每步结束的一个数据提交</li>
+<li>doFavOpt:学习6步前面3步浏览操作，每步结束的一个数据提交</li>
+<li>getWordCardData:通过wordId得到一个单独的单词卡片</li>
+<li>getCorpusFull:通过wordId得到一个单独的单词卡片</li>
+<li>wordCardViewStatSubmit:除了学习6步的查看卡片之外，其他地方点击单词卡片进入之后提交一个浏览统计的数据</li>
+</ul>
+</li>
+<li>LearningReviewController：复习<ul>
+<li>subLevelIndexData:一个subLevel下复习首页列表数据</li>
+<li>unitList：SubLevel的复习index页面，一个SubLevel的下所有复习unit list概况</li>
+<li>wordListInOneUnit：点击我的错词/智能推荐/我的收藏下的一个unit或全部，进入获取的单词数据</li>
+<li>beginOneUnitReview：开始复习一个单元</li>
+<li>submitUnitReviewData：提交一次复习的数据</li>
+<li>oneUnitReviewReport：一次复习的报告</li>
+<li></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>service：具体实现</li>
+</ul>
+</li>
+<li>main：运行main函数可以修正 UserUnitRel 的  takeTime 和 reviewTakeTime 错误数据</li>
+<li>makedata：制造数据<ul>
+<li>DataPrepareService：初始化数据</li>
+<li>DataPrepareService：造一个能看所有单词数据的账户</li>
+</ul>
+</li>
+<li>model：数据实体类</li>
+<li>person：个人中心<ul>
+<li>controller：<ul>
+<li>PersonalController：<ul>
+<li>toeflGrade：目标成绩及成绩列表</li>
+<li>addToeflGrade：录入成绩</li>
+<li>deleteToeflGrade：删除成绩</li>
+<li>addTargetToeflScore：添加目标成绩</li>
+<li>targetToeflScore：查看目标成绩</li>
+<li>addFeedback：反馈</li>
+<li>legalProvision：规定</li>
+<li>userInfo：用户信息</li>
+<li>modifyShowNameAndSex：修改名字及性别</li>
+<li>studyProgressInfo：学习进度</li>
+<li>uploadAvator：修改头像</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>service：具体实现</li>
+</ul>
+</li>
+<li>share   <ul>
+<li>bean：分享实体类</li>
+<li>controller：分享接口<ul>
+<li>ShareContentController：分享内容接口<ul>
+<li>reqShareContent：获取分享内容</li>
+<li>addPraiseCount：添加点击赞的统计与详细信息</li>
+<li>reqLJimgBaseUrl：获取连击</li>
+<li>fnReqWechatServiceImgUrl：获取微信公共号关注二维码图片地址</li>
+</ul>
+</li>
+<li>ShareController：分享接口<ul>
+<li>shearArenaReport：擂台分享</li>
+<li>shareLearningReport：单元学习分享</li>
+</ul>
+</li>
+<li>service：具体实现</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>tongji：所有后台统计数据的service util<ul>
+<li>admin</li>
+<li>bean：数据实体类</li>
+<li>global：变量</li>
+<li>learning： 统计学习数据</li>
+<li>word：单词统计</li>
+<li>wxsite：微信统计</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h3 id="系统后台接口"><a href="#系统后台接口" class="headerlink" title="系统后台接口"></a>系统后台接口</h3><h4 id="全部类"><a href="#全部类" class="headerlink" title="全部类"></a>全部类</h4><ul>
+<li>adminsite：后台管理<ul>
+<li>controller：接口<ul>
+<li>PracticeAdminController<ul>
+<li>getClassList：获取班级列表</li>
+<li>getClassStudent：获取班级下的学生</li>
+<li>getStuLevelDetails：学生level完成详情</li>
+<li>getErrorDetails：错误详情</li>
+<li>getUserGroup：获取用户答过的 group</li>
+<li>getUnitName：获取unitName</li>
+<li>loadReportList：获取报表列表</li>
+<li>loadReportContent：获取报表详细信息</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>model：数据实体类</li>
+<li>service：具体实现</li>
+</ul>
+</li>
+<li>common：公共拦截器处理</li>
+<li>practice：课后练习<ul>
+<li>controller：<ul>
+<li>PracticeController<ul>
+<li>levelList：获取Level列表</li>
+<li>userUnitList：获取单元列表</li>
+<li>userUnitPartList：获取单元对应的Part的信息</li>
+<li>loadQuestion：加载测试试题</li>
+<li>loadQuestionPartGroup：加载part的分组信息</li>
+<li>submitAnswer：提交数据</li>
+<li>loadReportList：获取报表列表</li>
+<li>loadReportContent：获取报表详细信息</li>
+<li>getUserName：获取登录用户</li>
+<li>userExit：用户退出</li>
+<li>getUnitName：获取unitName</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>model：数据实体类</li>
+<li>service：具体实现</li>
+</ul>
+</li>
+<li>tools.export.exam<ul>
+<li>bean:数据实体类</li>
+<li>ExamServic:数据导出</li>
+</ul>
+</li>
+</ul>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2019-05-14T10:29:49.724Z" itemprop="dateUpdated">2019-05-14 18:29:49</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/05/14/汇APP后台/" target="_blank" rel="external">https://github.com/RShit/2019/05/14/汇APP后台/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/RShit">
+            <img src="/img/avatar.jpg" alt="刘奶奶找牛奶奶买榴莲牛奶">
+            刘奶奶找牛奶奶买榴莲牛奶
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/05/14/汇APP后台/&title=《词汇APP后台》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/05/14/汇APP后台/&title=《词汇APP后台》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/05/14/汇APP后台/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《词汇APP后台》 — Hexo&url=https://github.com/RShit/2019/05/14/汇APP后台/&via=https://github.com/RShit" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/05/14/汇APP后台/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/05/06/pencv参考链接/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">opencv参考链接</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'true' == 'true',
+            appId: "cwrI5YHif4WcDbxiBmshPYlb-gzGzoHsz",
+            appKey: "2uKpfAg5yEKsWmz9edcF2Oxi",
+            avatar: "monsterid",
+            placeholder: "请留下您宝贵的意见",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>刘奶奶找牛奶奶买榴莲牛奶 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/RShit/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/05/14/汇APP后台/&title=《词汇APP后台》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/05/14/汇APP后台/&title=《词汇APP后台》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/05/14/汇APP后台/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《词汇APP后台》 — Hexo&url=https://github.com/RShit/2019/05/14/汇APP后台/&via=https://github.com/RShit" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/05/14/汇APP后台/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/05/14/汇APP后台/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '离开了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

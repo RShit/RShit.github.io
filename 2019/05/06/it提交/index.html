@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="git提交步骤 git init //初始化仓库 git add .(文件name) //添加文件到本地仓库 git commit -m “first commit” //添加文件描述信息 git remote add origin + 远程仓库地址 //链接远程仓库，创建主分支 git pull origin master // 把本地仓库的变化连接到远程仓库主分支 git push -u or">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-05-06T09:37:10.540Z">
+<meta property="og:updated_time" content="2019-05-16T09:55:05.438Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="git提交">
 <meta name="twitter:description" content="git提交步骤 git init //初始化仓库 git add .(文件name) //添加文件到本地仓库 git commit -m “first commit” //添加文件描述信息 git remote add origin + 远程仓库地址 //链接远程仓库，创建主分支 git pull origin master // 把本地仓库的变化连接到远程仓库主分支 git push -u or">
@@ -102,7 +102,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -141,7 +141,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git提交步骤"><span class="post-toc-number">1.</span> <span class="post-toc-text">git提交步骤</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#强制提交"><span class="post-toc-number">2.</span> <span class="post-toc-text">强制提交</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#如果确定代码无误，可以强制提交"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">如果确定代码无误，可以强制提交</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#git提交步骤"><span class="post-toc-number">1.</span> <span class="post-toc-text">git提交步骤</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#强制提交"><span class="post-toc-number">2.</span> <span class="post-toc-text">强制提交</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#如果确定代码无误，可以强制提交"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">如果确定代码无误，可以强制提交</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#错误处理"><span class="post-toc-number">3.</span> <span class="post-toc-text">错误处理</span></a></li></ol>
         </nav>
     </aside>
 
@@ -175,6 +175,9 @@
 <h4 id="强制提交"><a href="#强制提交" class="headerlink" title="强制提交"></a>强制提交</h4><h5 id="如果确定代码无误，可以强制提交"><a href="#如果确定代码无误，可以强制提交" class="headerlink" title="如果确定代码无误，可以强制提交"></a>如果确定代码无误，可以强制提交</h5><ul>
 <li>git push -f</li>
 </ul>
+<h4 id="错误处理"><a href="#错误处理" class="headerlink" title="错误处理"></a>错误处理</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fatal: refusing to merge unrelated histories</span><br></pre></td></tr></table></figure>
+<p>在pull或push中出现这样的错误，可以使用以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git merge master --allow-unrelated-histories</span><br></pre></td></tr></table></figure>
 
         </div>
 
@@ -183,7 +186,7 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2019-05-06T09:37:10.540Z" itemprop="dateUpdated">2019-05-06 17:37:10</time>
+    Last updated: <time datetime="2019-05-16T09:55:05.438Z" itemprop="dateUpdated">2019-05-16 17:55:05</time>
 </span><br>
 
 
@@ -346,7 +349,7 @@
 
         <p>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

@@ -30,7 +30,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/2019/05/15/linux命令/rz.png">
 <meta property="og:image" content="https://github.com/2019/05/15/linux命令/sz.png">
-<meta property="og:updated_time" content="2019-05-17T01:28:55.474Z">
+<meta property="og:updated_time" content="2019-05-17T01:34:38.453Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux命令">
 <meta name="twitter:description" content="linux命令上传-下载文件上传和下载文件使用rz和sz命令 使用以下命令安装rz和sz： 1yum install -y lrzsz 上传输入以下命令： 1rz 打开选择文件窗口选择文件即可上传 下载输入以下命令：1sz 文件名 打开文件要下载的地址选择路径下载即可 ssh传输文件123scp test.zip admin@192.168.1.1:/test解析：scp 文件名 ssh地址:要复">
@@ -105,7 +105,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -144,7 +144,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#linux命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">linux命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上传-下载文件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">上传-下载文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#上传"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">上传</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">下载</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ssh传输文件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">ssh传输文件</span></a></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#linux命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">linux命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上传-下载文件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">上传-下载文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#上传"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">上传</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">下载</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ssh传输文件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">ssh传输文件</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#vi编辑器"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">vi编辑器</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -176,6 +176,8 @@
 <h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>输入以下命令：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sz 文件名</span><br></pre></td></tr></table></figure></p>
 <p>打开文件要下载的地址<br><img src="/2019/05/15/linux命令/sz.png" title="linux"><br>选择路径下载即可</p>
 <h3 id="ssh传输文件"><a href="#ssh传输文件" class="headerlink" title="ssh传输文件"></a>ssh传输文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp test.zip admin@192.168.1.1:/test</span><br><span class="line"></span><br><span class="line">解析：scp 文件名 ssh地址:要复制的文件到远程机的路径</span><br></pre></td></tr></table></figure>
+<h3 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">打开文件：vi test.txt</span><br><span class="line">Ctrl+u：向文件首翻半屏；</span><br><span class="line">Ctrl+d：向文件尾翻半屏；</span><br><span class="line">Ctrl+f：向文件尾翻一屏；</span><br><span class="line">Ctrl+b：向文件首翻一屏；</span><br><span class="line">Esc：从编辑模式切换到命令模式；</span><br><span class="line">ZZ：命令模式下保存当前文件所做的修改后退出vi；</span><br><span class="line">:行号：光标跳转到指定行的行首；</span><br><span class="line">:$：光标跳转到最后一行的行首；</span><br><span class="line">x或X：删除一个字符，x删除光标后的，而X删除光标前的；</span><br><span class="line">D：删除从当前光标到光标所在行尾的全部字符；</span><br><span class="line">dd：删除光标行正行内容；</span><br><span class="line">ndd：删除当前行及其后n-1行；</span><br><span class="line">nyy：将当前行及其下n行的内容保存到寄存器？中，其中？为一个字母，n为一个数字；</span><br><span class="line">p：粘贴文本操作，用于将缓存区的内容粘贴到当前光标所在位置的下方；</span><br><span class="line">P：粘贴文本操作，用于将缓存区的内容粘贴到当前光标所在位置的上方；</span><br><span class="line">/字符串：文本查找操作，用于从当前光标所在位置开始向文件尾部查找指定字符串的内容，查找的字符串会被加亮显示；</span><br><span class="line">？字符串：文本查找操作，用于从当前光标所在位置开始向文件头部查找指定字符串的内容，查找的字符串会被加亮显示；</span><br><span class="line">a，bs/F/T：替换文本操作，用于在第a行到第b行之间，将F字符串换成T字符串。其中，“s/”表示进行替换操作；</span><br><span class="line">a：在当前字符后添加文本；</span><br><span class="line">A：在行末添加文本；</span><br><span class="line">i：在当前字符前插入文本；</span><br><span class="line">I：在行首插入文本；</span><br><span class="line">o：在当前行后面插入一空行；</span><br><span class="line">O：在当前行前面插入一空行；</span><br><span class="line">:wq：在命令模式下，执行存盘退出操作；</span><br><span class="line">:w：在命令模式下，执行存盘操作；</span><br><span class="line">:w！：在命令模式下，执行强制存盘操作；</span><br><span class="line">:q：在命令模式下，执行退出vi操作；</span><br><span class="line">:q！：在命令模式下，执行强制退出vi操作；</span><br><span class="line">:e文件名：在命令模式下，打开并编辑指定名称的文件；</span><br><span class="line">:n：在命令模式下，如果同时打开多个文件，则继续编辑下一个文件；</span><br><span class="line">:f：在命令模式下，用于显示当前的文件名、光标所在行的行号以及显示比例；</span><br><span class="line">:set number：在命令模式下，用于在最左端显示行号；</span><br><span class="line">:set nonumber：在命令模式下，用于在最左端不显示行号；</span><br></pre></td></tr></table></figure>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -183,7 +185,7 @@
     <div class="content">
         
 <span class="post-time">
-    最後更新時間：<time datetime="2019-05-17T01:28:55.474Z" itemprop="dateUpdated">2019-05-17 09:28:55</time>
+    Last updated: <time datetime="2019-05-17T01:34:38.453Z" itemprop="dateUpdated">2019-05-17 09:34:38</time>
 </span><br>
 
 
@@ -339,7 +341,7 @@
 
         <p>
             
-            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">

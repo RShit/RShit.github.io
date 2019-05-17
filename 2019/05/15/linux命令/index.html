@@ -21,19 +21,19 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="linux命令上传-下载文件上传和下载文件使用rz和sz命令 使用以下命令安装rz和sz： 1yum install -y lrzsz 上传输入以下命令： 1rz 打开选择文件窗口选择文件即可上传 下载输入以下命令：1sz 文件名 打开文件要下载的地址选择路径下载即可">
+    <meta name="description" content="linux命令上传-下载文件上传和下载文件使用rz和sz命令 使用以下命令安装rz和sz： 1yum install -y lrzsz 上传输入以下命令： 1rz 打开选择文件窗口选择文件即可上传 下载输入以下命令：1sz 文件名 打开文件要下载的地址选择路径下载即可 ssh传输文件123scp test.zip admin@192.168.1.1:/test解析：scp 文件名 ssh地址:要复">
 <meta property="og:type" content="article">
 <meta property="og:title" content="linux命令">
 <meta property="og:url" content="https://github.com/RShit/2019/05/15/linux命令/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="linux命令上传-下载文件上传和下载文件使用rz和sz命令 使用以下命令安装rz和sz： 1yum install -y lrzsz 上传输入以下命令： 1rz 打开选择文件窗口选择文件即可上传 下载输入以下命令：1sz 文件名 打开文件要下载的地址选择路径下载即可">
+<meta property="og:description" content="linux命令上传-下载文件上传和下载文件使用rz和sz命令 使用以下命令安装rz和sz： 1yum install -y lrzsz 上传输入以下命令： 1rz 打开选择文件窗口选择文件即可上传 下载输入以下命令：1sz 文件名 打开文件要下载的地址选择路径下载即可 ssh传输文件123scp test.zip admin@192.168.1.1:/test解析：scp 文件名 ssh地址:要复">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/2019/05/15/linux命令/rz.png">
 <meta property="og:image" content="https://github.com/2019/05/15/linux命令/sz.png">
-<meta property="og:updated_time" content="2019-05-15T10:22:47.379Z">
+<meta property="og:updated_time" content="2019-05-17T01:28:55.474Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="linux命令">
-<meta name="twitter:description" content="linux命令上传-下载文件上传和下载文件使用rz和sz命令 使用以下命令安装rz和sz： 1yum install -y lrzsz 上传输入以下命令： 1rz 打开选择文件窗口选择文件即可上传 下载输入以下命令：1sz 文件名 打开文件要下载的地址选择路径下载即可">
+<meta name="twitter:description" content="linux命令上传-下载文件上传和下载文件使用rz和sz命令 使用以下命令安装rz和sz： 1yum install -y lrzsz 上传输入以下命令： 1rz 打开选择文件窗口选择文件即可上传 下载输入以下命令：1sz 文件名 打开文件要下载的地址选择路径下载即可 ssh传输文件123scp test.zip admin@192.168.1.1:/test解析：scp 文件名 ssh地址:要复">
 <meta name="twitter:image" content="https://github.com/2019/05/15/linux命令/rz.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
@@ -105,7 +105,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="搜尋">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -144,7 +144,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#linux命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">linux命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上传-下载文件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">上传-下载文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#上传"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">上传</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">下载</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#linux命令"><span class="post-toc-number">1.</span> <span class="post-toc-text">linux命令</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#上传-下载文件"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">上传-下载文件</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#上传"><span class="post-toc-number">1.1.1.</span> <span class="post-toc-text">上传</span></a></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#下载"><span class="post-toc-number">1.1.2.</span> <span class="post-toc-text">下载</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#ssh传输文件"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">ssh传输文件</span></a></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -175,7 +175,7 @@
 <p>打开选择文件窗口<br><img src="/2019/05/15/linux命令/rz.png" title="linux"><br>选择文件即可上传</p>
 <h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>输入以下命令：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sz 文件名</span><br></pre></td></tr></table></figure></p>
 <p>打开文件要下载的地址<br><img src="/2019/05/15/linux命令/sz.png" title="linux"><br>选择路径下载即可</p>
-
+<h3 id="ssh传输文件"><a href="#ssh传输文件" class="headerlink" title="ssh传输文件"></a>ssh传输文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp test.zip admin@192.168.1.1:/test</span><br><span class="line"></span><br><span class="line">解析：scp 文件名 ssh地址:要复制的文件到远程机的路径</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -183,7 +183,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-05-15T10:22:47.379Z" itemprop="dateUpdated">2019-05-15 18:22:47</time>
+    最後更新時間：<time datetime="2019-05-17T01:28:55.474Z" itemprop="dateUpdated">2019-05-17 09:28:55</time>
 </span><br>
 
 
@@ -339,7 +339,7 @@
 
         <p>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>本部落格係採用<a rel="license" href="https://creativecommons.org/licenses/by/4.0/deed.zh_TW">創用 CC 姓名標示 4.0 國際 授權條款授權</a></span>
         </p>
     </div>
     <div class="bottom">

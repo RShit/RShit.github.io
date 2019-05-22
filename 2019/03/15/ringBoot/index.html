@@ -21,12 +21,12 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="什么是spring bootSpring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。用我的话来理解，就是spring boot其实不是什么新的框架，它默认配置了很多框架的使用方式，就像maven整合了所有的jar包，spring boot整合了所有的框架（不知">
+    <meta name="description" content="什么是spring bootSpring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应用开发领域(rapid application development)成为领导者。     —    来自百度百科">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringBoot">
 <meta property="og:url" content="https://github.com/RShit/2019/03/15/ringBoot/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="什么是spring bootSpring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。用我的话来理解，就是spring boot其实不是什么新的框架，它默认配置了很多框架的使用方式，就像maven整合了所有的jar包，spring boot整合了所有的框架（不知">
+<meta property="og:description" content="什么是spring bootSpring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应用开发领域(rapid application development)成为领导者。     —    来自百度百科">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="https://github.com/2019/03/15/ringBoot/idea-1.png">
 <meta property="og:image" content="https://github.com/2019/03/15/ringBoot/idea-2.png">
@@ -34,10 +34,10 @@
 <meta property="og:image" content="https://github.com/2019/03/15/ringBoot/idea-4.png">
 <meta property="og:image" content="https://github.com/2019/03/15/ringBoot/idea-5.png">
 <meta property="og:image" content="https://github.com/2019/03/15/ringBoot/idea-6.png">
-<meta property="og:updated_time" content="2019-05-15T09:49:28.253Z">
+<meta property="og:updated_time" content="2019-05-22T07:54:02.885Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringBoot">
-<meta name="twitter:description" content="什么是spring bootSpring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。用我的话来理解，就是spring boot其实不是什么新的框架，它默认配置了很多框架的使用方式，就像maven整合了所有的jar包，spring boot整合了所有的框架（不知">
+<meta name="twitter:description" content="什么是spring bootSpring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应用开发领域(rapid application development)成为领导者。     —    来自百度百科">
 <meta name="twitter:image" content="https://github.com/2019/03/15/ringBoot/idea-1.png">
     
     <link rel="shortcut icon" href="/favicon.ico">
@@ -148,7 +148,7 @@
     <aside class="post-widget">
         <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
-            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是spring-boot"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是spring boot</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用spring-boot有什么好处"><span class="post-toc-number">2.</span> <span class="post-toc-text">使用spring boot有什么好处</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速入门"><span class="post-toc-number">3.</span> <span class="post-toc-text">快速入门</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#maven构建项目"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">maven构建项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#引入web模块"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">引入web模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1、在pom文件中添加web模块依赖"><span class="post-toc-number">3.1.1.1.</span> <span class="post-toc-text">1、在pom文件中添加web模块依赖</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2、编写-HelloWorldController"><span class="post-toc-number">3.1.1.2.</span> <span class="post-toc-text">2、编写 HelloWorldController</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3、启动主程序"><span class="post-toc-number">3.1.1.3.</span> <span class="post-toc-text">3、启动主程序</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开发环境的调试"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">开发环境的调试</span></a></li></ol></li></ol></li></ol>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是spring-boot"><span class="post-toc-number">1.</span> <span class="post-toc-text">什么是spring boot</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#springboot-的特点"><span class="post-toc-number">2.</span> <span class="post-toc-text">springboot 的特点</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用spring-boot有什么好处"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用spring boot有什么好处</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#快速入门"><span class="post-toc-number">4.</span> <span class="post-toc-text">快速入门</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#maven构建项目"><span class="post-toc-number">4.1.</span> <span class="post-toc-text">maven构建项目</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#引入web模块"><span class="post-toc-number">4.1.1.</span> <span class="post-toc-text">引入web模块</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#1、在pom文件中添加web模块依赖"><span class="post-toc-number">4.1.1.1.</span> <span class="post-toc-text">1、在pom文件中添加web模块依赖</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#2、编写-HelloWorldController"><span class="post-toc-number">4.1.1.2.</span> <span class="post-toc-text">2、编写 HelloWorldController</span></a></li><li class="post-toc-item post-toc-level-5"><a class="post-toc-link" href="#3、启动主程序"><span class="post-toc-number">4.1.1.3.</span> <span class="post-toc-text">3、启动主程序</span></a></li></ol></li><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#开发环境的调试"><span class="post-toc-number">4.1.2.</span> <span class="post-toc-text">开发环境的调试</span></a></li></ol></li></ol></li></ol>
         </nav>
     </aside>
 
@@ -171,8 +171,16 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h2 id="什么是spring-boot"><a href="#什么是spring-boot" class="headerlink" title="什么是spring boot"></a>什么是spring boot</h2><p>Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。用我的话来理解，就是spring boot其实不是什么新的框架，它默认配置了很多框架的使用方式，就像maven整合了所有的jar包，spring boot整合了所有的框架（不知道这样比喻是否合适）。</p>
-<h2 id="使用spring-boot有什么好处"><a href="#使用spring-boot有什么好处" class="headerlink" title="使用spring boot有什么好处"></a>使用spring boot有什么好处</h2><p>其实就是简单、快速、方便！平时如果我们需要搭建一个spring web项目的时候需要怎么做呢？</p>
+            <h2 id="什么是spring-boot"><a href="#什么是spring-boot" class="headerlink" title="什么是spring boot"></a>什么是spring boot</h2><p>Spring Boot是由Pivotal团队提供的全新框架，其设计目的是用来简化新Spring应用的初始搭建以及开发过程。该框架使用了特定的方式来进行配置，从而使开发人员不再需要定义样板化的配置。通过这种方式，Spring Boot致力于在蓬勃发展的快速应用开发领域(rapid application development)成为领导者。     —    <em>来自百度百科</em></p>
+<h2 id="springboot-的特点"><a href="#springboot-的特点" class="headerlink" title="springboot 的特点"></a>springboot 的特点</h2><ol>
+<li>创建独立的Spring应用程序</li>
+<li>嵌入的Tomcat，无需部署WAR文件</li>
+<li>简化Maven配置</li>
+<li>自动配置Spring</li>
+<li>提供生产就绪型功能，如指标，健康检查和外部配置</li>
+<li>绝对没有代码生成并且对XML也没有配置要求</li>
+</ol>
+<h2 id="使用spring-boot有什么好处"><a href="#使用spring-boot有什么好处" class="headerlink" title="使用spring boot有什么好处"></a>使用spring boot有什么好处</h2><p>简单、快速、方便！平时如果我们需要搭建一个spring web项目的时候需要怎么做呢？</p>
 <p>1）配置web.xml，加载spring和spring mvc</p>
 <p>2）配置数据库连接、配置spring事务</p>
 <p>3）配置加载配置文件的读取，开启注解</p>
@@ -180,9 +188,6 @@
 <p>…</p>
 <p>配置完成之后部署tomcat 调试</p>
 <p>…</p>
-<p>现在非常流行微服务，如果我这个项目仅仅只是需要发送一个邮件，如果我的项目仅仅是生产一个积分；我都需要这样折腾一遍!</p>
-<p>但是如果使用spring boot呢？</p>
-<p>很简单，我仅仅只需要非常少的几个配置就可以迅速方便的搭建起来一套web项目或者是构建一个微服务！</p>
 <h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><h3 id="maven构建项目"><a href="#maven构建项目" class="headerlink" title="maven构建项目"></a>maven构建项目</h3><p><strong>使用工具：</strong><br>IntelliJ IDEA 2018.3.4、jdk1.8.0_201</p>
 <img src="/2019/03/15/ringBoot/idea-1.png" title="idea">
 <p>在idea界面点击 <strong><em>Create New project</em></strong>,然后点击<strong><em>Next</em></strong></p>
@@ -203,7 +208,7 @@
 <p>spring-boot-starter：核心模块，包括自动配置支持、日志和YAML；</p>
 <p>spring-boot-starter-test：测试模块，包括JUnit、Hamcrest、Mockito。</p>
 <h5 id="2、编写-HelloWorldController"><a href="#2、编写-HelloWorldController" class="headerlink" title="2、编写 HelloWorldController"></a>2、编写 <strong><em>HelloWorldController</em></strong></h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@RestController</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldController</span> </span>&#123;</span><br><span class="line">	<span class="meta">@RequestMapping</span>(<span class="string">"/hello"</span>)</span><br><span class="line">	<span class="function"><span class="keyword">private</span> String <span class="title">hello</span><span class="params">()</span></span>&#123;</span><br><span class="line">    	<span class="keyword">return</span> <span class="string">"hello world"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>   @RestController的意思就是controller里面的方法都以json格式输出，不用再写什么jackjson配置的了！</p>
+<p>   @RestController的意思就是controller里面的方法都以json格式输出.</p>
 <h5 id="3、启动主程序"><a href="#3、启动主程序" class="headerlink" title="3、启动主程序"></a>3、启动主程序</h5><pre><code>在浏览器打开http://127.0.0.1:8080/hello,即可看到结果
 </code></pre><h4 id="开发环境的调试"><a href="#开发环境的调试" class="headerlink" title="开发环境的调试"></a>开发环境的调试</h4><p>springBoot对调试支持很好，修改之后可以实时生效，需要添加以下的配置：</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">fork</span>&gt;</span>true<span class="tag">&lt;/<span class="name">fork</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br></pre></td></tr></table></figure>
@@ -216,7 +221,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-05-15T09:49:28.253Z" itemprop="dateUpdated">2019-05-15 17:49:28</time>
+    Last updated: <time datetime="2019-05-22T07:54:02.885Z" itemprop="dateUpdated">2019-05-22 15:54:02</time>
 </span><br>
 
 

@@ -29,7 +29,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="Integer有如下代码： 123456789101112131415161718Integer i1 = 127;Integer i2 = 127;System.out.print(i1+&quot; == &quot;+i2+&quot; :&quot;+(i1 == i2));System.out.println(&quot;    &quot;+i1+&quot;.equals(&quot;+i2+&quot;) :&quot;+(i1.equals(i2)));Integer i3 =">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-05-29T02:08:43.868Z">
+<meta property="og:updated_time" content="2019-05-29T03:06:00.677Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java Integer(-128~127)值的==和equals比较">
 <meta name="twitter:description" content="Integer有如下代码： 123456789101112131415161718Integer i1 = 127;Integer i2 = 127;System.out.print(i1+&quot; == &quot;+i2+&quot; :&quot;+(i1 == i2));System.out.println(&quot;    &quot;+i1+&quot;.equals(&quot;+i2+&quot;) :&quot;+(i1.equals(i2)));Integer i3 =">
@@ -174,32 +174,9 @@
 <p><em>输出结果如下：</em></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">127</span> == <span class="number">127</span> :<span class="keyword">true</span>    <span class="number">127</span>.equals(<span class="number">127</span>) :<span class="keyword">true</span></span><br><span class="line"><span class="number">128</span> == <span class="number">128</span> :<span class="keyword">false</span>   <span class="number">128</span>.equals(<span class="number">128</span>) :<span class="keyword">true</span></span><br><span class="line"><span class="number">127</span> == <span class="number">127</span> :<span class="keyword">false</span>   <span class="number">127</span>.equals(<span class="number">127</span>) :<span class="keyword">true</span></span><br><span class="line"><span class="number">128</span> == <span class="number">128</span> :<span class="keyword">false</span>   <span class="number">128</span>.equals(<span class="number">128</span>) :<span class="keyword">true</span></span><br></pre></td></tr></table></figure>
 <p><em>总结：</em></p>
-<ul>
-<li><blockquote>
-<p>   在-128~127的Integer值如果以<code>Integer x = value;</code>的方式赋值的Integer值在进行==和equals比较时，都会返回true</p>
+<blockquote>
+<p>   在-128~127的Integer值如果以<code>Integer x = value;</code>的方式赋值的Integer值在进行==和equals比较时，都会返回true<br>   在-128~127之外的以<code>Integer x = value;</code>的方式赋值的Integer值在进行==和equals比较时，返回结果并不下相同<br>   无论是在-128~127还是之外的Integer值如果以<code>Integer x = new Integer(value);</code>的方式赋值的Integer值在进行==和equals比较时,返回结果都并不x相同<br>   因为Java里面对处在在-128~127之间的使用<code>Integer x = value;</code>赋值的Integer值，用的是原生数据类型int，会在内存里供重用，也就是说这之间的Integer值进行==比较时只是进行int原生数据类型的数值比较，而超出-128~127的范围，进行==比较时是进行地址及数值比较。<br>   而对于所有以<code>Integer x = new Integer(value);</code>赋值的Integer值，使用== 比较时是进行地址及数值比较。<br>   所以在比较包装类型的值时，必须使用equals进行比较</p>
 </blockquote>
-</li>
-<li><blockquote>
-<p>   在-128~127之外的以<code>Integer x = value;</code>的方式赋值的Integer值在进行==和equals比较时，返回结果并不下相同</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>   无论是在-128~127还是之外的Integer值如果以<code>Integer x = new Integer(value);</code>的方式赋值的Integer值在进行==和equals比较时,返回结果都并不x相同</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>   因为Java里面对处在在-128~127之间的使用<code>Integer x = value;</code>赋值的Integer值，用的是原生数据类型int，会在内存里供重用，也就是说这之间的Integer值进行==比较时只是进行int原生数据类型的数值比较，而超出-128~127的范围，进行==比较时是进行地址及数值比较。</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>   而对于所有以<code>Integer x = new Integer(value);</code>赋值的Integer值，使用== 比较时是进行地址及数值比较。</p>
-</blockquote>
-</li>
-<li><blockquote>
-<p>   所以在比较包装类型的值时，必须使用equals进行比较</p>
-</blockquote>
-</li>
-</ul>
 
         </div>
 
@@ -208,7 +185,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-05-29T02:08:43.868Z" itemprop="dateUpdated">2019-05-29 10:08:43</time>
+    最后更新时间：<time datetime="2019-05-29T03:06:00.677Z" itemprop="dateUpdated">2019-05-29 11:06:00</time>
 </span><br>
 
 

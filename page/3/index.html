@@ -166,10 +166,8 @@
 
 
 出现此种错误时，将${} 改为$!{} 使用
-js 动态元素选择器123var i=1;var head="head"+i;$("#"+head+"");
-
-使用js处理双击、选中事件jquery 处理方式1$(document.body).on('mouseup',"#content",mouseUp);
-...
+js 动态元素选择器123var i=1;var head="head"+i;$("#head"+head+"");
+使用js处理双击、选中事件jquery 处理方式1$(document.body).on('mouseup',"#content",mouseUp...
     
 
         <a href="/2019/03/12/js特殊用法/" class="post-more waves-effect waves-button">

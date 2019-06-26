@@ -14,7 +14,7 @@
     
     
     
-    <title>volatile关键字 | Hexo</title>
+    <title>java并发编程-volatile关键字 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
@@ -23,14 +23,14 @@
     <meta name="keywords" content>
     <meta name="description" content="并发编程MESI协议基于失效的缓存一致性协议 有四个状态:  Exclusive(E)：独享，其他缓存都没有有效的副本 Shared(S)：共享，其他缓存都有有效的副本 Invalid(I)：失效 Modified(M)：修改  原子性、有序性、可见性原子性在java中，对基本数据类型的变量读取和赋值操作是原子性操作，这些操作是不可中断的，也就是要么读，要么不读，或者要么写要么不写。 1234x">
 <meta property="og:type" content="article">
-<meta property="og:title" content="volatile关键字">
-<meta property="og:url" content="https://github.com/RShit/2019/06/26/olatile/index.html">
+<meta property="og:title" content="java并发编程-volatile关键字">
+<meta property="og:url" content="https://github.com/RShit/2019/06/26/latile/index.html">
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="并发编程MESI协议基于失效的缓存一致性协议 有四个状态:  Exclusive(E)：独享，其他缓存都没有有效的副本 Shared(S)：共享，其他缓存都有有效的副本 Invalid(I)：失效 Modified(M)：修改  原子性、有序性、可见性原子性在java中，对基本数据类型的变量读取和赋值操作是原子性操作，这些操作是不可中断的，也就是要么读，要么不读，或者要么写要么不写。 1234x">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-06-26T08:50:20.399Z">
+<meta property="og:updated_time" content="2019-06-26T09:04:10.236Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="volatile关键字">
+<meta name="twitter:title" content="java并发编程-volatile关键字">
 <meta name="twitter:description" content="并发编程MESI协议基于失效的缓存一致性协议 有四个状态:  Exclusive(E)：独享，其他缓存都没有有效的副本 Shared(S)：共享，其他缓存都有有效的副本 Invalid(I)：失效 Modified(M)：修改  原子性、有序性、可见性原子性在java中，对基本数据类型的变量读取和赋值操作是原子性操作，这些操作是不可中断的，也就是要么读，要么不读，或者要么写要么不写。 1234x">
     
     <link rel="shortcut icon" href="/favicon.ico">
@@ -110,7 +110,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">volatile关键字</div>
+        <div class="flex-col header-title ellipsis">java并发编程-volatile关键字</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -132,7 +132,7 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">volatile关键字</h1>
+        <h1 class="title">java并发编程-volatile关键字</h1>
         <h5 class="subtitle">
             
                 <time datetime="2019-06-26T08:16:09.000Z" itemprop="datePublished" class="page-time">
@@ -160,10 +160,10 @@
     </aside>
 
 
-<article id="post-olatile" class="post-article article-type-post fade" itemprop="blogPost">
+<article id="post-latile" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">volatile关键字</h1>
+        <h1 class="post-card-title">java并发编程-volatile关键字</h1>
         <div class="post-meta">
             <time class="post-time" title="2019-06-26 16:16:09" datetime="2019-06-26T08:16:09.000Z" itemprop="datePublished">2019-06-26</time>
 
@@ -189,7 +189,8 @@
 <h2 id="原子性、有序性、可见性"><a href="#原子性、有序性、可见性" class="headerlink" title="原子性、有序性、可见性"></a>原子性、有序性、可见性</h2><h3 id="原子性"><a href="#原子性" class="headerlink" title="原子性"></a>原子性</h3><p>在java中，对基本数据类型的变量读取和赋值操作是原子性操作，这些操作是不可中断的，也就是要么读，要么不读，或者要么写要么不写。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">x = <span class="number">10</span>; <span class="comment">// 操作1</span></span><br><span class="line">y = x;	<span class="comment">// 操作2</span></span><br><span class="line">x++;	<span class="comment">// 操作3</span></span><br><span class="line">x = x + <span class="number">1</span>;<span class="comment">//操作4</span></span><br></pre></td></tr></table></figure>
 <p>以上的操作中只有操作1属于原子性操作。</p>
-<h3 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h3><p>有以下这样的代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cpu0</span><span class="params">()</span></span>&#123;</span><br><span class="line">	x = <span class="number">100</span>;<span class="comment">// 此时x的状态变幻情况为：S(共享) -&gt; M(修改),此时通过cpu0会通知其他cpu的x的值为I(失效)，再取出最新值，会消耗一段时间才会将x的值修改完成</span></span><br><span class="line">   flag = <span class="keyword">true</span>;<span class="comment">// 当flag此时是E状态时，变化状态:E(独享) -&gt; M(修改)，此时flag的值会直接修改，并发送给其他cpu状态置为S(共享)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cpu1</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(flag) &#123;</span><br><span class="line">   	System.out.println(x == <span class="number">100</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="有序性"><a href="#有序性" class="headerlink" title="有序性"></a>有序性</h3><p>有以下这样的代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">int</span> x = <span class="number">10</span>;</span><br><span class="line"><span class="comment">//volatile int x = 10; 如果x有volatile关键字修饰时,就可以保证有序性</span></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cpu0</span><span class="params">()</span></span>&#123;</span><br><span class="line">	x = <span class="number">100</span>;<span class="comment">// 此时x的状态变幻情况为：S(共享) -&gt; M(修改),此时通过cpu0会通知其他cpu的x的值为I(失效)，再取出最新值，会消耗一段时间才会将x的值修改完成</span></span><br><span class="line">   flag = <span class="keyword">true</span>;<span class="comment">// 当flag此时是E状态时，变化状态:E(独享) -&gt; M(修改)，此时flag的值会直接修改，并发送给其他cpu状态置为S(共享)</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">cpu1</span><span class="params">()</span></span>&#123;</span><br><span class="line">	<span class="keyword">while</span>(flag) &#123;</span><br><span class="line">   	System.out.println(x == <span class="number">100</span>);</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>当有volatile关键字修饰时，会看到在程序运行时的汇编指令中会发现有locak指令，相当于一个内存屏障，会强制把缓存的操作写入主存。</p>
 <p>当不能保证有序性时，打印输出的结果可能为false。所以在程序运行必须保证有序性。</p>
 <h3 id="可见性"><a href="#可见性" class="headerlink" title="可见性"></a>可见性</h3><p>在Java中，提供了volatile关键保证可见性。<br>当一个共享变量被volatile修饰时，它会保证修改的值会立即被更新到主存，当有其他线程需要读取时，它会去内存中读取新值。<br>此外，通过synchronized和Lock也能够保证可见性，synchronized和Lock能保证同一时刻只有一个线程获取锁然后执行同步代码，并且在释放锁之前会将对变量的修改刷新到主存当中。因此可以保证可见性。</p>
 <h3 id="volatile、synchronized"><a href="#volatile、synchronized" class="headerlink" title="volatile、synchronized"></a>volatile、synchronized</h3><p>volatile可以保证对变量操作的有序性、可见性，但是不能保证原子性</p>
@@ -202,12 +203,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-06-26T08:50:20.399Z" itemprop="dateUpdated">2019-06-26 16:50:20</time>
+    最后更新时间：<time datetime="2019-06-26T09:04:10.236Z" itemprop="dateUpdated">2019-06-26 17:04:10</time>
 </span><br>
 
 
         
-        欢迎转发本内容：<a href="/2019/06/26/olatile/" target="_blank" rel="external">https://github.com/RShit/2019/06/26/olatile/</a>
+        欢迎转发本内容：<a href="/2019/06/26/latile/" target="_blank" rel="external">https://github.com/RShit/2019/06/26/latile/</a>
         
     </div>
     
@@ -232,7 +233,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/06/26/olatile/&title=《volatile关键字》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/06/26/latile/&title=《java并发编程-volatile关键字》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -242,22 +243,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/06/26/olatile/&title=《volatile关键字》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/06/26/latile/&title=《java并发编程-volatile关键字》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/06/26/olatile/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/06/26/latile/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《volatile关键字》 — Hexo&url=https://github.com/RShit/2019/06/26/olatile/&via=https://github.com/RShit" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java并发编程-volatile关键字》 — Hexo&url=https://github.com/RShit/2019/06/26/latile/&via=https://github.com/RShit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/06/26/olatile/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/06/26/latile/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -380,7 +381,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/06/26/olatile/&title=《volatile关键字》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/06/26/latile/&title=《java并发编程-volatile关键字》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -390,22 +391,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/06/26/olatile/&title=《volatile关键字》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/06/26/latile/&title=《java并发编程-volatile关键字》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/06/26/olatile/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/06/26/latile/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《volatile关键字》 — Hexo&url=https://github.com/RShit/2019/06/26/olatile/&via=https://github.com/RShit" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java并发编程-volatile关键字》 — Hexo&url=https://github.com/RShit/2019/06/26/latile/&via=https://github.com/RShit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/06/26/olatile/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/06/26/latile/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -416,7 +417,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/06/26/olatile/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/06/26/latile/" alt="微信分享二维码">
 </div>
 
 

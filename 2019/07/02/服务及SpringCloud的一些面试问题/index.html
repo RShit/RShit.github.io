@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>微服务及SpringCloud的一些面试问题 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="soa和微服务的区别   soa:面向服务的框架，着重于将应用系统根据不同的业务模块拆分不同的服务，并通过这些服务定义好的接口联系起来。它是一种粗粒度，松耦合的框架，主要解决的是服务重复性问题。    微服务:微服务是soa架构下的最终产物，它相对soa来说对系统的拆分更加彻底，拆分粒度更细，拆分后的服务都可以单独的运行。微服务主要解决的是服务的高耦合问题，通过降低服务之间的耦合度来把服务分割的更">
+<meta property="og:type" content="article">
+<meta property="og:title" content="微服务及SpringCloud的一些面试问题">
+<meta property="og:url" content="https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="soa和微服务的区别   soa:面向服务的框架，着重于将应用系统根据不同的业务模块拆分不同的服务，并通过这些服务定义好的接口联系起来。它是一种粗粒度，松耦合的框架，主要解决的是服务重复性问题。    微服务:微服务是soa架构下的最终产物，它相对soa来说对系统的拆分更加彻底，拆分粒度更细，拆分后的服务都可以单独的运行。微服务主要解决的是服务的高耦合问题，通过降低服务之间的耦合度来把服务分割的更">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-02T07:47:59.527Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="微服务及SpringCloud的一些面试问题">
+<meta name="twitter:description" content="soa和微服务的区别   soa:面向服务的框架，着重于将应用系统根据不同的业务模块拆分不同的服务，并通过这些服务定义好的接口联系起来。它是一种粗粒度，松耦合的框架，主要解决的是服务重复性问题。    微服务:微服务是soa架构下的最终产物，它相对soa来说对系统的拆分更加彻底，拆分粒度更细，拆分后的服务都可以单独的运行。微服务主要解决的是服务的高耦合问题，通过降低服务之间的耦合度来把服务分割的更">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">刘奶奶找牛奶奶买榴莲牛奶</h5>
+          <a href="mailto:446109730@qq.com" title="446109730@qq.com" class="mail">446109730@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RShit" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">微服务及SpringCloud的一些面试问题</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">微服务及SpringCloud的一些面试问题</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-02T07:47:10.000Z" itemprop="datePublished" class="page-time">
+  2019-07-02
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#soa和微服务的区别"><span class="post-toc-number">1.</span> <span class="post-toc-text">soa和微服务的区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#你是怎么理解微服务的？"><span class="post-toc-number">2.</span> <span class="post-toc-text">你是怎么理解微服务的？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#什么是SpringCloud"><span class="post-toc-number">3.</span> <span class="post-toc-text">什么是SpringCloud</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#微服务架构的优点和缺点有哪些？"><span class="post-toc-number">4.</span> <span class="post-toc-text">微服务架构的优点和缺点有哪些？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#SpringCloud解决了什么问题？"><span class="post-toc-number">5.</span> <span class="post-toc-text">SpringCloud解决了什么问题？</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-服务及SpringCloud的一些面试问题" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">微服务及SpringCloud的一些面试问题</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-02 15:47:10" datetime="2019-07-02T07:47:10.000Z" itemprop="datePublished">2019-07-02</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="soa和微服务的区别"><a href="#soa和微服务的区别" class="headerlink" title="soa和微服务的区别"></a>soa和微服务的区别</h2><p>   soa:面向服务的框架，着重于将应用系统根据不同的业务模块拆分不同的服务，并通过这些服务定义好的接口联系起来。它是一种粗粒度，松耦合的框架，主要解决的是服务重复性问题。</p>
+<p>   微服务:微服务是soa架构下的最终产物，它相对soa来说对系统的拆分更加彻底，拆分粒度更细，拆分后的服务都可以单独的运行。微服务主要解决的是服务的高耦合问题，通过降低服务之间的耦合度来把服务分割的更彻底，每个服务都可以不依赖于其他服务而独立运行，当一个服务出问题时，对其他服务并不会造成影响。</p>
+<p>   soa和微服务都是分布式的具体实现思想。</p>
+<h2 id="你是怎么理解微服务的？"><a href="#你是怎么理解微服务的？" class="headerlink" title="你是怎么理解微服务的？"></a>你是怎么理解微服务的？</h2><p>   微服务顾名思义就是将系统拆分为一个个可以独立部署、水平扩展、独立运行的细微服务。</p>
+<p>   使用微服务的思想通过对单体架构的系统进行细粒度的拆分，从而降低各个服务之间的耦合度，单个服务中如果出现问题而不会对其他服务产生影响。并且通过对系统的拆分，会极大的解决原单体架构系统中的有些业务运行速度过慢而对其他业务造成的影响。</p>
+<h2 id="什么是SpringCloud"><a href="#什么是SpringCloud" class="headerlink" title="什么是SpringCloud"></a>什么是SpringCloud</h2><p>   SpringCloud可以通俗的理解为整合各个分布式基础设施的工具箱，它是一系列框架的有序集合，注重于服务治理。</p>
+<h2 id="微服务架构的优点和缺点有哪些？"><a href="#微服务架构的优点和缺点有哪些？" class="headerlink" title="微服务架构的优点和缺点有哪些？"></a>微服务架构的优点和缺点有哪些？</h2><p>   微服务的主要作用是对于大型业务系统进行细粒度的拆分，从而降低项目开发的时间成本和不同开发人员之间的沟通成本，从而可以将项目更快地上线落地，相对传统的单体架构中一块出问题其他都会被影响，微服务带来的是更加敏捷的更新维护，当其中一个服务出问题时，其他服务不会受到影响。但是当系统拆分的太细致，造成的运维成本也相对的更大，本来只需要对一个系统的维护现在变相的变成对多个系统的维护，这样的成本会大大的增大。</p>
+<h2 id="SpringCloud解决了什么问题？"><a href="#SpringCloud解决了什么问题？" class="headerlink" title="SpringCloud解决了什么问题？"></a>SpringCloud解决了什么问题？</h2><p>   SpringCloud利用SpringBoot的开发便利性简化了分布式系统基础设施的开发，如服务发现注册、配置中心、消息总线、熔断器、数据监控、负载均衡等，都可以利用SpringBoot的开发风格做到一键部署和启动。</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-02T07:47:59.527Z" itemprop="dateUpdated">2019-07-02 15:47:59</time>
+</span><br>
+
+
+        
+        欢迎转发本内容：<a href="/2019/07/02/服务及SpringCloud的一些面试问题/" target="_blank" rel="external">https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/RShit">
+            <img src="/img/avatar.jpg" alt="刘奶奶找牛奶奶买榴莲牛奶">
+            刘奶奶找牛奶奶买榴莲牛奶
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/&title=《微服务及SpringCloud的一些面试问题》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/&title=《微服务及SpringCloud的一些面试问题》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《微服务及SpringCloud的一些面试问题》 — Hexo&url=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/&via=https://github.com/RShit" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/06/26/latile/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">java并发编程-volatile关键字</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'true' == 'true',
+            appId: "cwrI5YHif4WcDbxiBmshPYlb-gzGzoHsz",
+            appKey: "2uKpfAg5yEKsWmz9edcF2Oxi",
+            avatar: "monsterid",
+            placeholder: "请留下您宝贵的意见",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>刘奶奶找牛奶奶买榴莲牛奶 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/RShit/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/&title=《微服务及SpringCloud的一些面试问题》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/&title=《微服务及SpringCloud的一些面试问题》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《微服务及SpringCloud的一些面试问题》 — Hexo&url=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/&via=https://github.com/RShit" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/07/02/服务及SpringCloud的一些面试问题/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '离开了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

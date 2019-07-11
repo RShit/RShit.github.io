@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>java8 lambda语法 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="jdk1.8 时间的创建及工具类1234567891011121314151617181920212223242526272829303132333435// ClockClock clock = Clock.systemDefaultZone();System.out.println(clock.millis());Instant instant = clock.instant();System">
+<meta property="og:type" content="article">
+<meta property="og:title" content="java8 lambda语法">
+<meta property="og:url" content="https://github.com/RShit/2019/07/11/java8-lambda语法/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="jdk1.8 时间的创建及工具类1234567891011121314151617181920212223242526272829303132333435// ClockClock clock = Clock.systemDefaultZone();System.out.println(clock.millis());Instant instant = clock.instant();System">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-11T04:12:43.072Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="java8 lambda语法">
+<meta name="twitter:description" content="jdk1.8 时间的创建及工具类1234567891011121314151617181920212223242526272829303132333435// ClockClock clock = Clock.systemDefaultZone();System.out.println(clock.millis());Instant instant = clock.instant();System">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">刘奶奶找牛奶奶买榴莲牛奶</h5>
+          <a href="mailto:446109730@qq.com" title="446109730@qq.com" class="mail">446109730@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RShit" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">java8 lambda语法</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">java8 lambda语法</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-11T04:01:40.000Z" itemprop="datePublished" class="page-time">
+  2019-07-11
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#jdk1-8-时间的创建及工具类"><span class="post-toc-number">1.</span> <span class="post-toc-text">jdk1.8 时间的创建及工具类</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Stream"><span class="post-toc-number">2.</span> <span class="post-toc-text">Stream</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#lambda语法创建接口"><span class="post-toc-number">3.</span> <span class="post-toc-text">lambda语法创建接口</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-java8-lambda语法" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">java8 lambda语法</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-11 12:01:40" datetime="2019-07-11T04:01:40.000Z" itemprop="datePublished">2019-07-11</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="jdk1-8-时间的创建及工具类"><a href="#jdk1-8-时间的创建及工具类" class="headerlink" title="jdk1.8 时间的创建及工具类"></a>jdk1.8 时间的创建及工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Clock</span></span><br><span class="line">Clock clock = Clock.systemDefaultZone();</span><br><span class="line">System.out.println(clock.millis());</span><br><span class="line">Instant instant = clock.instant();</span><br><span class="line">System.out.println(instant);</span><br><span class="line">Date from = Date.from(instant);</span><br><span class="line">System.out.println(from);</span><br><span class="line"><span class="comment">// 时区</span></span><br><span class="line"><span class="comment">// 获取所有时区</span></span><br><span class="line">Set&lt;String&gt; availableZoneIds = ZoneId.getAvailableZoneIds();</span><br><span class="line">System.out.println(availableZoneIds);</span><br><span class="line"><span class="comment">// 获取指定时区的ZoneId</span></span><br><span class="line">ZoneId of = ZoneId.of(<span class="string">"Asia/Aden"</span>);</span><br><span class="line">System.out.println(of.getRules());</span><br><span class="line"></span><br><span class="line"><span class="comment">// localtime 获取指定时区的时间</span></span><br><span class="line">LocalTime now = LocalTime.now(of);</span><br><span class="line">System.out.println(<span class="string">"当前时间是："</span>+now);</span><br><span class="line"></span><br><span class="line"><span class="comment">// localData 本地日期</span></span><br><span class="line">LocalDate today = LocalDate.now();</span><br><span class="line">System.out.println(<span class="string">"今天的日期是："</span>+today);</span><br><span class="line">LocalDate tomorrow = today.plus(<span class="number">1</span>, ChronoUnit.DAYS);</span><br><span class="line">System.out.println(<span class="string">"明天的日期是："</span>+tomorrow);</span><br><span class="line">LocalDate yesterday = today.plus(-<span class="number">1</span>, ChronoUnit.DAYS);</span><br><span class="line">System.out.println(<span class="string">"昨天的日期是："</span>+yesterday);</span><br><span class="line"><span class="comment">// 创建指定日期</span></span><br><span class="line">LocalDate of1 = LocalDate.of(<span class="number">2019</span>, Month.JUNE, <span class="number">11</span>);</span><br><span class="line">System.out.println(of1);</span><br><span class="line">DayOfWeek dayOfWeek = of1.getDayOfWeek();</span><br><span class="line">System.out.println(<span class="string">"今天是周几："</span>+dayOfWeek);</span><br><span class="line"><span class="comment">// DateTimeFormatter格式化时间</span></span><br><span class="line">DateTimeFormatter formatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy年MM月dd日"</span>);</span><br><span class="line">String format = formatter.format(today);</span><br><span class="line">System.out.println(format);</span><br></pre></td></tr></table></figure>
+<h2 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; stringList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">stringList.add(<span class="string">"ddd2"</span>);</span><br><span class="line">stringList.add(<span class="string">"aaa2"</span>);</span><br><span class="line">stringList.add(<span class="string">"bbb1"</span>);</span><br><span class="line">stringList.add(<span class="string">"aaa1"</span>);</span><br><span class="line">stringList.add(<span class="string">"bbb3"</span>);</span><br><span class="line">stringList.add(<span class="string">"ccc"</span>);</span><br><span class="line">stringList.add(<span class="string">"bbb2"</span>);</span><br><span class="line">stringList.add(<span class="string">"ddd1"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// stream 串行</span></span><br><span class="line"><span class="comment">// 过滤</span></span><br><span class="line">stringList</span><br><span class="line">                .stream()</span><br><span class="line">    .filter(s -&gt; s.startsWith(<span class="string">"a"</span>))</span><br><span class="line">    .forEach(System.out::println);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 排序</span></span><br><span class="line"><span class="comment">// 排序只是创建了一个排序好的stream，原数据并没有改变</span></span><br><span class="line">stringList</span><br><span class="line">                .stream()</span><br><span class="line">    .sorted()</span><br><span class="line">    .filter(s -&gt; s.startsWith(<span class="string">"a"</span>))</span><br><span class="line">    .forEach(System.out::println);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// map映射,map操作</span></span><br><span class="line">stringList</span><br><span class="line">                .stream()</span><br><span class="line">    .map(String::toUpperCase)</span><br><span class="line">    .sorted((o1, o2) -&gt; o2.compareTo(o1))</span><br><span class="line">    .forEach(System.out::println);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配，任一一个匹配就可以返回</span></span><br><span class="line"><span class="keyword">boolean</span> anyMatch = stringList</span><br><span class="line">                .stream()</span><br><span class="line">    .anyMatch(s -&gt; s.startsWith(<span class="string">"a"</span>));</span><br><span class="line">System.out.println(anyMatch);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配，所有匹配，所有匹配到才会返回true</span></span><br><span class="line"><span class="keyword">boolean</span> allMatch = stringList</span><br><span class="line">                .stream()</span><br><span class="line">    .allMatch(s -&gt; s.startsWith(<span class="string">"a"</span>));</span><br><span class="line">System.out.println(allMatch);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配,没有匹配到的返回true，如果有匹配到的则返回false</span></span><br><span class="line"><span class="keyword">boolean</span> noneMatch = stringList</span><br><span class="line">                .stream()</span><br><span class="line">    .noneMatch(s -&gt; s.startsWith(<span class="string">"a"</span>));</span><br><span class="line">System.out.println(noneMatch);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计数</span></span><br><span class="line"><span class="keyword">long</span> count = stringList</span><br><span class="line">                .stream()</span><br><span class="line">    .filter(s -&gt; s.startsWith(<span class="string">"a"</span>))</span><br><span class="line">    .count();</span><br><span class="line">System.out.println(count);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 规约,将集合整合为一个元素</span></span><br><span class="line">Optional&lt;String&gt; reduce = stringList</span><br><span class="line">                .stream()</span><br><span class="line">    .sorted()</span><br><span class="line">    .reduce((s, s2) -&gt; s + <span class="string">"#"</span> + s2);</span><br><span class="line">reduce.ifPresent(System.out::println);</span><br></pre></td></tr></table></figure>
+<h2 id="lambda语法创建接口"><a href="#lambda语法创建接口" class="headerlink" title="lambda语法创建接口"></a>lambda语法创建接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InteTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">initData</span><span class="params">(String string)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        InteTest inteTest = string -&gt; &#123;</span><br><span class="line">            System.out.println(string);</span><br><span class="line">        &#125;;</span><br><span class="line">        inteTest.initData(<span class="string">"123"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-11T04:12:43.072Z" itemprop="dateUpdated">2019-07-11 12:12:43</time>
+</span><br>
+
+
+        
+        欢迎转发本内容：<a href="/2019/07/11/java8-lambda语法/" target="_blank" rel="external">https://github.com/RShit/2019/07/11/java8-lambda语法/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/RShit">
+            <img src="/img/avatar.jpg" alt="刘奶奶找牛奶奶买榴莲牛奶">
+            刘奶奶找牛奶奶买榴莲牛奶
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/07/11/java8-lambda语法/&title=《java8 lambda语法》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/07/11/java8-lambda语法/&title=《java8 lambda语法》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/07/11/java8-lambda语法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java8 lambda语法》 — Hexo&url=https://github.com/RShit/2019/07/11/java8-lambda语法/&via=https://github.com/RShit" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/07/11/java8-lambda语法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/02/务及SpringCloud的一些面试问题/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">微服务及SpringCloud的一些面试问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'true' == 'true',
+            appId: "cwrI5YHif4WcDbxiBmshPYlb-gzGzoHsz",
+            appKey: "2uKpfAg5yEKsWmz9edcF2Oxi",
+            avatar: "monsterid",
+            placeholder: "请留下您宝贵的意见",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>刘奶奶找牛奶奶买榴莲牛奶 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/RShit/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/07/11/java8-lambda语法/&title=《java8 lambda语法》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/07/11/java8-lambda语法/&title=《java8 lambda语法》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/07/11/java8-lambda语法/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《java8 lambda语法》 — Hexo&url=https://github.com/RShit/2019/07/11/java8-lambda语法/&via=https://github.com/RShit" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/07/11/java8-lambda语法/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/07/11/java8-lambda语法/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '离开了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

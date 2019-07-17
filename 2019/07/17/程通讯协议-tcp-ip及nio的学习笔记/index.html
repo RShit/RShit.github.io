@@ -21,17 +21,17 @@
     
     
     <meta name="keywords" content>
-    <meta name="description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层， tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，IP请求转发 四层负载">
+    <meta name="description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层，软件开发设计必须要做的 tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，I">
 <meta property="og:type" content="article">
 <meta property="og:title" content="远程通讯协议-tcp&#x2F;ip及nio的学习笔记">
 <meta property="og:url" content="https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层， tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，IP请求转发 四层负载">
+<meta property="og:description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层，软件开发设计必须要做的 tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，I">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-17T09:39:34.535Z">
+<meta property="og:updated_time" content="2019-07-17T09:42:07.966Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="远程通讯协议-tcp&#x2F;ip及nio的学习笔记">
-<meta name="twitter:description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层， tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，IP请求转发 四层负载">
+<meta name="twitter:description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层，软件开发设计必须要做的 tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，I">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -189,7 +189,7 @@
 </ul>
 <p>4层网络模型：</p>
 <p>其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层</p>
-<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p>复杂的程序都需要分层，</p>
+<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p>复杂的程序都需要分层，软件开发设计必须要做的</p>
 <h2 id="tcp负载均衡"><a href="#tcp负载均衡" class="headerlink" title="tcp负载均衡"></a>tcp负载均衡</h2><p>二层负载 -&gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同</p>
 <p>三层负载 -&gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，IP请求转发</p>
 <p>四层负载 -&gt; 传输层负载，包含ip和端口，修改目标ip和端口地址</p>
@@ -246,8 +246,7 @@
 <li>内存大小</li>
 <li>文件句柄的限制</li>
 <li>ulimit -n 默认是1024</li>
-<li>带宽的资源</li>
-<li></li>
+<li>带宽的资源<br>5.</li>
 </ol>
 
         </div>
@@ -257,7 +256,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-17T09:39:34.535Z" itemprop="dateUpdated">2019-07-17 17:39:34</time>
+    最后更新时间：<time datetime="2019-07-17T09:42:07.966Z" itemprop="dateUpdated">2019-07-17 17:42:07</time>
 </span><br>
 
 

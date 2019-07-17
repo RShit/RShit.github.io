@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>远程通讯协议-tcp/ip及nio的学习笔记 | Hexo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content>
+    <meta name="description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层， tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，IP请求转发 四层负载">
+<meta property="og:type" content="article">
+<meta property="og:title" content="远程通讯协议-tcp&#x2F;ip及nio的学习笔记">
+<meta property="og:url" content="https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层， tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，IP请求转发 四层负载">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2019-07-17T09:39:34.535Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="远程通讯协议-tcp&#x2F;ip及nio的学习笔记">
+<meta name="twitter:description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层， tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，IP请求转发 四层负载">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">刘奶奶找牛奶奶买榴莲牛奶</h5>
+          <a href="mailto:446109730@qq.com" title="446109730@qq.com" class="mail">446109730@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/RShit" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">远程通讯协议-tcp/ip及nio的学习笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">远程通讯协议-tcp/ip及nio的学习笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2019-07-17T09:39:19.000Z" itemprop="datePublished" class="page-time">
+  2019-07-17
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tcp-7层"><span class="post-toc-number">1.</span> <span class="post-toc-text">tcp 7层</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#ARP协议"><span class="post-toc-number">2.</span> <span class="post-toc-text">ARP协议</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tcp负载均衡"><span class="post-toc-number">3.</span> <span class="post-toc-text">tcp负载均衡</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#tcp和udp区别"><span class="post-toc-number">4.</span> <span class="post-toc-text">tcp和udp区别</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#在应用中如何去构建一个传输的实例"><span class="post-toc-number">5.</span> <span class="post-toc-text">在应用中如何去构建一个传输的实例</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通讯过程中的阻塞"><span class="post-toc-number">6.</span> <span class="post-toc-text">通讯过程中的阻塞</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#滑动窗口的协议"><span class="post-toc-number">7.</span> <span class="post-toc-text">滑动窗口的协议</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#流量控制"><span class="post-toc-number">8.</span> <span class="post-toc-text">流量控制</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#BIO模型"><span class="post-toc-number">9.</span> <span class="post-toc-text">BIO模型</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#NIO"><span class="post-toc-number">10.</span> <span class="post-toc-text">NIO</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#服务端的机器怎么去标记一个个的连接"><span class="post-toc-number">10.1.</span> <span class="post-toc-text">服务端的机器怎么去标记一个个的连接</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-程通讯协议-tcp-ip及nio的学习笔记" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">远程通讯协议-tcp/ip及nio的学习笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2019-07-17 17:39:19" datetime="2019-07-17T09:39:19.000Z" itemprop="datePublished">2019-07-17</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h2 id="tcp-7层"><a href="#tcp-7层" class="headerlink" title="tcp 7层"></a>tcp 7层</h2><ul>
+<li>应用层</li>
+<li>表示层</li>
+<li>会话层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ul>
+<p>4层网络模型：</p>
+<p>其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层</p>
+<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p>复杂的程序都需要分层，</p>
+<h2 id="tcp负载均衡"><a href="#tcp负载均衡" class="headerlink" title="tcp负载均衡"></a>tcp负载均衡</h2><p>二层负载 -&gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同</p>
+<p>三层负载 -&gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，IP请求转发</p>
+<p>四层负载 -&gt; 传输层负载，包含ip和端口，修改目标ip和端口地址</p>
+<p>七层负载 -&gt; 应用层负载，请求的url，http请求的报文，如<a href="http://a/a.html,主机名。" target="_blank" rel="noopener">http://a/a.html,主机名。</a></p>
+<h2 id="tcp和udp区别"><a href="#tcp和udp区别" class="headerlink" title="tcp和udp区别"></a>tcp和udp区别</h2><p>TCP/IP：可靠</p>
+<ol>
+<li>建立连接机制</li>
+<li>三次握手建立连接<ol>
+<li>client发送请求连接的数据包</li>
+<li>server返回可以进行连接的数据包</li>
+<li>client发送确认请求连接的数据包</li>
+<li>client/server可以进行数据传输了</li>
+</ol>
+</li>
+<li>SYNC攻击 -&gt; 客户端伪造大量ip和mac地址发送消息给服务器，占用服务器大量资源</li>
+<li>连接的关闭，四次挥手协议<ol>
+<li>client发送请求关闭连接的数据包</li>
+<li>server返回确认收到请求关闭的数据包-此时server可能还处于数据操作的状况</li>
+<li>server数据已经处理完毕，并返回可以关闭的数据包</li>
+<li>client返回最终请求关闭数据包-此时server接收到数据包以后将处于关闭状态,而client可能还处于数据为未接受的状态，等待2个固定的时间点后进入关闭状态</li>
+</ol>
+</li>
+<li>TCP是一种全双工的协议</li>
+<li>长连接，正常连接是超时关闭，但是长连接可以发送心跳包维持连接</li>
+</ol>
+<p>UDP/IP：不可靠</p>
+<h2 id="在应用中如何去构建一个传输的实例"><a href="#在应用中如何去构建一个传输的实例" class="headerlink" title="在应用中如何去构建一个传输的实例"></a>在应用中如何去构建一个传输的实例</h2><p>socket -&gt; 套接字</p>
+<p>socket io</p>
+<p>file io</p>
+<h2 id="通讯过程中的阻塞"><a href="#通讯过程中的阻塞" class="headerlink" title="通讯过程中的阻塞"></a>通讯过程中的阻塞</h2><p>accept阻塞(连接阻塞)</p>
+<p>流操作的阻塞(read/write)</p>
+<h2 id="滑动窗口的协议"><a href="#滑动窗口的协议" class="headerlink" title="滑动窗口的协议"></a>滑动窗口的协议</h2><h2 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h2><h2 id="BIO模型"><a href="#BIO模型" class="headerlink" title="BIO模型"></a>BIO模型</h2><blockquote>
+<p>​    blocker  io 阻塞</p>
+</blockquote>
+<p>优化方案：</p>
+<p>可以解决socket io阻塞，但是还是存在file io阻塞问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ServerSocket server = <span class="keyword">new</span> ServerSocket(<span class="number">8080</span>);</span><br><span class="line"><span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">    Socket socket = server.accpet();</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> SocketThread(socket)).start;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SocketThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    Socket socket;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SocketThread</span><span class="params">(Socket socket)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.socket = socket;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 对socket进行操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h2><p>非阻塞</p>
+<blockquote>
+<p>​    new io / non blocker io</p>
+</blockquote>
+<p>多路复用机制</p>
+<p>linux fd：linux系统中一切皆可看成是文件，文件描述符是内核为了高效管理已被打开的文件所创建的索引</p>
+<p>serverSocket 向请求内核</p>
+<p>先监听socket/fd，再如果发现socket/fd已就绪，就发送数据已经准备好的通知(即可以像该文件进行读写)，然后serverSocket再来发送read/write请求</p>
+<p>linux提供的io复用机制</p>
+<p>select/poll：轮询查询socket/fd是否已经就绪</p>
+<p>epoll：事件机制，理解为注册监听机制，如果发现socket/fd就绪直接返回就绪通知，可以进行读写</p>
+<h3 id="服务端的机器怎么去标记一个个的连接"><a href="#服务端的机器怎么去标记一个个的连接" class="headerlink" title="服务端的机器怎么去标记一个个的连接"></a>服务端的机器怎么去标记一个个的连接</h3><p>四元组：source_ip/source_port/target_ip/target_port </p>
+<p>因为目标机器的ip和端口固定，所以最大连接数取决于客户端的数量</p>
+<p>source_ip : 2^32</p>
+<p>source_port:2^16 因为0不能作为端口，所以是65535个</p>
+<ol>
+<li>内存大小</li>
+<li>文件句柄的限制</li>
+<li>ulimit -n 默认是1024</li>
+<li>带宽的资源</li>
+<li></li>
+</ol>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2019-07-17T09:39:34.535Z" itemprop="dateUpdated">2019-07-17 17:39:34</time>
+</span><br>
+
+
+        
+        欢迎转发本内容：<a href="/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/" target="_blank" rel="external">https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/</a>
+        
+    </div>
+    
+    <footer>
+        <a href="https://github.com/RShit">
+            <img src="/img/avatar.jpg" alt="刘奶奶找牛奶奶买榴莲牛奶">
+            刘奶奶找牛奶奶买榴莲牛奶
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/&title=《远程通讯协议-tcp/ip及nio的学习笔记》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/&title=《远程通讯协议-tcp/ip及nio的学习笔记》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《远程通讯协议-tcp/ip及nio的学习笔记》 — Hexo&url=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/&via=https://github.com/RShit" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/07/11/java8-lambda语法/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">java8 新特性</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
+    <script>
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'true' == 'true',
+            appId: "cwrI5YHif4WcDbxiBmshPYlb-gzGzoHsz",
+            appKey: "2uKpfAg5yEKsWmz9edcF2Oxi",
+            avatar: "monsterid",
+            placeholder: "请留下您宝贵的意见",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
+        })
+    </script>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>刘奶奶找牛奶奶买榴莲牛奶 &copy; 2015 - 2019</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/RShit/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/&title=《远程通讯协议-tcp/ip及nio的学习笔记》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/&title=《远程通讯协议-tcp/ip及nio的学习笔记》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《远程通讯协议-tcp/ip及nio的学习笔记》 — Hexo&url=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/&via=https://github.com/RShit" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '离开了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '欢迎回来!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

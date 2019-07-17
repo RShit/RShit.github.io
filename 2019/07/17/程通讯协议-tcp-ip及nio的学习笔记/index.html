@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层，软件开发设计必须要做的 tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，I">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-17T09:42:07.966Z">
+<meta property="og:updated_time" content="2019-07-17T09:44:08.311Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="远程通讯协议-tcp&#x2F;ip及nio的学习笔记">
 <meta name="twitter:description" content="tcp 7层 应用层 表示层 会话层 传输层 网络层 数据链路层 物理层  4层网络模型： 其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层 ARP协议复杂的程序都需要分层，软件开发设计必须要做的 tcp负载均衡二层负载 -&amp;gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同 三层负载 -&amp;gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，I">
@@ -209,7 +209,7 @@
 <li>client发送请求关闭连接的数据包</li>
 <li>server返回确认收到请求关闭的数据包-此时server可能还处于数据操作的状况</li>
 <li>server数据已经处理完毕，并返回可以关闭的数据包</li>
-<li>client返回最终请求关闭数据包-此时server接收到数据包以后将处于关闭状态,而client可能还处于数据为未接受的状态，等待2个固定的时间点后进入关闭状态</li>
+<li>client返回最终请求关闭数据包-此时server接收到数据包以后将处于关闭状态,而client可能还处于数据为未接受完的状态，等待2个固定的时间点后进入关闭状态</li>
 </ol>
 </li>
 <li>TCP是一种全双工的协议</li>
@@ -256,7 +256,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-17T09:42:07.966Z" itemprop="dateUpdated">2019-07-17 17:42:07</time>
+    最后更新时间：<time datetime="2019-07-17T09:44:08.311Z" itemprop="dateUpdated">2019-07-17 17:44:08</time>
 </span><br>
 
 

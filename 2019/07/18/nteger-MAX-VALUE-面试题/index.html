@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="如下代码：1234567final int start = Integer.MAX_VALUE-100;final int end = Integer.MAX_VALUE;int count = 0;for (int i = start; i &amp;lt;= end;i++) &amp;#123;	count++;&amp;#125;System.out.println(count); 输出结果为？没有输出结果 分析">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T08:18:16.209Z">
+<meta property="og:updated_time" content="2019-07-18T10:12:59.293Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Integer.MAX_VALUE 面试题">
 <meta name="twitter:description" content="如下代码：1234567final int start = Integer.MAX_VALUE-100;final int end = Integer.MAX_VALUE;int count = 0;for (int i = start; i &amp;lt;= end;i++) &amp;#123;	count++;&amp;#125;System.out.println(count); 输出结果为？没有输出结果 分析">
@@ -180,8 +180,8 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="如下代码："><a href="#如下代码：" class="headerlink" title="如下代码："></a>如下代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> start = Integer.MAX_VALUE-<span class="number">100</span>;</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> end = Integer.MAX_VALUE;</span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= end;i++) &#123;</span><br><span class="line">	count++;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(count);</span><br></pre></td></tr></table></figure>
 <h2 id="输出结果为？"><a href="#输出结果为？" class="headerlink" title="输出结果为？"></a>输出结果为？</h2><p><strong>没有输出结果</strong></p>
-<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><code>Integer.MAX_VALUE</code>用二进制表示1111111111111111111111111111111</p>
-<p>所以当i++一直到=end时，即<code>i = Integer.MAX_VALUE</code>时,此时计算的结果为100，但是当接着往下面执行时，i++即 <code>i = Integer.MAX_VALUE+1</code>，i此时二进制1111111111111111111111111111111 + 1 的结果为-10000000000000000000000000000000，即i = -2147483648，符合 <code>i &lt; end</code>条件，所以循环接着往下执行，一直到=end，+1后又变为负数，周而复始，所以不会有结果输出。</p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><code>Integer.MAX_VALUE</code>用二进制表示1111 1111 1111 1111 1111 1111 1111 111</p>
+<p>所以当i++一直到=end时，即<code>i = Integer.MAX_VALUE</code>时,此时计算的结果为100，但是当接着往下面执行时，i++即 <code>i = Integer.MAX_VALUE+1</code>，i此时二进制1111 1111 1111 1111 1111 1111 1111 111 + 1 的结果为-1000 0000 0000 0000 0000 0000 0000 0000，即i = -2147483648，符合 <code>i &lt; end</code>条件，所以循环接着往下执行，一直到=end，+1后又变为负数，周而复始，所以不会有结果输出。</p>
 
         </div>
 
@@ -190,7 +190,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-18T08:18:16.209Z" itemprop="dateUpdated">2019-07-18 16:18:16</time>
+    最后更新时间：<time datetime="2019-07-18T10:12:59.293Z" itemprop="dateUpdated">2019-07-18 18:12:59</time>
 </span><br>
 
 

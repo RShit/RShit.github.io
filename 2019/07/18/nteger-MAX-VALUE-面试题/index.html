@@ -28,12 +28,10 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="如下代码：1234567final int start = Integer.MAX_VALUE-100;final int end = Integer.MAX_VALUE;int count = 0;for (int i = start; i &amp;lt;= end;i++) &amp;#123;	count++;&amp;#125;System.out.println(count); 输出结果为？没有输出结果 分析">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:image" content="https://images/pasted-4.png/">
-<meta property="og:updated_time" content="2019-07-18T08:16:06.660Z">
+<meta property="og:updated_time" content="2019-07-18T08:18:16.209Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Integer.MAX_VALUE 面试题">
 <meta name="twitter:description" content="如下代码：1234567final int start = Integer.MAX_VALUE-100;final int end = Integer.MAX_VALUE;int count = 0;for (int i = start; i &amp;lt;= end;i++) &amp;#123;	count++;&amp;#125;System.out.println(count); 输出结果为？没有输出结果 分析">
-<meta name="twitter:image" content="https://images/pasted-4.png/">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -184,13 +182,7 @@
 <h2 id="输出结果为？"><a href="#输出结果为？" class="headerlink" title="输出结果为？"></a>输出结果为？</h2><p><strong>没有输出结果</strong></p>
 <h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><p><code>Integer.MAX_VALUE</code>用二进制表示1111111111111111111111111111111</p>
 <p>所以当i++一直到=end时，即<code>i = Integer.MAX_VALUE</code>时,此时计算的结果为100，但是当接着往下面执行时，i++即 <code>i = Integer.MAX_VALUE+1</code>，i此时二进制1111111111111111111111111111111 + 1 的结果为-10000000000000000000000000000000，即i = -2147483648，符合 <code>i &lt; end</code>条件，所以循环接着往下执行，一直到=end，+1后又变为负数，周而复始，所以不会有结果输出。</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="\\images\pasted-4.png\" alt="upload successful" title>
-                </div>
-                <div class="image-caption">upload successful</div>
-            </figure>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -198,7 +190,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-18T08:16:06.660Z" itemprop="dateUpdated">2019-07-18 16:16:06</time>
+    最后更新时间：<time datetime="2019-07-18T08:18:16.209Z" itemprop="dateUpdated">2019-07-18 16:18:16</time>
 </span><br>
 
 

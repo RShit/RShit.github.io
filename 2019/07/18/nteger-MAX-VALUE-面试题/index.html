@@ -14,24 +14,24 @@
     
     
     
-    <title>short/int 易错面试题 | Hexo</title>
+    <title>Integer.MAX_VALUE 面试题 | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content>
-    <meta name="description" content="123456789HashSet&amp;lt;Short&amp;gt; set = new HashSet&amp;lt;&amp;gt;();for (short i = 0; i &amp;lt; 100; i++) &amp;#123;    // set.add set添加的类型为short    set.add(i);    // 通过计算得知 int i1 = i - 1,i-1返回的是一个int类型的值，所以remove时找不">
+    <meta name="description" content="如下代码：1234567final int start = Integer.MAX_VALUE-100;final int end = Integer.MAX_VALUE;int count = 0;for (int i = start; i &amp;lt;= end;i++) &amp;#123;	count++;&amp;#125;System.out.println(count); 输出结果为？没有输出结果 分析">
 <meta property="og:type" content="article">
-<meta property="og:title" content="short&#x2F;int 易错面试题">
-<meta property="og:url" content="https://github.com/RShit/2019/07/18/ort-int-出人意料代码/index.html">
+<meta property="og:title" content="Integer.MAX_VALUE 面试题">
+<meta property="og:url" content="https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="123456789HashSet&amp;lt;Short&amp;gt; set = new HashSet&amp;lt;&amp;gt;();for (short i = 0; i &amp;lt; 100; i++) &amp;#123;    // set.add set添加的类型为short    set.add(i);    // 通过计算得知 int i1 = i - 1,i-1返回的是一个int类型的值，所以remove时找不">
+<meta property="og:description" content="如下代码：1234567final int start = Integer.MAX_VALUE-100;final int end = Integer.MAX_VALUE;int count = 0;for (int i = start; i &amp;lt;= end;i++) &amp;#123;	count++;&amp;#125;System.out.println(count); 输出结果为？没有输出结果 分析">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-07-18T08:00:41.736Z">
+<meta property="og:updated_time" content="2019-07-18T08:12:48.812Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="short&#x2F;int 易错面试题">
-<meta name="twitter:description" content="123456789HashSet&amp;lt;Short&amp;gt; set = new HashSet&amp;lt;&amp;gt;();for (short i = 0; i &amp;lt; 100; i++) &amp;#123;    // set.add set添加的类型为short    set.add(i);    // 通过计算得知 int i1 = i - 1,i-1返回的是一个int类型的值，所以remove时找不">
+<meta name="twitter:title" content="Integer.MAX_VALUE 面试题">
+<meta name="twitter:description" content="如下代码：1234567final int start = Integer.MAX_VALUE-100;final int end = Integer.MAX_VALUE;int count = 0;for (int i = start; i &amp;lt;= end;i++) &amp;#123;	count++;&amp;#125;System.out.println(count); 输出结果为？没有输出结果 分析">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -110,7 +110,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">short/int 易错面试题</div>
+        <div class="flex-col header-title ellipsis">Integer.MAX_VALUE 面试题</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -132,10 +132,10 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">short/int 易错面试题</h1>
+        <h1 class="title">Integer.MAX_VALUE 面试题</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-07-18T03:46:00.000Z" itemprop="datePublished" class="page-time">
+                <time datetime="2019-07-18T08:02:41.000Z" itemprop="datePublished" class="page-time">
   2019-07-18
 </time>
 
@@ -152,13 +152,20 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#如下代码："><span class="post-toc-number">1.</span> <span class="post-toc-text">如下代码：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输出结果为？"><span class="post-toc-number">2.</span> <span class="post-toc-text">输出结果为？</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#分析"><span class="post-toc-number">3.</span> <span class="post-toc-text">分析</span></a></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-ort-int-出人意料代码" class="post-article article-type-post fade" itemprop="blogPost">
+
+<article id="post-nteger-MAX-VALUE-面试题" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">short/int 易错面试题</h1>
+        <h1 class="post-card-title">Integer.MAX_VALUE 面试题</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-07-18 11:46:00" datetime="2019-07-18T03:46:00.000Z" itemprop="datePublished">2019-07-18</time>
+            <time class="post-time" title="2019-07-18 16:02:41" datetime="2019-07-18T08:02:41.000Z" itemprop="datePublished">2019-07-18</time>
 
             
 
@@ -171,7 +178,13 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">HashSet&lt;Short&gt; set = <span class="keyword">new</span> HashSet&lt;&gt;();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">short</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">    <span class="comment">// set.add set添加的类型为short</span></span><br><span class="line">    set.add(i);</span><br><span class="line">    <span class="comment">// 通过计算得知 int i1 = i - 1,i-1返回的是一个int类型的值，所以remove时找不到需要remove的值</span></span><br><span class="line">    set.remove(i-<span class="number">1</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">// 从而size是100</span></span><br><span class="line">System.out.println(set.size());</span><br></pre></td></tr></table></figure>
+            <h2 id="如下代码："><a href="#如下代码：" class="headerlink" title="如下代码："></a>如下代码：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> start = Integer.MAX_VALUE-<span class="number">100</span>;</span><br><span class="line"><span class="keyword">final</span> <span class="keyword">int</span> end = Integer.MAX_VALUE;</span><br><span class="line"><span class="keyword">int</span> count = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = start; i &lt;= end;i++) &#123;</span><br><span class="line">	count++;</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(count);</span><br></pre></td></tr></table></figure>
+<h2 id="输出结果为？"><a href="#输出结果为？" class="headerlink" title="输出结果为？"></a>输出结果为？</h2><p><strong>没有输出结果</strong></p>
+<h2 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Integer.MAX_VALUE</span><br></pre></td></tr></table></figure>
+<p>用二进制表示1111111111111111111111111111111</p>
+<p>所以当i++一直到=end时，即<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">```i &lt; end</span><br></pre></td></tr></table></figure></p>
+<p>条件，所以循环接着往下执行，一直到=end，+1后又变为负数，周而复始，所以不会有结果输出。</p>
+
         </div>
 
         <blockquote class="post-copyright">
@@ -179,12 +192,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-07-18T08:00:41.736Z" itemprop="dateUpdated">2019-07-18 16:00:41</time>
+    最后更新时间：<time datetime="2019-07-18T08:12:48.812Z" itemprop="dateUpdated">2019-07-18 16:12:48</time>
 </span><br>
 
 
         
-        欢迎转发本内容：<a href="/2019/07/18/ort-int-出人意料代码/" target="_blank" rel="external">https://github.com/RShit/2019/07/18/ort-int-出人意料代码/</a>
+        欢迎转发本内容：<a href="/2019/07/18/nteger-MAX-VALUE-面试题/" target="_blank" rel="external">https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/</a>
         
     </div>
     
@@ -209,7 +222,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/&title=《short/int 易错面试题》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/&title=《Integer.MAX_VALUE 面试题》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -219,22 +232,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/&title=《short/int 易错面试题》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/&title=《Integer.MAX_VALUE 面试题》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《short/int 易错面试题》 — Hexo&url=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/&via=https://github.com/RShit" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Integer.MAX_VALUE 面试题》 — Hexo&url=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/&via=https://github.com/RShit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -254,21 +267,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/07/18/nteger-MAX-VALUE-面试题/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">Integer.MAX_VALUE 面试题</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/" id="post-next" class="post-nav-link">
+      <a href="/2019/07/18/ort-int-出人意料代码/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">远程通讯协议-tcp/ip及nio的学习笔记</h4>
+        <h4 class="title">short/int 易错面试题</h4>
       </a>
     </div>
   
@@ -364,7 +370,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/&title=《short/int 易错面试题》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/&title=《Integer.MAX_VALUE 面试题》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -374,22 +380,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/&title=《short/int 易错面试题》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/&title=《Integer.MAX_VALUE 面试题》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《short/int 易错面试题》 — Hexo&url=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/&via=https://github.com/RShit" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Integer.MAX_VALUE 面试题》 — Hexo&url=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/&via=https://github.com/RShit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -400,7 +406,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/07/18/ort-int-出人意料代码/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/07/18/nteger-MAX-VALUE-面试题/" alt="微信分享二维码">
 </div>
 
 

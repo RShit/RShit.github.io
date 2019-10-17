@@ -28,7 +28,7 @@
 <meta property="og:site_name" content="Hexo">
 <meta property="og:description" content="创建docker-compose.yml文件12345678910version: &apos;2&apos;services:    redis:      image: redis:5.0.5      container_name: redis      command: redis-server --requirepass 123456      ports:        - &quot;16379:6379&quot;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-17T03:04:32.647Z">
+<meta property="og:updated_time" content="2019-10-17T03:06:10.168Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="docker-compose安装redis">
 <meta name="twitter:description" content="创建docker-compose.yml文件12345678910version: &apos;2&apos;services:    redis:      image: redis:5.0.5      container_name: redis      command: redis-server --requirepass 123456      ports:        - &quot;16379:6379&quot;">
@@ -180,7 +180,7 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h2 id="创建docker-compose-yml文件"><a href="#创建docker-compose-yml文件" class="headerlink" title="创建docker-compose.yml文件"></a>创建docker-compose.yml文件</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">    redis:</span></span><br><span class="line"><span class="attr">      image:</span> <span class="attr">redis:5.0.5</span></span><br><span class="line"><span class="attr">      container_name:</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">      command:</span> <span class="string">redis-server</span> <span class="bullet">--requirepass</span> <span class="number">123456</span></span><br><span class="line"><span class="attr">      ports:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">"16379:6379"</span></span><br><span class="line"><span class="attr">      volumes:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">./data:/data</span></span><br></pre></td></tr></table></figure>
 <h2 id="启动docker-compose"><a href="#启动docker-compose" class="headerlink" title="启动docker-compose"></a>启动docker-compose</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-<h2 id="使用redis命令行客户端"><a href="#使用redis命令行客户端" class="headerlink" title="使用redis命令行客户端"></a>使用redis命令行客户端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">先查看redis的容器id</span><br><span class="line">docker ps </span><br><span class="line">进入redis容器</span><br><span class="line">docker exec -it 1742ad5e9da8 bash</span><br><span class="line">启动redis客户端</span><br><span class="line">redis-cli -h localhost -p 6379</span><br></pre></td></tr></table></figure>
+<h2 id="使用redis命令行客户端"><a href="#使用redis命令行客户端" class="headerlink" title="使用redis命令行客户端"></a>使用redis命令行客户端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">先查看redis的容器id</span><br><span class="line">docker ps </span><br><span class="line">进入redis容器</span><br><span class="line">docker exec -it 1742ad5e9da8 bash</span><br><span class="line">启动redis客户端</span><br><span class="line">redis-cli -h 127.0.0.1 -p 6379 -a 123456</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -188,7 +188,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-17T03:04:32.647Z" itemprop="dateUpdated">2019-10-17 11:04:32</time>
+    最后更新时间：<time datetime="2019-10-17T03:06:10.168Z" itemprop="dateUpdated">2019-10-17 11:06:10</time>
 </span><br>
 
 

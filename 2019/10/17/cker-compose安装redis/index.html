@@ -14,24 +14,24 @@
     
     
     
-    <title>docker使用redis命令行 | Hexo</title>
+    <title>docker-compose安装redis | Hexo</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
     <meta name="theme-color" content="#3F51B5">
     
     
     <meta name="keywords" content>
-    <meta name="description" content="首先使用docker ps 查看容器 id 端口是docker容器内的端口1docker exec -it 1742ad5e9da8 redis-cli -h 127.0.0.1 -p 6379 -a 123456">
+    <meta name="description" content="创建docker-compose.yml文件12345678910version: &apos;2&apos;services:    redis:      image: redis:5.0.5      container_name: redis      command: redis-server --requirepass 123456      ports:        - &quot;16379:6379&quot;">
 <meta property="og:type" content="article">
-<meta property="og:title" content="docker使用redis命令行">
-<meta property="og:url" content="https://github.com/RShit/2019/10/16/cker使用redis命令行/index.html">
+<meta property="og:title" content="docker-compose安装redis">
+<meta property="og:url" content="https://github.com/RShit/2019/10/17/cker-compose安装redis/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="首先使用docker ps 查看容器 id 端口是docker容器内的端口1docker exec -it 1742ad5e9da8 redis-cli -h 127.0.0.1 -p 6379 -a 123456">
+<meta property="og:description" content="创建docker-compose.yml文件12345678910version: &apos;2&apos;services:    redis:      image: redis:5.0.5      container_name: redis      command: redis-server --requirepass 123456      ports:        - &quot;16379:6379&quot;">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2019-10-16T09:49:11.753Z">
+<meta property="og:updated_time" content="2019-10-17T03:06:32.138Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="docker使用redis命令行">
-<meta name="twitter:description" content="首先使用docker ps 查看容器 id 端口是docker容器内的端口1docker exec -it 1742ad5e9da8 redis-cli -h 127.0.0.1 -p 6379 -a 123456">
+<meta name="twitter:title" content="docker-compose安装redis">
+<meta name="twitter:description" content="创建docker-compose.yml文件12345678910version: &apos;2&apos;services:    redis:      image: redis:5.0.5      container_name: redis      command: redis-server --requirepass 123456      ports:        - &quot;16379:6379&quot;">
     
     <link rel="shortcut icon" href="/favicon.ico">
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
@@ -110,7 +110,7 @@
         <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
           <i class="icon icon-lg icon-navicon"></i>
         </a>
-        <div class="flex-col header-title ellipsis">docker使用redis命令行</div>
+        <div class="flex-col header-title ellipsis">docker-compose安装redis</div>
         
         <div class="search-wrap" id="search-wrap">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
@@ -132,11 +132,11 @@
 <header class="content-header post-header">
 
     <div class="container fade-scale">
-        <h1 class="title">docker使用redis命令行</h1>
+        <h1 class="title">docker-compose安装redis</h1>
         <h5 class="subtitle">
             
-                <time datetime="2019-10-16T09:42:31.000Z" itemprop="datePublished" class="page-time">
-  2019-10-16
+                <time datetime="2019-10-17T03:00:47.000Z" itemprop="datePublished" class="page-time">
+  2019-10-17
 </time>
 
 
@@ -152,13 +152,20 @@
 
 <div class="container body-wrap">
     
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#创建docker-compose-yml文件"><span class="post-toc-number">1.</span> <span class="post-toc-text">创建docker-compose.yml文件</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#启动docker-compose"><span class="post-toc-number">2.</span> <span class="post-toc-text">启动docker-compose</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#使用redis命令行客户端"><span class="post-toc-number">3.</span> <span class="post-toc-text">使用redis命令行客户端</span></a></li></ol>
+        </nav>
+    </aside>
 
-<article id="post-cker使用redis命令行" class="post-article article-type-post fade" itemprop="blogPost">
+
+<article id="post-cker-compose安装redis" class="post-article article-type-post fade" itemprop="blogPost">
 
     <div class="post-card">
-        <h1 class="post-card-title">docker使用redis命令行</h1>
+        <h1 class="post-card-title">docker-compose安装redis</h1>
         <div class="post-meta">
-            <time class="post-time" title="2019-10-16 17:42:31" datetime="2019-10-16T09:42:31.000Z" itemprop="datePublished">2019-10-16</time>
+            <time class="post-time" title="2019-10-17 11:00:47" datetime="2019-10-17T03:00:47.000Z" itemprop="datePublished">2019-10-17</time>
 
             
 
@@ -171,9 +178,9 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <p>首先使用docker ps 查看容器 id</p>
-<p>端口是docker容器内的端口<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it <span class="number">1742</span>ad5e9da8 redis-cli -h <span class="number">127.0</span>.<span class="number">0.1</span> -p <span class="number">6379</span> -a <span class="number">123456</span></span><br></pre></td></tr></table></figure></p>
-
+            <h2 id="创建docker-compose-yml文件"><a href="#创建docker-compose-yml文件" class="headerlink" title="创建docker-compose.yml文件"></a>创建docker-compose.yml文件</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">    redis:</span></span><br><span class="line"><span class="attr">      image:</span> <span class="attr">redis:5.0.5</span></span><br><span class="line"><span class="attr">      container_name:</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">      command:</span> <span class="string">redis-server</span> <span class="bullet">--requirepass</span> <span class="number">123456</span></span><br><span class="line"><span class="attr">      ports:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">"16379:6379"</span></span><br><span class="line"><span class="attr">      volumes:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">./data:/data</span></span><br></pre></td></tr></table></figure>
+<h2 id="启动docker-compose"><a href="#启动docker-compose" class="headerlink" title="启动docker-compose"></a>启动docker-compose</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
+<h2 id="使用redis命令行客户端"><a href="#使用redis命令行客户端" class="headerlink" title="使用redis命令行客户端"></a>使用redis命令行客户端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">先查看redis的容器id</span><br><span class="line">docker ps </span><br><span class="line">进入redis容器</span><br><span class="line">docker exec -it 1742ad5e9da8 bash</span><br><span class="line">启动redis客户端</span><br><span class="line">redis-cli -h 127.0.0.1 -p 6379 -a 123456</span><br></pre></td></tr></table></figure>
         </div>
 
         <blockquote class="post-copyright">
@@ -181,12 +188,12 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2019-10-16T09:49:11.753Z" itemprop="dateUpdated">2019-10-16 17:49:11</time>
+    最后更新时间：<time datetime="2019-10-17T03:06:32.138Z" itemprop="dateUpdated">2019-10-17 11:06:32</time>
 </span><br>
 
 
         
-        欢迎转发本内容：<a href="/2019/10/16/cker使用redis命令行/" target="_blank" rel="external">https://github.com/RShit/2019/10/16/cker使用redis命令行/</a>
+        欢迎转发本内容：<a href="/2019/10/17/cker-compose安装redis/" target="_blank" rel="external">https://github.com/RShit/2019/10/17/cker-compose安装redis/</a>
         
     </div>
     
@@ -211,7 +218,7 @@
 <div class="page-share" id="pageShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/10/16/cker使用redis命令行/&title=《docker使用redis命令行》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/10/17/cker-compose安装redis/&title=《docker-compose安装redis》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -221,22 +228,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/10/16/cker使用redis命令行/&title=《docker使用redis命令行》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/10/17/cker-compose安装redis/&title=《docker-compose安装redis》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/10/16/cker使用redis命令行/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/10/17/cker-compose安装redis/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker使用redis命令行》 — Hexo&url=https://github.com/RShit/2019/10/16/cker使用redis命令行/&via=https://github.com/RShit" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker-compose安装redis》 — Hexo&url=https://github.com/RShit/2019/10/17/cker-compose安装redis/&via=https://github.com/RShit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/10/16/cker使用redis命令行/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/10/17/cker-compose安装redis/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -256,21 +263,14 @@
     </div>
 
     
-<nav class="post-nav flex-row flex-justify-between">
-  
-    <div class="waves-block waves-effect prev">
-      <a href="/2019/10/17/ocker-compose安装mysql/" id="post-prev" class="post-nav-link">
-        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
-        <h4 class="title">docker-compose安装mysql</h4>
-      </a>
-    </div>
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
   
 
   
     <div class="waves-block waves-effect next">
-      <a href="/2019/10/10/一个数是否为NaN/" id="post-next" class="post-nav-link">
+      <a href="/2019/10/17/ocker-compose安装mysql/" id="post-next" class="post-nav-link">
         <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
-        <h4 class="title">判断一个数是否为NaN</h4>
+        <h4 class="title">docker-compose安装mysql</h4>
       </a>
     </div>
   
@@ -366,7 +366,7 @@
 <div class="global-share" id="globalShare">
     <ul class="reset share-icons">
       <li>
-        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/10/16/cker使用redis命令行/&title=《docker使用redis命令行》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://github.com/RShit/2019/10/17/cker-compose安装redis/&title=《docker-compose安装redis》 — Hexo&pic=https://github.com/RShit/img/avatar.jpg" data-title="微博">
           <i class="icon icon-weibo"></i>
         </a>
       </li>
@@ -376,22 +376,22 @@
         </a>
       </li>
       <li>
-        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/10/16/cker使用redis命令行/&title=《docker使用redis命令行》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://github.com/RShit/2019/10/17/cker-compose安装redis/&title=《docker-compose安装redis》 — Hexo&source=仰面朝天，知此身渺渺，沧海一粟" data-title=" QQ">
           <i class="icon icon-qq"></i>
         </a>
       </li>
       <li>
-        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/10/16/cker使用redis命令行/" data-title=" Facebook">
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://github.com/RShit/2019/10/17/cker-compose安装redis/" data-title=" Facebook">
           <i class="icon icon-facebook"></i>
         </a>
       </li>
       <li>
-        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker使用redis命令行》 — Hexo&url=https://github.com/RShit/2019/10/16/cker使用redis命令行/&via=https://github.com/RShit" data-title=" Twitter">
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《docker-compose安装redis》 — Hexo&url=https://github.com/RShit/2019/10/17/cker-compose安装redis/&via=https://github.com/RShit" data-title=" Twitter">
           <i class="icon icon-twitter"></i>
         </a>
       </li>
       <li>
-        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/10/16/cker使用redis命令行/" data-title=" Google+">
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://github.com/RShit/2019/10/17/cker-compose安装redis/" data-title=" Google+">
           <i class="icon icon-google-plus"></i>
         </a>
       </li>
@@ -402,7 +402,7 @@
 <div class="page-modal wx-share" id="wxShare">
     <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
-    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/10/16/cker使用redis命令行/" alt="微信分享二维码">
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=https://github.com/RShit/2019/10/17/cker-compose安装redis/" alt="微信分享二维码">
 </div>
 
 

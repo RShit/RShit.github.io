@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>About Me</title>
+    <url>/2020/02/25/bout-Me/</url>
+    <content><![CDATA[<blockquote>
+<p>   A Java Coder, live in BeiJing, China.<br>GitHub:<a href="https://github.com/LBraveHeart">BraveHeart</a><br>QQ:318635503</p>
+</blockquote>
+]]></content>
+  </entry>
+  <entry>
     <title>idea快捷键使用</title>
     <url>/2019/12/31/dea%E5%BF%AB%E6%8D%B7%E9%94%AE%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h2 id="自动代码"><a href="#自动代码" class="headerlink" title="自动代码"></a>自动代码</h2><p>常用的有fori/sout/psvm+Tab即可生成循环、System.out、main方法等boilerplate样板代码 。</p>

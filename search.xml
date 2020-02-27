@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>vps</title>
+    <url>/2020/02/27/ps/</url>
+    <content><![CDATA[<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line">curl &quot;https://bootstrap.pypa.io/get-pip.py&quot; -o &quot;get-pip.py&quot;</span><br><span class="line"></span><br><span class="line">python get-pip.py</span><br><span class="line"></span><br><span class="line">pip install --upgrade pip</span><br><span class="line"></span><br><span class="line">pip install shadowsocks</span><br><span class="line"></span><br><span class="line">vi /etc/shadowsocks.json</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;server&quot;: &quot;0.0.0.0&quot;,</span><br><span class="line">  &quot;server_port&quot;: 2018,</span><br><span class="line">  &quot;password&quot;: &quot;12345678&quot;,</span><br><span class="line">  &quot;method&quot;: &quot;aes-256-cfb&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+]]></content>
+  </entry>
+  <entry>
     <title>About Me</title>
     <url>/2020/02/25/out-Me/</url>
     <content><![CDATA[<blockquote>

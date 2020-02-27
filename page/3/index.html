@@ -63,6 +63,83 @@
     
     
     
+    <article id="post-务及SpringCloud的一些面试问题" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/07/02/务及SpringCloud的一些面试问题/">微服务及SpringCloud的一些面试问题</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/07/02/务及SpringCloud的一些面试问题/" class="article-date">
+  <time datetime="2019-07-02T07:47:00.000Z" itemprop="datePublished">2019-07-02</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="soa和微服务的区别"><a href="#soa和微服务的区别" class="headerlink" title="soa和微服务的区别"></a>soa和微服务的区别</h2><p>   soa:面向服务的框架，着重于将应用系统根据不同的业务模块拆分不同的服务，并通过这些服务定义好的接口联系起来。它是一种粗粒度，松耦合的框架，主要解决的是服务重复性问题。</p>
+<p>   微服务:微服务是soa架构下的最终产物，它相对soa来说对系统的拆分更加彻底，拆分粒度更细，拆分后的服务都可以单独的运行。微服务主要解决的是服务的高耦合问题，通过降低服务之间的耦合度来把服务分割的更彻底，每个服务都可以不依赖于其他服务而独立运行，当一个服务出问题时，对其他服务并不会造成影响。</p>
+<p>   soa和微服务都是分布式的具体实现思想。</p>
+<h2 id="你是怎么理解微服务的？"><a href="#你是怎么理解微服务的？" class="headerlink" title="你是怎么理解微服务的？"></a>你是怎么理解微服务的？</h2><p>   微服务顾名思义就是将系统拆分为一个个可以独立部署、水平扩展、独立运行的细微服务。</p>
+<p>   使用微服务的思想通过对单体架构的系统进行细粒度的拆分，从而降低各个服务之间的耦合度，单个服务中如果出现问题而不会对其他服务产生影响。并且通过对系统的拆分，会极大的解决原单体架构系统中的有些业务运行速度过慢而对其他业务造成的影响。</p>
+<h2 id="什么是SpringCloud"><a href="#什么是SpringCloud" class="headerlink" title="什么是SpringCloud"></a>什么是SpringCloud</h2><p>   SpringCloud可以通俗的理解为整合各个分布式基础设施的工具箱，它是一系列框架的有序集合，注重于服务治理。</p>
+<h2 id="微服务架构的优点和缺点有哪些？"><a href="#微服务架构的优点和缺点有哪些？" class="headerlink" title="微服务架构的优点和缺点有哪些？"></a>微服务架构的优点和缺点有哪些？</h2><p>   微服务的主要作用是大型业务系统进行细粒度的拆分，从而降低项目开发时某一模块的开发对其他模块业务开发的影响，可以将项目中的各个模块更快地上线落地，相对传统的单体架构中一块出问题其他都会被影响，微服务带来的是更加敏捷的更新维护，当其中一个服务出问题时，其他服务不会受到影响。但是当系统拆分的太细致，造成的运维成本也相对的更大，梳理各服务的功能调用逻辑更麻烦，本来只需要对一个系统的维护现在变相的变成对多个系统的维护，这样的成本会大大的增大。</p>
+<h2 id="SpringCloud解决了什么问题？"><a href="#SpringCloud解决了什么问题？" class="headerlink" title="SpringCloud解决了什么问题？"></a>SpringCloud解决了什么问题？</h2><p>   SpringCloud利用SpringBoot的开发便利性简化了分布式系统基础设施的开发，如服务发现注册、配置中心、消息总线、熔断器、数据监控、负载均衡等，都可以利用SpringBoot的开发风格做到一键部署和启动。</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SpringCloud/">SpringCloud</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/微服务/">微服务</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-latile" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -756,86 +833,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/壁纸工具/">壁纸工具</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-pencv参考链接" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/05/06/pencv参考链接/">opencv参考链接</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/05/06/pencv参考链接/" class="article-date">
-  <time datetime="2019-05-06T09:18:00.000Z" itemprop="datePublished">2019-05-06</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/人工识别/">人工识别</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h3 id="基于java的opencv、tesseractc参考链接"><a href="#基于java的opencv、tesseractc参考链接" class="headerlink" title="基于java的opencv、tesseractc参考链接"></a>基于java的opencv、tesseractc参考链接</h3><ul>
-<li><p><a href="https://blog.csdn.net/qq_34814092/article/details/85240465" target="_blank" rel="noopener">Intellij Idea 部署 OpenCV-4.0.0 环境</a></p>
-</li>
-<li><p><a href="https://www.jiqizhixin.com/articles/2018-10-16-3" target="_blank" rel="noopener">如何使用Tesseract和OpenCV执行OCR和文本识别</a></p>
-</li>
-<li><a href="http://tesseract-ocr.github.io/" target="_blank" rel="noopener">tesseract官方文档</a></li>
-<li><a href="https://opencv-java-tutorials.readthedocs.io/en/latest/" target="_blank" rel="noopener">OpenCV Java Tutorials documentation!</a></li>
-</ul>
-<h3 id="Tesseract-OCR识别中文与训练字库实例"><a href="#Tesseract-OCR识别中文与训练字库实例" class="headerlink" title="Tesseract-OCR识别中文与训练字库实例"></a>Tesseract-OCR识别中文与训练字库实例</h3><ul>
-<li><a href="https://www.cnblogs.com/wzben/p/5930538.html" target="_blank" rel="noopener">Tesseract-OCR识别中文与训练字库实例</a></li>
-</ul>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ocr/">ocr</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/oepncv/">oepncv</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/testseract/">testseract</a></li></ul>
 
 
     </footer>

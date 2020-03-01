@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    java对象的强引用、软引用、弱引用、虚引用 |  Hexo
+    交换两个integer的值 |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -29,14 +29,14 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-ava对象的强引用、软引用、弱引用、虚引用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-换两个integer的值" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  java对象的强引用、软引用、弱引用、虚引用
+  交换两个integer的值
 </h1>
   
 
@@ -45,8 +45,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/03/01/ava对象的强引用、软引用、弱引用、虚引用/" class="article-date">
-  <time datetime="2020-03-01T03:15:50.000Z" itemprop="datePublished">2020-03-01</time>
+      <a href="/2020/03/01/换两个integer的值/" class="article-date">
+  <time datetime="2020-03-01T03:21:13.000Z" itemprop="datePublished">2020-03-01</time>
 </a>
       
       
@@ -56,7 +56,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">294字</span>
+            <span class="post-count">101字</span>
         </span>
     </span>
 
@@ -76,8 +76,6 @@
 
     
     
-    <div class="tocbot"></div>
-
 
 
 
@@ -92,14 +90,7 @@
       
 
       
-      <h3 id="强引用"><a href="#强引用" class="headerlink" title="强引用"></a>强引用</h3><p>强引用在对象不被使用时，并且也发生了gc，但是也不会被回收，直到发生oom</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">  * 强引用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">strongRef</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Object strongObj = obj;</span><br><span class="line">    obj = <span class="keyword">null</span>;</span><br><span class="line">    System.gc();</span><br><span class="line">    System.out.println(strongObj);</span><br><span class="line">&#125;</span><br><span class="line">java.lang.Object@<span class="number">677327</span>b6</span><br></pre></td></tr></table></figure>
-<h3 id="软引用"><a href="#软引用" class="headerlink" title="软引用"></a>软引用</h3><p>软引用在即将发生OOM时，会对没有使用的对象回收。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 软引用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">softRef</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Object softObj = <span class="keyword">new</span> Object();</span><br><span class="line">    SoftReference softReference = <span class="keyword">new</span> SoftReference(softObj);</span><br><span class="line">    softObj = <span class="keyword">null</span>;</span><br><span class="line">    System.gc();</span><br><span class="line">    System.out.println(softReference.get());</span><br><span class="line">&#125;</span><br><span class="line">java.lang.Object@<span class="number">677327</span>b6</span><br></pre></td></tr></table></figure>
-<h3 id="弱引用"><a href="#弱引用" class="headerlink" title="弱引用"></a>弱引用</h3><p>发生GC时，就会对没有使用的对象进行回收。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 弱引用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">weakRef</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Object weakObj = <span class="keyword">new</span> Object();</span><br><span class="line">    WeakReference weakReference = <span class="keyword">new</span> WeakReference(weakObj);</span><br><span class="line">    weakObj = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Thread.sleep(<span class="number">200</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    System.gc();;</span><br><span class="line">    System.out.println(weakReference.get());</span><br><span class="line">&#125;</span><br><span class="line">java.lang.Object@<span class="number">677327</span>b6</span><br><span class="line"><span class="keyword">null</span></span><br></pre></td></tr></table></figure>
-<h3 id="虚引用"><a href="#虚引用" class="headerlink" title="虚引用"></a>虚引用</h3><p>虚引用不管在使用时还是未使用时直接取值都会是null，但是对象未被使用时(=null)会将对象放入到queue中。如果对象还在使用，则不放入。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 虚引用</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">phantomRef</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    Object o = <span class="keyword">new</span> Object();</span><br><span class="line">    ReferenceQueue queue = <span class="keyword">new</span> ReferenceQueue();</span><br><span class="line">    PhantomReference phantomReference = <span class="keyword">new</span> PhantomReference(o, queue);</span><br><span class="line">    o = <span class="keyword">null</span>;</span><br><span class="line">    System.gc();</span><br><span class="line">    System.out.println(phantomReference.get());</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        Thread.sleep(<span class="number">200</span>);</span><br><span class="line">    &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line">    System.out.println(queue.poll());</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">null</span></span><br><span class="line">java.lang.ref.PhantomReference@<span class="number">677327</span>b6</span><br></pre></td></tr></table></figure>
+      <p>核心思想：通过反射设置integer的<code>value</code>属性。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Swap</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer i1 = <span class="number">1</span>;</span><br><span class="line">        Integer i2 = <span class="number">2</span>;</span><br><span class="line">        System.out.println(<span class="string">"before:"</span> + <span class="string">"i1:"</span> + i1+  <span class="string">"- i2:"</span> + i2) ;</span><br><span class="line">        swap(i1,i2);</span><br><span class="line">        System.out.println(<span class="string">"after:"</span> + <span class="string">"i1:"</span> + i1+  <span class="string">"- i2:"</span> + i2) ;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Integer(<span class="number">1</span>) == i1);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Integer i1,Integer i2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field field = Integer.class.getDeclaredField(<span class="string">"value"</span>);</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">int</span> tmp = i1.intValue();</span><br><span class="line">            field.setInt(i1,i2);</span><br><span class="line">            field.setInt(i2,tmp);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchFieldException | IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
       <!-- reward -->
@@ -164,7 +155,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/LBraveHeart/2020/03/01/ava对象的强引用、软引用、弱引用、虚引用/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/LBraveHeart/2020/03/01/换两个integer的值/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -180,19 +171,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/03/01/换两个integer的值/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            交换两个integer的值
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/03/01/int-转换为Integer/" class="article-nav-link">
+      <a href="/2020/03/01/ava对象的强引用、软引用、弱引用、虚引用/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">数组int[] 转换为Integer[]</div>
+        <div class="article-nav-title">java对象的强引用、软引用、弱引用、虚引用</div>
       </a>
     
   </nav>

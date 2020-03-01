@@ -1,8 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>java中的类加载顺序</title>
+    <url>/2020/03/01/ava%E4%B8%AD%E7%9A%84%E7%B1%BB%E5%8A%A0%E8%BD%BD%E9%A1%BA%E5%BA%8F/</url>
+    <content><![CDATA[<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonDemo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SingletonDemo singletonDemo = <span class="keyword">new</span> SingletonDemo();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> count1;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> count2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SingletonDemo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        count1++;</span><br><span class="line">        count2++;</span><br><span class="line">        System.out.println(<span class="string">"count1:"</span> + count1);<span class="comment">// 1</span></span><br><span class="line">        System.out.println(<span class="string">"count2:"</span> + count2);<span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"count1:"</span> + count1);<span class="comment">// 3</span></span><br><span class="line">        System.out.println(<span class="string">"count2:"</span> + count2);<span class="comment">// 4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析：</p>
+<p>类的加载过程为：转载 – 链接 – 初始化</p>
+<ul>
+<li>装载：根据类全路径进行加载</li>
+<li>链接包含三个步骤：验证 - 准备 - 解析。<ul>
+<li>验证：<ul>
+<li>文件格式验证</li>
+<li>元数据验证</li>
+<li>字节码验证</li>
+<li>符号引用验证</li>
+</ul>
+</li>
+<li>准备：为类的静态变量分配内存，并将其初始化为默认值。</li>
+<li>解析：把类中的符号引用转换为直接引用</li>
+</ul>
+</li>
+</ul>
+<p>初始化阶段会初始化类中的：</p>
+<ul>
+<li>静态成员变量<code>singletonDemo</code>，初始化时，<code>count1</code>和<code>count2</code>默认为0，初始化后<code>count1</code>和<code>count2</code>都是1，所以1和2位置输出均为1。</li>
+<li>静态变量<code>count1</code>和<code>count2</code>，初始化前<code>count1</code>和<code>count2</code>都是1，初始化后<code>count2</code>被赋值为0。所以3和4的位置输出1,0</li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>交换两个integer的值</title>
-    <url>/2020/03/01/%E6%8D%A2%E4%B8%A4%E4%B8%AAinteger%E7%9A%84%E5%80%BC/</url>
+    <url>/2020/03/01/%E4%B8%A4%E4%B8%AAinteger%E7%9A%84%E5%80%BC/</url>
     <content><![CDATA[<p>核心思想：通过反射设置integer的<code>value</code>属性。<br><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Swap</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Integer i1 = <span class="number">1</span>;</span><br><span class="line">        Integer i2 = <span class="number">2</span>;</span><br><span class="line">        System.out.println(<span class="string">"before:"</span> + <span class="string">"i1:"</span> + i1+  <span class="string">"- i2:"</span> + i2) ;</span><br><span class="line">        swap(i1,i2);</span><br><span class="line">        System.out.println(<span class="string">"after:"</span> + <span class="string">"i1:"</span> + i1+  <span class="string">"- i2:"</span> + i2) ;</span><br><span class="line"></span><br><span class="line">        System.out.println(<span class="keyword">new</span> Integer(<span class="number">1</span>) == i1);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">(Integer i1,Integer i2)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            Field field = Integer.class.getDeclaredField(<span class="string">"value"</span>);</span><br><span class="line">            field.setAccessible(<span class="keyword">true</span>);</span><br><span class="line">            <span class="keyword">int</span> tmp = i1.intValue();</span><br><span class="line">            field.setInt(i1,i2);</span><br><span class="line">            field.setInt(i2,tmp);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (NoSuchFieldException | IllegalAccessException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 ]]></content>
   </entry>

@@ -63,14 +63,14 @@
     
     
     
-    <article id="post-换两个integer的值" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+    <article id="post-ava中的类加载顺序" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
     <header class="article-header">
        
 <h2 itemprop="name">
-  <a class="article-title" href="/2020/03/01/换两个integer的值/">交换两个integer的值</a>
+  <a class="article-title" href="/2020/03/01/ava中的类加载顺序/">java中的类加载顺序</a>
 </h2>
   
 
@@ -79,7 +79,93 @@
 
     
     <div class="article-meta">
-      <a href="/2020/03/01/换两个integer的值/" class="article-date">
+      <a href="/2020/03/01/ava中的类加载顺序/" class="article-date">
+  <time datetime="2020-03-01T04:06:08.000Z" itemprop="datePublished">2020-03-01</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SingletonDemo</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> SingletonDemo singletonDemo = <span class="keyword">new</span> SingletonDemo();</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> count1;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">int</span> count2 = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SingletonDemo</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        count1++;</span><br><span class="line">        count2++;</span><br><span class="line">        System.out.println(<span class="string">"count1:"</span> + count1);<span class="comment">// 1</span></span><br><span class="line">        System.out.println(<span class="string">"count2:"</span> + count2);<span class="comment">// 2</span></span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"count1:"</span> + count1);<span class="comment">// 3</span></span><br><span class="line">        System.out.println(<span class="string">"count2:"</span> + count2);<span class="comment">// 4</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>分析：</p>
+<p>类的加载过程为：转载 – 链接 – 初始化</p>
+<ul>
+<li>装载：根据类全路径进行加载</li>
+<li>链接包含三个步骤：验证 - 准备 - 解析。<ul>
+<li>验证：<ul>
+<li>文件格式验证</li>
+<li>元数据验证</li>
+<li>字节码验证</li>
+<li>符号引用验证</li>
+</ul>
+</li>
+<li>准备：为类的静态变量分配内存，并将其初始化为默认值。</li>
+<li>解析：把类中的符号引用转换为直接引用</li>
+</ul>
+</li>
+</ul>
+<p>初始化阶段会初始化类中的：</p>
+<ul>
+<li>静态成员变量<code>singletonDemo</code>，初始化时，<code>count1</code>和<code>count2</code>默认为0，初始化后<code>count1</code>和<code>count2</code>都是1，所以1和2位置输出均为1。</li>
+<li>静态变量<code>count1</code>和<code>count2</code>，初始化前<code>count1</code>和<code>count2</code>都是1，初始化后<code>count2</code>被赋值为0。所以3和4的位置输出1,0</li>
+</ul>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-两个integer的值" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/01/两个integer的值/">交换两个integer的值</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/01/两个integer的值/" class="article-date">
   <time datetime="2020-03-01T03:21:13.000Z" itemprop="datePublished">2020-03-01</time>
 </a>
       
@@ -740,79 +826,13 @@
 
 </article>
     
-    <article id="post-inux统计文件夹信息" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/11/21/inux统计文件夹信息/">linux统计文件夹信息</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/11/21/inux统计文件夹信息/" class="article-date">
-  <time datetime="2019-11-21T07:40:12.000Z" itemprop="datePublished">2019-11-21</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h2 id="查看当前文件夹所有文件的个数-不包括文件夹"><a href="#查看当前文件夹所有文件的个数-不包括文件夹" class="headerlink" title="查看当前文件夹所有文件的个数(不包括文件夹)"></a>查看当前文件夹所有文件的个数(不包括文件夹)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |grep &quot;^-&quot;|wc -l</span><br></pre></td></tr></table></figure>
-<h2 id="查看当前文件夹所有目录的个数"><a href="#查看当前文件夹所有目录的个数" class="headerlink" title="查看当前文件夹所有目录的个数"></a>查看当前文件夹所有目录的个数</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -l |grep &quot;^ｄ&quot;|wc -l</span><br></pre></td></tr></table></figure>
-<h2 id="查看当前文件夹所有文件个数-包括子目录"><a href="#查看当前文件夹所有文件个数-包括子目录" class="headerlink" title="查看当前文件夹所有文件个数(包括子目录)"></a>查看当前文件夹所有文件个数(包括子目录)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lR|grep &quot;^-&quot;|wc -l</span><br></pre></td></tr></table></figure>
-<h2 id="查看当前文件夹下所有目录的个数-包含子目录"><a href="#查看当前文件夹下所有目录的个数-包含子目录" class="headerlink" title="查看当前文件夹下所有目录的个数(包含子目录)"></a>查看当前文件夹下所有目录的个数(包含子目录)</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lR|grep &quot;^d&quot;|wc -l</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
   </article>
   
 
   
   <nav class="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
   </nav>
   
 </section>

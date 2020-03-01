@@ -63,6 +63,145 @@
     
     
     
+    <article id="post-程通讯协议-tcp-ip及nio的学习笔记" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/">远程通讯协议-tcp/ip及nio的学习笔记</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/07/17/程通讯协议-tcp-ip及nio的学习笔记/" class="article-date">
+  <time datetime="2019-07-17T09:39:00.000Z" itemprop="datePublished">2019-07-17</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/通讯协议/">通讯协议</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="tcp-7层"><a href="#tcp-7层" class="headerlink" title="tcp 7层"></a>tcp 7层</h2><ul>
+<li>应用层</li>
+<li>表示层</li>
+<li>会话层</li>
+<li>传输层</li>
+<li>网络层</li>
+<li>数据链路层</li>
+<li>物理层</li>
+</ul>
+<p>4层网络模型：</p>
+<p>其中应用层、表示层、会话层表示应用层，数据链路层、物理层表示网络接口层</p>
+<h2 id="ARP协议"><a href="#ARP协议" class="headerlink" title="ARP协议"></a>ARP协议</h2><p>复杂的程序都需要分层，软件开发设计必须要做的</p>
+<h2 id="tcp负载均衡"><a href="#tcp负载均衡" class="headerlink" title="tcp负载均衡"></a>tcp负载均衡</h2><p>二层负载 -&gt; mac地址，vip(虚拟ip) 多个机器IP相同但是mac地址不同</p>
+<p>三层负载 -&gt;ip 对外提供虚拟ip，集群中不同机器采用不用的ip，IP请求转发</p>
+<p>四层负载 -&gt; 传输层负载，包含ip和端口，修改目标ip和端口地址</p>
+<p>七层负载 -&gt; 应用层负载，请求的url，http请求的报文，如<a href="http://a/a.html,主机名。" target="_blank" rel="noopener">http://a/a.html,主机名。</a></p>
+<h2 id="tcp和udp区别"><a href="#tcp和udp区别" class="headerlink" title="tcp和udp区别"></a>tcp和udp区别</h2><p>TCP/IP：可靠</p>
+<ol>
+<li>建立连接机制</li>
+<li>三次握手建立连接<ol>
+<li>client发送请求连接的数据包</li>
+<li>server返回可以进行连接的数据包</li>
+<li>client发送确认请求连接的数据包</li>
+<li>client/server可以进行数据传输了</li>
+</ol>
+</li>
+<li>SYNC攻击 -&gt; 客户端伪造大量ip和mac地址发送消息给服务器，占用服务器大量资源</li>
+<li>连接的关闭，四次挥手协议<ol>
+<li>client发送请求关闭连接的数据包</li>
+<li>server返回确认收到请求关闭的数据包-此时server可能还处于数据操作的状况</li>
+<li>server数据已经处理完毕，并返回可以关闭的数据包</li>
+<li>client返回最终请求关闭数据包-此时server接收到数据包以后将处于关闭状态,而client可能还处于数据为未接受完的状态，等待2个固定的时间点后进入关闭状态</li>
+</ol>
+</li>
+<li>TCP是一种全双工的协议</li>
+<li>长连接，正常连接是超时关闭，但是长连接可以发送心跳包维持连接</li>
+</ol>
+<p>UDP/IP：不可靠</p>
+<h2 id="在应用中如何去构建一个传输的实例"><a href="#在应用中如何去构建一个传输的实例" class="headerlink" title="在应用中如何去构建一个传输的实例"></a>在应用中如何去构建一个传输的实例</h2><p>socket -&gt; 套接字</p>
+<p>socket io</p>
+<p>file io</p>
+<h2 id="通讯过程中的阻塞"><a href="#通讯过程中的阻塞" class="headerlink" title="通讯过程中的阻塞"></a>通讯过程中的阻塞</h2><p>accept阻塞(连接阻塞)</p>
+<p>流操作的阻塞(read/write)</p>
+<h2 id="滑动窗口的协议"><a href="#滑动窗口的协议" class="headerlink" title="滑动窗口的协议"></a>滑动窗口的协议</h2><h2 id="流量控制"><a href="#流量控制" class="headerlink" title="流量控制"></a>流量控制</h2><h2 id="BIO模型"><a href="#BIO模型" class="headerlink" title="BIO模型"></a>BIO模型</h2><blockquote>
+<p>​    blocker  io 阻塞</p>
+</blockquote>
+<p>优化方案：</p>
+<p>可以解决socket io阻塞，但是还是存在file io阻塞问题</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">ServerSocket server = <span class="keyword">new</span> ServerSocket(<span class="number">8080</span>);</span><br><span class="line"><span class="keyword">while</span>(<span class="keyword">true</span>) &#123;</span><br><span class="line">    Socket socket = server.accpet();</span><br><span class="line">    <span class="keyword">new</span> Thread(<span class="keyword">new</span> SocketThread(socket)).start;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SocketThread</span> <span class="keyword">implements</span> <span class="title">Runnable</span></span>&#123;</span><br><span class="line">    Socket socket;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SocketThread</span><span class="params">(Socket socket)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.socket = socket;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 对socket进行操作</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="NIO"><a href="#NIO" class="headerlink" title="NIO"></a>NIO</h2><p>非阻塞</p>
+<blockquote>
+<p>​    new io / non blocker io</p>
+</blockquote>
+<p>多路复用机制</p>
+<p>linux fd：linux系统中一切皆可看成是文件，文件描述符是内核为了高效管理已被打开的文件所创建的索引</p>
+<p>serverSocket 向请求内核</p>
+<p>先监听socket/fd，再如果发现socket/fd已就绪，就发送数据已经准备好的通知(即可以像该文件进行读写)，然后serverSocket再来发送read/write请求</p>
+<p>linux提供的io复用机制</p>
+<p>select/poll：轮询查询socket/fd是否已经就绪</p>
+<p>epoll：事件机制，理解为注册监听机制，如果发现socket/fd就绪直接返回就绪通知，可以进行读写</p>
+<h3 id="服务端的机器怎么去标记一个个的连接"><a href="#服务端的机器怎么去标记一个个的连接" class="headerlink" title="服务端的机器怎么去标记一个个的连接"></a>服务端的机器怎么去标记一个个的连接</h3><p>四元组：source_ip/source_port/target_ip/target_port </p>
+<p>因为目标机器的ip和端口固定，所以最大连接数取决于客户端的数量</p>
+<p>source_ip : 2^32</p>
+<p>source_port:2^16 因为0不能作为端口，所以是65535个</p>
+<ol>
+<li>内存大小</li>
+<li>文件句柄的限制</li>
+<li>ulimit -n 默认是1024</li>
+<li>带宽的资源<br>5.</li>
+</ol>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/网络/">网络</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-java8-lambda语法" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -753,85 +892,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/markdown/">markdown</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-linux命令" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/05/15/linux命令/">linux命令</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/05/15/linux命令/" class="article-date">
-  <time datetime="2019-05-15T09:52:00.000Z" itemprop="datePublished">2019-05-15</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/linux/">linux</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h2 id="linux命令"><a href="#linux命令" class="headerlink" title="linux命令"></a>linux命令</h2><h3 id="上传-下载文件"><a href="#上传-下载文件" class="headerlink" title="上传-下载文件"></a>上传-下载文件</h3><p>上传和下载文件使用rz和sz命令</p>
-<p>使用以下命令安装rz和sz：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y lrzsz</span><br></pre></td></tr></table></figure>
-<h4 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h4><p>输入以下命令：</p>
-<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rz</span><br></pre></td></tr></table></figure>
-<p>打开选择文件窗口<br><img src="/2019/05/15/linux命令/rz.png" title="linux"><br>选择文件即可上传</p>
-<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>输入以下命令：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sz 文件名</span><br></pre></td></tr></table></figure></p>
-<p>打开文件要下载的地址<br><img src="/2019/05/15/linux命令/sz.png" title="linux"><br>选择路径下载即可</p>
-<h3 id="ssh传输文件"><a href="#ssh传输文件" class="headerlink" title="ssh传输文件"></a>ssh传输文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp test.zip admin@192.168.1.1:/test</span><br><span class="line"></span><br><span class="line">解析：scp 文件名 ssh地址:要复制的文件到远程机的路径</span><br></pre></td></tr></table></figure>
-<h3 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">打开文件：vi test.txt</span><br><span class="line">Ctrl+u：向文件首翻半屏；</span><br><span class="line">Ctrl+d：向文件尾翻半屏；</span><br><span class="line">Ctrl+f：向文件尾翻一屏；</span><br><span class="line">Ctrl+b：向文件首翻一屏；</span><br><span class="line">Esc：从编辑模式切换到命令模式；</span><br><span class="line">ZZ：命令模式下保存当前文件所做的修改后退出vi；</span><br><span class="line">:行号：光标跳转到指定行的行首；</span><br><span class="line">:$：光标跳转到最后一行的行首；</span><br><span class="line">x或X：删除一个字符，x删除光标后的，而X删除光标前的；</span><br><span class="line">D：删除从当前光标到光标所在行尾的全部字符；</span><br><span class="line">dd：删除光标行正行内容；</span><br><span class="line">ndd：删除当前行及其后n-1行；</span><br><span class="line">nyy：将当前行及其下n行的内容保存到寄存器？中，其中？为一个字母，n为一个数字；</span><br><span class="line">p：粘贴文本操作，用于将缓存区的内容粘贴到当前光标所在位置的下方；</span><br><span class="line">P：粘贴文本操作，用于将缓存区的内容粘贴到当前光标所在位置的上方；</span><br><span class="line">/字符串：文本查找操作，用于从当前光标所在位置开始向文件尾部查找指定字符串的内容，查找的字符串会被加亮显示；</span><br><span class="line">？字符串：文本查找操作，用于从当前光标所在位置开始向文件头部查找指定字符串的内容，查找的字符串会被加亮显示；</span><br><span class="line">a，bs/F/T：替换文本操作，用于在第a行到第b行之间，将F字符串换成T字符串。其中，“s/”表示进行替换操作；</span><br><span class="line">a：在当前字符后添加文本；</span><br><span class="line">A：在行末添加文本；</span><br><span class="line">i：在当前字符前插入文本；</span><br><span class="line">I：在行首插入文本；</span><br><span class="line">o：在当前行后面插入一空行；</span><br><span class="line">O：在当前行前面插入一空行；</span><br><span class="line">:wq：在命令模式下，执行存盘退出操作；</span><br><span class="line">:w：在命令模式下，执行存盘操作；</span><br><span class="line">:w！：在命令模式下，执行强制存盘操作；</span><br><span class="line">:q：在命令模式下，执行退出vi操作；</span><br><span class="line">:q！：在命令模式下，执行强制退出vi操作；</span><br><span class="line">:e文件名：在命令模式下，打开并编辑指定名称的文件；</span><br><span class="line">:n：在命令模式下，如果同时打开多个文件，则继续编辑下一个文件；</span><br><span class="line">:f：在命令模式下，用于显示当前的文件名、光标所在行的行号以及显示比例；</span><br><span class="line">:set number：在命令模式下，用于在最左端显示行号；</span><br><span class="line">:set nonumber：在命令模式下，用于在最左端不显示行号；</span><br></pre></td></tr></table></figure>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
 
 
     </footer>

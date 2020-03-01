@@ -63,6 +63,85 @@
     
     
     
+    <article id="post-linux命令" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/05/15/linux命令/">linux命令</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/05/15/linux命令/" class="article-date">
+  <time datetime="2019-05-15T09:52:00.000Z" itemprop="datePublished">2019-05-15</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="linux命令"><a href="#linux命令" class="headerlink" title="linux命令"></a>linux命令</h2><h3 id="上传-下载文件"><a href="#上传-下载文件" class="headerlink" title="上传-下载文件"></a>上传-下载文件</h3><p>上传和下载文件使用rz和sz命令</p>
+<p>使用以下命令安装rz和sz：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y lrzsz</span><br></pre></td></tr></table></figure>
+<h4 id="上传"><a href="#上传" class="headerlink" title="上传"></a>上传</h4><p>输入以下命令：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rz</span><br></pre></td></tr></table></figure>
+<p>打开选择文件窗口<br><img src="/2019/05/15/linux命令/rz.png" title="linux"><br>选择文件即可上传</p>
+<h4 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h4><p>输入以下命令：<br><figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sz 文件名</span><br></pre></td></tr></table></figure></p>
+<p>打开文件要下载的地址<br><img src="/2019/05/15/linux命令/sz.png" title="linux"><br>选择路径下载即可</p>
+<h3 id="ssh传输文件"><a href="#ssh传输文件" class="headerlink" title="ssh传输文件"></a>ssh传输文件</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">scp test.zip admin@192.168.1.1:/test</span><br><span class="line"></span><br><span class="line">解析：scp 文件名 ssh地址:要复制的文件到远程机的路径</span><br></pre></td></tr></table></figure>
+<h3 id="vi编辑器"><a href="#vi编辑器" class="headerlink" title="vi编辑器"></a>vi编辑器</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">打开文件：vi test.txt</span><br><span class="line">Ctrl+u：向文件首翻半屏；</span><br><span class="line">Ctrl+d：向文件尾翻半屏；</span><br><span class="line">Ctrl+f：向文件尾翻一屏；</span><br><span class="line">Ctrl+b：向文件首翻一屏；</span><br><span class="line">Esc：从编辑模式切换到命令模式；</span><br><span class="line">ZZ：命令模式下保存当前文件所做的修改后退出vi；</span><br><span class="line">:行号：光标跳转到指定行的行首；</span><br><span class="line">:$：光标跳转到最后一行的行首；</span><br><span class="line">x或X：删除一个字符，x删除光标后的，而X删除光标前的；</span><br><span class="line">D：删除从当前光标到光标所在行尾的全部字符；</span><br><span class="line">dd：删除光标行正行内容；</span><br><span class="line">ndd：删除当前行及其后n-1行；</span><br><span class="line">nyy：将当前行及其下n行的内容保存到寄存器？中，其中？为一个字母，n为一个数字；</span><br><span class="line">p：粘贴文本操作，用于将缓存区的内容粘贴到当前光标所在位置的下方；</span><br><span class="line">P：粘贴文本操作，用于将缓存区的内容粘贴到当前光标所在位置的上方；</span><br><span class="line">/字符串：文本查找操作，用于从当前光标所在位置开始向文件尾部查找指定字符串的内容，查找的字符串会被加亮显示；</span><br><span class="line">？字符串：文本查找操作，用于从当前光标所在位置开始向文件头部查找指定字符串的内容，查找的字符串会被加亮显示；</span><br><span class="line">a，bs/F/T：替换文本操作，用于在第a行到第b行之间，将F字符串换成T字符串。其中，“s/”表示进行替换操作；</span><br><span class="line">a：在当前字符后添加文本；</span><br><span class="line">A：在行末添加文本；</span><br><span class="line">i：在当前字符前插入文本；</span><br><span class="line">I：在行首插入文本；</span><br><span class="line">o：在当前行后面插入一空行；</span><br><span class="line">O：在当前行前面插入一空行；</span><br><span class="line">:wq：在命令模式下，执行存盘退出操作；</span><br><span class="line">:w：在命令模式下，执行存盘操作；</span><br><span class="line">:w！：在命令模式下，执行强制存盘操作；</span><br><span class="line">:q：在命令模式下，执行退出vi操作；</span><br><span class="line">:q！：在命令模式下，执行强制退出vi操作；</span><br><span class="line">:e文件名：在命令模式下，打开并编辑指定名称的文件；</span><br><span class="line">:n：在命令模式下，如果同时打开多个文件，则继续编辑下一个文件；</span><br><span class="line">:f：在命令模式下，用于显示当前的文件名、光标所在行的行号以及显示比例；</span><br><span class="line">:set number：在命令模式下，用于在最左端显示行号；</span><br><span class="line">:set nonumber：在命令模式下，用于在最左端不显示行号；</span><br></pre></td></tr></table></figure>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-壁纸" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -752,75 +831,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/maven/">maven</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-d运行java" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/03/14/d运行java/">cmd运行java</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/03/14/d运行java/" class="article-date">
-  <time datetime="2019-03-14T01:52:00.000Z" itemprop="datePublished">2019-03-14</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h3 id="用命令行编译运行带有包或使用外部jar包的情况"><a href="#用命令行编译运行带有包或使用外部jar包的情况" class="headerlink" title="用命令行编译运行带有包或使用外部jar包的情况"></a>用命令行编译运行带有包或使用外部jar包的情况</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">编译：javac -Djava.ext.dirs=./lib Test.java  或  javac -Djava.ext.dirs=D:/javacode/lib</span><br><span class="line"></span><br><span class="line">运行：java -Djava.ext.dirs=./lib Test </span><br><span class="line"></span><br><span class="line">将日志保存至文件中：java -Djava.ext.dirs=./lib Test &gt;&gt; log.txt</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/cmd/">cmd</a></li></ul>
 
 
     </footer>

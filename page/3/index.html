@@ -63,6 +63,77 @@
     
     
     
+    <article id="post-java8-lambda语法" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/07/11/java8-lambda语法/">jdk8 部分新特性</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/07/11/java8-lambda语法/" class="article-date">
+  <time datetime="2019-07-11T04:01:00.000Z" itemprop="datePublished">2019-07-11</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/java/">java</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="jdk1-8-时间的创建及工具类"><a href="#jdk1-8-时间的创建及工具类" class="headerlink" title="jdk1.8 时间的创建及工具类"></a>jdk1.8 时间的创建及工具类</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Clock</span></span><br><span class="line">Clock clock = Clock.systemDefaultZone();</span><br><span class="line">System.out.println(clock.millis());</span><br><span class="line">Instant instant = clock.instant();</span><br><span class="line">System.out.println(instant);</span><br><span class="line">Date from = Date.from(instant);</span><br><span class="line">System.out.println(from);</span><br><span class="line"><span class="comment">// 时区</span></span><br><span class="line"><span class="comment">// 获取所有时区</span></span><br><span class="line">Set&lt;String&gt; availableZoneIds = ZoneId.getAvailableZoneIds();</span><br><span class="line">System.out.println(availableZoneIds);</span><br><span class="line"><span class="comment">// 获取指定时区的ZoneId</span></span><br><span class="line">ZoneId of = ZoneId.of(<span class="string">"Asia/Aden"</span>);</span><br><span class="line">System.out.println(of.getRules());</span><br><span class="line"></span><br><span class="line"><span class="comment">// localtime 获取指定时区的时间</span></span><br><span class="line">LocalTime now = LocalTime.now(of);</span><br><span class="line">System.out.println(<span class="string">"当前时间是："</span>+now);</span><br><span class="line"></span><br><span class="line"><span class="comment">// localData 本地日期</span></span><br><span class="line">LocalDate today = LocalDate.now();</span><br><span class="line">System.out.println(<span class="string">"今天的日期是："</span>+today);</span><br><span class="line">LocalDate tomorrow = today.plus(<span class="number">1</span>, ChronoUnit.DAYS);</span><br><span class="line">System.out.println(<span class="string">"明天的日期是："</span>+tomorrow);</span><br><span class="line">LocalDate yesterday = today.plus(-<span class="number">1</span>, ChronoUnit.DAYS);</span><br><span class="line">System.out.println(<span class="string">"昨天的日期是："</span>+yesterday);</span><br><span class="line"><span class="comment">// 创建指定日期</span></span><br><span class="line">LocalDate of1 = LocalDate.of(<span class="number">2019</span>, Month.JUNE, <span class="number">11</span>);</span><br><span class="line">System.out.println(of1);</span><br><span class="line">DayOfWeek dayOfWeek = of1.getDayOfWeek();</span><br><span class="line">System.out.println(<span class="string">"今天是周几："</span>+dayOfWeek);</span><br><span class="line"><span class="comment">// DateTimeFormatter格式化时间</span></span><br><span class="line">DateTimeFormatter formatter = DateTimeFormatter.ofPattern(<span class="string">"yyyy年MM月dd日"</span>);</span><br><span class="line">String format = formatter.format(today);</span><br><span class="line">System.out.println(format);</span><br></pre></td></tr></table></figure>
+<h2 id="Stream"><a href="#Stream" class="headerlink" title="Stream"></a>Stream</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line">List&lt;String&gt; stringList = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">stringList.add(<span class="string">"ddd2"</span>);</span><br><span class="line">stringList.add(<span class="string">"aaa2"</span>);</span><br><span class="line">stringList.add(<span class="string">"bbb1"</span>);</span><br><span class="line">stringList.add(<span class="string">"aaa1"</span>);</span><br><span class="line">stringList.add(<span class="string">"bbb3"</span>);</span><br><span class="line">stringList.add(<span class="string">"ccc"</span>);</span><br><span class="line">stringList.add(<span class="string">"bbb2"</span>);</span><br><span class="line">stringList.add(<span class="string">"ddd1"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// stream 串行</span></span><br><span class="line"><span class="comment">// 过滤</span></span><br><span class="line">stringList</span><br><span class="line">     .stream()</span><br><span class="line">    .filter(s -&gt; s.startsWith(<span class="string">"a"</span>))</span><br><span class="line">    .forEach(System.out::println);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 排序</span></span><br><span class="line"><span class="comment">// 排序只是创建了一个排序好的stream，原数据并没有改变</span></span><br><span class="line">stringList</span><br><span class="line">    .stream()</span><br><span class="line">    .sorted()</span><br><span class="line">    .filter(s -&gt; s.startsWith(<span class="string">"a"</span>))</span><br><span class="line">    .forEach(System.out::println);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// map映射,map操作</span></span><br><span class="line">stringList</span><br><span class="line">    .stream()</span><br><span class="line">    .map(String::toUpperCase)</span><br><span class="line">    .sorted((o1, o2) -&gt; o2.compareTo(o1))</span><br><span class="line">    .forEach(System.out::println);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配，任一一个匹配就可以返回</span></span><br><span class="line"><span class="keyword">boolean</span> anyMatch = stringList</span><br><span class="line">    .stream()</span><br><span class="line">    .anyMatch(s -&gt; s.startsWith(<span class="string">"a"</span>));</span><br><span class="line">System.out.println(anyMatch);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配，所有匹配，所有匹配到才会返回true</span></span><br><span class="line"><span class="keyword">boolean</span> allMatch = stringList</span><br><span class="line">    .stream()</span><br><span class="line">    .allMatch(s -&gt; s.startsWith(<span class="string">"a"</span>));</span><br><span class="line">System.out.println(allMatch);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 匹配,没有匹配到的返回true，如果有匹配到的则返回false</span></span><br><span class="line"><span class="keyword">boolean</span> noneMatch = stringList</span><br><span class="line">    .stream()</span><br><span class="line">    .noneMatch(s -&gt; s.startsWith(<span class="string">"a"</span>));</span><br><span class="line">System.out.println(noneMatch);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 计数</span></span><br><span class="line"><span class="keyword">long</span> count = stringList</span><br><span class="line">    .stream()</span><br><span class="line">    .filter(s -&gt; s.startsWith(<span class="string">"a"</span>))</span><br><span class="line">    .count();</span><br><span class="line">System.out.println(count);</span><br><span class="line">System.out.println(<span class="string">"-----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 规约,将集合整合为一个元素</span></span><br><span class="line">Optional&lt;String&gt; reduce = stringList</span><br><span class="line">    .stream()</span><br><span class="line">    .sorted()</span><br><span class="line">    .reduce((s, s2) -&gt; s + <span class="string">"#"</span> + s2);</span><br><span class="line">reduce.ifPresent(System.out::println);</span><br></pre></td></tr></table></figure>
+<h2 id="lambda语法创建接口"><a href="#lambda语法创建接口" class="headerlink" title="lambda语法创建接口"></a>lambda语法创建接口</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">InteTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">initData</span><span class="params">(String string)</span></span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        InteTest inteTest = string -&gt; &#123;</span><br><span class="line">            System.out.println(string);</span><br><span class="line">        &#125;;</span><br><span class="line">        inteTest.initData(<span class="string">"123"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-务及SpringCloud的一些面试问题" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -761,78 +832,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-壁纸" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/05/15/壁纸/">动态壁纸</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/05/15/壁纸/" class="article-date">
-  <time datetime="2019-05-15T07:47:00.000Z" itemprop="datePublished">2019-05-15</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/工具/">工具</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h3 id="动态壁纸软件"><a href="#动态壁纸软件" class="headerlink" title="动态壁纸软件"></a>动态壁纸软件</h3><blockquote>
-<p>   <a href="https://store.steampowered.com/app/431960/Wallpaper_Engine/" target="_blank" rel="noopener">Wallpaper Engine</a></p>
-</blockquote>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/壁纸工具/">壁纸工具</a></li></ul>
 
 
     </footer>

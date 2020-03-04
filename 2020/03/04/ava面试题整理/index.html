@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    线程池的基本使用 |  Hexo
+    Java面试题整理 |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -29,14 +29,14 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-池的基本使用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-ava面试题整理" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  线程池的基本使用
+  Java面试题整理
 </h1>
   
 
@@ -45,8 +45,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/03/04/池的基本使用/" class="article-date">
-  <time datetime="2020-03-04T09:39:53.000Z" itemprop="datePublished">2020-03-04</time>
+      <a href="/2020/03/04/ava面试题整理/" class="article-date">
+  <time datetime="2020-03-04T11:36:48.000Z" itemprop="datePublished">2020-03-04</time>
 </a>
       
       
@@ -56,7 +56,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">432字</span>
+            <span class="post-count">2.3k字</span>
         </span>
     </span>
 
@@ -65,7 +65,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">8分钟</span>
         </span>
     </span>
 </div>
@@ -92,94 +92,87 @@
       
 
       
-      <h2 id="线程池的基本使用"><a href="#线程池的基本使用" class="headerlink" title="线程池的基本使用"></a>线程池的基本使用</h2><h3 id="线程池的参数："><a href="#线程池的参数：" class="headerlink" title="线程池的参数："></a>线程池的参数：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,// 核心线程数</span></span></span><br><span class="line"><span class="function"><span class="params">                              <span class="keyword">int</span> maximumPoolSize,// 最大线程数</span></span></span><br><span class="line"><span class="function"><span class="params">                              <span class="keyword">long</span> keepAliveTime,// 超过核心线程数的其他线程存活时间</span></span></span><br><span class="line"><span class="function"><span class="params">                              TimeUnit unit,// 超过核心线程数的其他线程存活时间单位</span></span></span><br><span class="line"><span class="function"><span class="params">                              BlockingQueue&lt;Runnable&gt; workQueue,// 阻塞队列</span></span></span><br><span class="line"><span class="function"><span class="params">                              ThreadFactory threadFactory,// 线程创建工厂</span></span></span><br><span class="line"><span class="function"><span class="params">                              RejectedExecutionHandler handler)</span> <span class="comment">// 拒绝策略</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="阻塞队列："><a href="#阻塞队列：" class="headerlink" title="阻塞队列："></a>阻塞队列：</h3><table>
-<thead>
-<tr>
-<th>类名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ArrayBlockingQueue</code></td>
-<td>初始化是设置queue的大小</td>
-</tr>
-<tr>
-<td><code>LinkedBlockingQueue</code></td>
-<td>链表实现的有界阻塞队列, 此队列的默认和最大长度为<code>Integer.MAX_VALUE</code>。此队列按照先进先出的原则对元素进行排序</td>
-</tr>
-<tr>
-<td><code>SynchronousQueue</code></td>
-<td>不存储元素的阻塞队列, 每一个 put 操作必须等待一个 take 操作，否则不能继续添加元素。</td>
-</tr>
-<tr>
-<td><code>PriorityBlockingQueue</code></td>
-<td>支持优先级排序的无界阻塞队列, 默认情况下元素采取自然顺序升序排列。也可以自定义类实现 <code>compareTo()</code>方法来指定元素排序规则，或者初始化 <code>PriorityBlockingQueue</code> 时，指定构造参数 Comparator 来对元素进行排序。</td>
-</tr>
-<tr>
-<td><code>DelayQueue</code></td>
-<td>优先级队列实现的无界阻塞队列</td>
-</tr>
-<tr>
-<td><code>LinkedTransferQueue</code></td>
-<td>链表实现的无界阻塞队列</td>
-</tr>
-<tr>
-<td><code>LinkedBlockingDeque</code></td>
-<td>链表实现的双向阻塞队列</td>
-</tr>
-</tbody>
-</table>
-<h3 id="阻塞队列的操作："><a href="#阻塞队列的操作：" class="headerlink" title="阻塞队列的操作："></a>阻塞队列的操作：</h3><h5 id="增加："><a href="#增加：" class="headerlink" title="增加："></a>增加：</h5><table>
-<thead>
-<tr>
-<th>API</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>add</td>
-<td>往Queue里添加数据，如果队列满了，抛出异常</td>
-</tr>
-<tr>
-<td>offer</td>
-<td>往Queue里添加数据，添加成功return true，添加失败return false</td>
-</tr>
-<tr>
-<td>enqueue(不能直接使用)</td>
-<td>添加数据的具体操作，添加完成会signal()唤醒阻塞点线程</td>
-</tr>
-<tr>
-<td>put</td>
-<td>添加数据，阻塞式添加。</td>
-</tr>
-</tbody>
-</table>
-<h5 id="取出："><a href="#取出：" class="headerlink" title="取出："></a>取出：</h5><table>
-<thead>
-<tr>
-<th>API</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>take</td>
-<td>阻塞式取值</td>
-</tr>
-<tr>
-<td>dequeue(不可直接使用)</td>
-<td>取值核心逻辑</td>
-</tr>
-<tr>
-<td>poll</td>
-<td>非阻塞时取值</td>
-</tr>
-</tbody>
-</table>
-<h5 id="删除："><a href="#删除：" class="headerlink" title="删除："></a>删除：</h5><p>remove删除数据。</p>
+      <h2 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h2><ol>
+<li>多个线程同时读写，读线程的数量量远远⼤大于写线程，你认为应该如何解决 并发的问题？你会选择加什么样的锁？</li>
+<li>JAVA的AQS是否了了解，它是⼲干嘛的？</li>
+<li>除了了synchronized关键字之外，你是怎么来保障线程安全的？</li>
+<li>什么时候需要加volatile关键字？它能保证线程安全吗？</li>
+<li>线程池内的线程如果全部忙，提交⼀一个新的任务，会发⽣生什么？队列列全部 塞满了了之后，还是忙，再提交会发⽣生什什么？</li>
+<li>Tomcat本身的参数你⼀一般会怎么调整？</li>
+<li>synchronized关键字锁住的是什么东⻄西？在字节码中是怎么表示的？在内 存中的对象上表现为什么？</li>
+<li>wait/notify/notifyAll⽅方法需不不需要被包含在synchronized块中？这是为什 么？</li>
+<li>ExecutorService你⼀一般是怎么⽤用的？是每个service放⼀一个还是⼀一个项⽬目<br>⾥里里⾯面放⼀一个？有什么好处？<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2></li>
+<li>你有没有⽤用过Spring的AOP? 是⽤用来干嘛的? ⼤大概会怎么使⽤用？</li>
+<li>如果一个接口有2个不同的实现, 那么怎么来Autowire⼀一个指定的实现？</li>
+<li>Spring的声明式事务 @Transaction注解⼀一般写在什么位置? 抛出了了异常会⾃自动回滚吗？有没有办法控制不不触发回滚?</li>
+<li>如果想在某个Bean⽣生成并装配完毕后执⾏行行⾃自⼰己的逻辑，可以什么⽅方式实现？</li>
+<li>SpringBoot没有放到web容器器⾥里里为什么能跑HTTP服务？</li>
+<li>SpringBoot中如果你想使⽤用⾃自定义的配置⽂文件⽽而不不仅仅是<br>application.properties，应该怎么弄弄？</li>
+<li>SpringMVC中RequestMapping可以指定GET, POST方法么？怎么指定？</li>
+<li>SpringMVC如果希望把输出的Object(例例如XXResult或者XXResponse)这种包装为JSON输出, 应该怎么处理理?</li>
+<li>怎样拦截SpringMVC的异常，然后做⾃自定义的处理理，比如打⽇日志或者包装成JSON<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2></li>
+<li>如果有很多数据插⼊入MYSQL 你会选择什么⽅方式?</li>
+<li>如果查询很慢，你会想到的第⼀一个⽅方式是什么？索引是⼲干嘛的?</li>
+<li>如果建了了⼀一个单列列索引，查询的时候查出2列列，会⽤用到这个单列列索引吗？</li>
+<li>如果建了了⼀一个包含多个列列的索引，查询的时候只⽤用了了第⼀一列列，能不不能⽤用上这个索引？查三列列呢？</li>
+<li>接上题，如果where条件后⾯面带有⼀一个 i + 5 &lt; 100 会使⽤用到这个索引吗？</li>
+<li>怎么看是否⽤用到了了某个索引？</li>
+<li>like %aaa%会使⽤用索引吗? like aaa%呢?</li>
+<li>drop、truncate、delete的区别？</li>
+<li>平时你们是怎么监控数据库的? 慢SQL是怎么排查的？</li>
+<li>你们数据库是否⽀支持emoji表情，如果不不⽀支持，如何操作?</li>
+<li>你们的数据库单表数据量量是多少？⼀一般多⼤大的时候开始出现查询性能急剧下降？</li>
+<li>查询死掉了了，想要找出执⾏行行的查询进程⽤用什什么命令？找出来之后⼀一般你 会⼲干嘛？</li>
+<li>读写分离是怎么做的？你认为中间件会怎么来操作？这样操作跟事务有 什什么关系？</li>
+<li>分库分表有没有做过？线上的迁移过程是怎么样的？如何确定数据是正确的？<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2></li>
+<li>你知道哪些或者你们线上使⽤用什什么GC策略略? 它有什什么优势，适⽤用于什什么场景？</li>
+<li>JAVA类加载器器包括⼏几种？它们之间的⽗父⼦子关系是怎么样的？双亲委派机制是什什么意思？有什什么好处？</li>
+<li>如何⾃自定义⼀一个类加载器器？你使⽤用过哪些或者你在什什么场景下需要⼀一个⾃自定义的类加载器器吗？</li>
+<li>堆内存设置的参数是什什么？</li>
+<li>Perm Space中保存什什么数据? 会引起OutOfMemory吗？</li>
+<li>做gc时，⼀一个对象在内存各个Space中被移动的顺序是什什么？</li>
+<li>你有没有遇到过OutOfMemory问题？你是怎么来处理理这个问题的？处理理过程中有哪些收获？</li>
+<li>1.8之后Perm Space有哪些变动? MetaSpace⼤大⼩小默认是⽆无限的么? 还是你们会通过什什么⽅方式来指定⼤大⼩小?</li>
+<li>Jstack是⼲干什什么的? Jstat呢? 如果线上程序周期性地出现卡顿，你怀疑可能是gc导致的，你会怎么来排查这个问题？线程⽇日志⼀一般你会看其中的什什么   部分？</li>
+<li>StackOverFlow异常有没有遇到过？⼀一般你猜测会在什什么情况下被触发？如何指定⼀一个线程的堆栈⼤大⼩小？⼀一般你们写多少？<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2></li>
+<li>⽇日志特别⼤大只想看最后100⾏行行怎么弄弄?   如果想⼀一直看⽇日志的持续输出，⽤用什什么命令?</li>
+<li>如果⽇日志⼀一边输出，⼀一边想实时看到有没有某个关键字应该怎么弄弄？</li>
+<li>grep如果忽略略⼤大⼩小写应该怎么弄弄? 正则表达式呢？</li>
+<li>vim往下⼀一⾏行行是什什么键？往下30⾏行行呢? 跳到⽂文件末尾⼀一⾏行行是什什么? 跳回来是什什么? 向后搜索是什什么?</li>
+<li>如果有个⽂文本⽂文件，按空格作为列列的分隔符，如果想统计第三列列⾥里里⾯面的每个单词的出现次数应该怎么弄弄？</li>
+<li>如果把上⾯面的出现次数排个序应该怎么弄弄?  想按照数字本身的顺序⽽而不不是字符串串的顺序排列列怎么弄弄？</li>
+<li>Linux环境变量量是以什什么作为分隔符的？环境变量量通过什什么命令设置？</li>
+<li>给某个⽂文件权设置限⽐比如设置为644 是⽤用什什么命令？这个6是什什么意思？</li>
+<li>Linux下⾯面如果想看某个进程的资源占⽤用情况是怎么看的？系统load⼤大概 指的什什么意思？你们线上系统load⼀一般多少？如果⼀一个4核机器器，你认为多少load是⽐比较正常的？top命令⾥里里⾯面按⼀一下1会发⽣生什什么?</li>
+<li>top命令⾥里里⾯面，有时候所有进程的CPU使⽤用率加起来超过100%是怎么回  事？</li>
+<li>还有哪些查看系统性能或者供你发现问题的命令？你⼀一般是看哪个参数？</li>
+<li>想看某个进程打开了了哪些⽹网络连接是什什么命令？⾥里里⾯面连接的状态你⽐比较关⼼心哪⼏几种？<br>– 偏题</li>
+<li>有没有做过Linux系统参数⽅方⾯面的优化，⼤大概优化过什什么？</li>
+<li>系统参数⾥里里⾯面有个叫做backlog的可以⽤用来⼲干什什么？</li>
+<li>查看⽹网络连接发现好多TIME_WAIT 可能是什什么原因？对你的应⽤用会有什什么影响？你会选择什什么样的⽅方式来减少这些TIME_WAIT</li>
+<li>可否介绍⼀一下TCP三次握⼿手的过程，如果现在有个⽹网络程序，你⽤用第三⽅方  的library来发送数据，你怀疑这个library发送的数据有问题，那么怎么来验   证？tcpdump导出的⽂文件你⼀一般是怎么分析的？</li>
+<li>KeepAlive是⽤用来⼲干什什么的？这样的好处是什什么？<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2>– 开发</li>
+<li>缓存穿透可以介绍⼀一下么？你认为应该如何解决这个问题</li>
+<li>你是怎么触发缓存更更新的？(⽐比如设置超时时间(被动⽅方式),    ⽐比如更更新的时候主动update)？如果是被动的⽅方式如何控制多个⼊入⼝口同时触发某个缓存更更新？</li>
+<li>你们⽤用Redis来做什什么？为什什么不不⽤用其他的KV存储例例如Memcached,<br>Cassandra等?</li>
+<li>你们⽤用什什么Redis客户端? Redis⾼高性能的原因⼤大概可以讲⼀一些?</li>
+<li>你熟悉哪些Redis的数据结构? zset是⼲干什什么的? 和set有什什么区别?</li>
+<li>Redis的hash, 存储和获取的具体命令叫什什么名字?</li>
+<li>LPOP和BLPOP的区别?</li>
+<li>Redis的有⼀一些包含SCAN关键字的命令是⼲干嘛的?  SCAN返回的数据量量是固定的吗?</li>
+<li>Redis中的Lua有没有使⽤用过? 可以⽤用来做什什么? 为什什么可以这么⽤用?</li>
+<li>Redis的Pipeline是⽤用来⼲干什什么的?<br>– 运维</li>
+<li>Redis持久化⼤大概有⼏几种⽅方式? aof和rdb的区别是什什么?  AOF有什什么优缺点吗?</li>
+<li>Redis Replication的⼤大致流程是什什么? bgsave这个命令的执⾏行行过程?<br>– 偏题</li>
+<li>如果有很多 KV数据要存储到Redis, 但是内存不不⾜足, 通过什什么⽅方式可以缩减内存? 为什什么这样可以缩⼩小内存?</li>
+<li>Redis中List, HashTable都⽤用到了了ZipList, 为什什么会选择它?</li>
+</ol>
+<h2 id="监控、稳定性"><a href="#监控、稳定性" class="headerlink" title="监控、稳定性"></a>监控、稳定性</h2><ol>
+<li>业务⽇日志是通过什什么⽅方式来收集的？</li>
+<li>线上机器器如何监控？采⽤用什什么开源产品或者⾃自研的产品？它是分钟级的还 是秒级的？</li>
+<li>如果让你来想办法收集⼀一个JAVA后端应⽤用的性能数据，你会在意哪些⽅方<br>⾯面? 你会选择什什么样的⼯工具、思路路来收集?</li>
+<li>⼀一般你调⽤用第三⽅方的时候会不不会监控调⽤用情况？</li>
+</ol>
 
       
       <!-- reward -->
@@ -244,7 +237,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/LBraveHeart/2020/03/04/池的基本使用/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/LBraveHeart/2020/03/04/ava面试题整理/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -260,19 +253,10 @@
   
   <nav class="article-nav">
     
-      <a href="/2020/03/04/ava面试题整理/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Java面试题整理
-          
-        </div>
-      </a>
     
-    
-      <a href="/2020/03/04/ring-的事务传播性/" class="article-nav-link">
+      <a href="/2020/03/04/池的基本使用/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Spring 的事务传播性</div>
+        <div class="article-nav-title">线程池的基本使用</div>
       </a>
     
   </nav>

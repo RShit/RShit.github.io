@@ -63,6 +63,150 @@
     
     
     
+    <article id="post-ava面试题整理" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/04/ava面试题整理/">Java面试题整理</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/04/ava面试题整理/" class="article-date">
+  <time datetime="2020-03-04T11:36:48.000Z" itemprop="datePublished">2020-03-04</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="JAVA"><a href="#JAVA" class="headerlink" title="JAVA"></a>JAVA</h2><ol>
+<li>多个线程同时读写，读线程的数量量远远⼤大于写线程，你认为应该如何解决 并发的问题？你会选择加什么样的锁？</li>
+<li>JAVA的AQS是否了了解，它是⼲干嘛的？</li>
+<li>除了了synchronized关键字之外，你是怎么来保障线程安全的？</li>
+<li>什么时候需要加volatile关键字？它能保证线程安全吗？</li>
+<li>线程池内的线程如果全部忙，提交⼀一个新的任务，会发⽣生什么？队列列全部 塞满了了之后，还是忙，再提交会发⽣生什什么？</li>
+<li>Tomcat本身的参数你⼀一般会怎么调整？</li>
+<li>synchronized关键字锁住的是什么东⻄西？在字节码中是怎么表示的？在内 存中的对象上表现为什么？</li>
+<li>wait/notify/notifyAll⽅方法需不不需要被包含在synchronized块中？这是为什 么？</li>
+<li>ExecutorService你⼀一般是怎么⽤用的？是每个service放⼀一个还是⼀一个项⽬目<br>⾥里里⾯面放⼀一个？有什么好处？<h2 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h2></li>
+<li>你有没有⽤用过Spring的AOP? 是⽤用来干嘛的? ⼤大概会怎么使⽤用？</li>
+<li>如果一个接口有2个不同的实现, 那么怎么来Autowire⼀一个指定的实现？</li>
+<li>Spring的声明式事务 @Transaction注解⼀一般写在什么位置? 抛出了了异常会⾃自动回滚吗？有没有办法控制不不触发回滚?</li>
+<li>如果想在某个Bean⽣生成并装配完毕后执⾏行行⾃自⼰己的逻辑，可以什么⽅方式实现？</li>
+<li>SpringBoot没有放到web容器器⾥里里为什么能跑HTTP服务？</li>
+<li>SpringBoot中如果你想使⽤用⾃自定义的配置⽂文件⽽而不不仅仅是<br>application.properties，应该怎么弄弄？</li>
+<li>SpringMVC中RequestMapping可以指定GET, POST方法么？怎么指定？</li>
+<li>SpringMVC如果希望把输出的Object(例例如XXResult或者XXResponse)这种包装为JSON输出, 应该怎么处理理?</li>
+<li>怎样拦截SpringMVC的异常，然后做⾃自定义的处理理，比如打⽇日志或者包装成JSON<h2 id="MySQL"><a href="#MySQL" class="headerlink" title="MySQL"></a>MySQL</h2></li>
+<li>如果有很多数据插⼊入MYSQL 你会选择什么⽅方式?</li>
+<li>如果查询很慢，你会想到的第⼀一个⽅方式是什么？索引是⼲干嘛的?</li>
+<li>如果建了了⼀一个单列列索引，查询的时候查出2列列，会⽤用到这个单列列索引吗？</li>
+<li>如果建了了⼀一个包含多个列列的索引，查询的时候只⽤用了了第⼀一列列，能不不能⽤用上这个索引？查三列列呢？</li>
+<li>接上题，如果where条件后⾯面带有⼀一个 i + 5 &lt; 100 会使⽤用到这个索引吗？</li>
+<li>怎么看是否⽤用到了了某个索引？</li>
+<li>like %aaa%会使⽤用索引吗? like aaa%呢?</li>
+<li>drop、truncate、delete的区别？</li>
+<li>平时你们是怎么监控数据库的? 慢SQL是怎么排查的？</li>
+<li>你们数据库是否⽀支持emoji表情，如果不不⽀支持，如何操作?</li>
+<li>你们的数据库单表数据量量是多少？⼀一般多⼤大的时候开始出现查询性能急剧下降？</li>
+<li>查询死掉了了，想要找出执⾏行行的查询进程⽤用什什么命令？找出来之后⼀一般你 会⼲干嘛？</li>
+<li>读写分离是怎么做的？你认为中间件会怎么来操作？这样操作跟事务有 什什么关系？</li>
+<li>分库分表有没有做过？线上的迁移过程是怎么样的？如何确定数据是正确的？<h2 id="JVM"><a href="#JVM" class="headerlink" title="JVM"></a>JVM</h2></li>
+<li>你知道哪些或者你们线上使⽤用什什么GC策略略? 它有什什么优势，适⽤用于什什么场景？</li>
+<li>JAVA类加载器器包括⼏几种？它们之间的⽗父⼦子关系是怎么样的？双亲委派机制是什什么意思？有什什么好处？</li>
+<li>如何⾃自定义⼀一个类加载器器？你使⽤用过哪些或者你在什什么场景下需要⼀一个⾃自定义的类加载器器吗？</li>
+<li>堆内存设置的参数是什什么？</li>
+<li>Perm Space中保存什什么数据? 会引起OutOfMemory吗？</li>
+<li>做gc时，⼀一个对象在内存各个Space中被移动的顺序是什什么？</li>
+<li>你有没有遇到过OutOfMemory问题？你是怎么来处理理这个问题的？处理理过程中有哪些收获？</li>
+<li>1.8之后Perm Space有哪些变动? MetaSpace⼤大⼩小默认是⽆无限的么? 还是你们会通过什什么⽅方式来指定⼤大⼩小?</li>
+<li>Jstack是⼲干什什么的? Jstat呢? 如果线上程序周期性地出现卡顿，你怀疑可能是gc导致的，你会怎么来排查这个问题？线程⽇日志⼀一般你会看其中的什什么   部分？</li>
+<li>StackOverFlow异常有没有遇到过？⼀一般你猜测会在什什么情况下被触发？如何指定⼀一个线程的堆栈⼤大⼩小？⼀一般你们写多少？<h2 id="Linux命令"><a href="#Linux命令" class="headerlink" title="Linux命令"></a>Linux命令</h2></li>
+<li>⽇日志特别⼤大只想看最后100⾏行行怎么弄弄?   如果想⼀一直看⽇日志的持续输出，⽤用什什么命令?</li>
+<li>如果⽇日志⼀一边输出，⼀一边想实时看到有没有某个关键字应该怎么弄弄？</li>
+<li>grep如果忽略略⼤大⼩小写应该怎么弄弄? 正则表达式呢？</li>
+<li>vim往下⼀一⾏行行是什什么键？往下30⾏行行呢? 跳到⽂文件末尾⼀一⾏行行是什什么? 跳回来是什什么? 向后搜索是什什么?</li>
+<li>如果有个⽂文本⽂文件，按空格作为列列的分隔符，如果想统计第三列列⾥里里⾯面的每个单词的出现次数应该怎么弄弄？</li>
+<li>如果把上⾯面的出现次数排个序应该怎么弄弄?  想按照数字本身的顺序⽽而不不是字符串串的顺序排列列怎么弄弄？</li>
+<li>Linux环境变量量是以什什么作为分隔符的？环境变量量通过什什么命令设置？</li>
+<li>给某个⽂文件权设置限⽐比如设置为644 是⽤用什什么命令？这个6是什什么意思？</li>
+<li>Linux下⾯面如果想看某个进程的资源占⽤用情况是怎么看的？系统load⼤大概 指的什什么意思？你们线上系统load⼀一般多少？如果⼀一个4核机器器，你认为多少load是⽐比较正常的？top命令⾥里里⾯面按⼀一下1会发⽣生什什么?</li>
+<li>top命令⾥里里⾯面，有时候所有进程的CPU使⽤用率加起来超过100%是怎么回  事？</li>
+<li>还有哪些查看系统性能或者供你发现问题的命令？你⼀一般是看哪个参数？</li>
+<li>想看某个进程打开了了哪些⽹网络连接是什什么命令？⾥里里⾯面连接的状态你⽐比较关⼼心哪⼏几种？<br>– 偏题</li>
+<li>有没有做过Linux系统参数⽅方⾯面的优化，⼤大概优化过什什么？</li>
+<li>系统参数⾥里里⾯面有个叫做backlog的可以⽤用来⼲干什什么？</li>
+<li>查看⽹网络连接发现好多TIME_WAIT 可能是什什么原因？对你的应⽤用会有什什么影响？你会选择什什么样的⽅方式来减少这些TIME_WAIT</li>
+<li>可否介绍⼀一下TCP三次握⼿手的过程，如果现在有个⽹网络程序，你⽤用第三⽅方  的library来发送数据，你怀疑这个library发送的数据有问题，那么怎么来验   证？tcpdump导出的⽂文件你⼀一般是怎么分析的？</li>
+<li>KeepAlive是⽤用来⼲干什什么的？这样的好处是什什么？<h2 id="Redis"><a href="#Redis" class="headerlink" title="Redis"></a>Redis</h2>– 开发</li>
+<li>缓存穿透可以介绍⼀一下么？你认为应该如何解决这个问题</li>
+<li>你是怎么触发缓存更更新的？(⽐比如设置超时时间(被动⽅方式),    ⽐比如更更新的时候主动update)？如果是被动的⽅方式如何控制多个⼊入⼝口同时触发某个缓存更更新？</li>
+<li>你们⽤用Redis来做什什么？为什什么不不⽤用其他的KV存储例例如Memcached,<br>Cassandra等?</li>
+<li>你们⽤用什什么Redis客户端? Redis⾼高性能的原因⼤大概可以讲⼀一些?</li>
+<li>你熟悉哪些Redis的数据结构? zset是⼲干什什么的? 和set有什什么区别?</li>
+<li>Redis的hash, 存储和获取的具体命令叫什什么名字?</li>
+<li>LPOP和BLPOP的区别?</li>
+<li>Redis的有⼀一些包含SCAN关键字的命令是⼲干嘛的?  SCAN返回的数据量量是固定的吗?</li>
+<li>Redis中的Lua有没有使⽤用过? 可以⽤用来做什什么? 为什什么可以这么⽤用?</li>
+<li>Redis的Pipeline是⽤用来⼲干什什么的?<br>– 运维</li>
+<li>Redis持久化⼤大概有⼏几种⽅方式? aof和rdb的区别是什什么?  AOF有什什么优缺点吗?</li>
+<li>Redis Replication的⼤大致流程是什什么? bgsave这个命令的执⾏行行过程?<br>– 偏题</li>
+<li>如果有很多 KV数据要存储到Redis, 但是内存不不⾜足, 通过什什么⽅方式可以缩减内存? 为什什么这样可以缩⼩小内存?</li>
+<li>Redis中List, HashTable都⽤用到了了ZipList, 为什什么会选择它?</li>
+</ol>
+<h2 id="监控、稳定性"><a href="#监控、稳定性" class="headerlink" title="监控、稳定性"></a>监控、稳定性</h2><ol>
+<li>业务⽇日志是通过什什么⽅方式来收集的？</li>
+<li>线上机器器如何监控？采⽤用什什么开源产品或者⾃自研的产品？它是分钟级的还 是秒级的？</li>
+<li>如果让你来想办法收集⼀一个JAVA后端应⽤用的性能数据，你会在意哪些⽅方<br>⾯面? 你会选择什什么样的⼯工具、思路路来收集?</li>
+<li>⼀一般你调⽤用第三⽅方的时候会不不会监控调⽤用情况？</li>
+</ol>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-池的基本使用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -780,144 +924,6 @@
       <blockquote>
 <p>   A Java Coder, live in BeiJing, China.<br>GitHub:<a href="https://github.com/LBraveHeart">BraveHeart</a><br>QQ:318635503</p>
 </blockquote>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-dea快捷键使用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/12/31/dea快捷键使用/">idea快捷键使用</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/12/31/dea快捷键使用/" class="article-date">
-  <time datetime="2019-12-31T01:10:09.000Z" itemprop="datePublished">2019-12-31</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h2 id="自动代码"><a href="#自动代码" class="headerlink" title="自动代码"></a>自动代码</h2><p>常用的有fori/sout/psvm+Tab即可生成循环、System.out、main方法等boilerplate样板代码 。</p>
-<p>例如：要输入<code>for(User user : users)</code>只需输入<code>user.for+Tab;</code></p>
-<p>再比如：要输入<code>Date birthday = user.getBirthday()</code>只需输入<code>user.getBirthday().var+Tab</code>即可。</p>
-<p>代码标签输入完成后，按Tab，生成代码。</p>
-<ol>
-<li>Ctrl+Alt+O 优化导入的类和包 </li>
-<li>Alt+Insert 生成代码(如get,set方法,构造函数等)   或者右键（Generate） </li>
-<li>fori/sout/psvm + Tab  </li>
-<li>Ctrl+Alt+T  生成try catch  或者 Alt+enter </li>
-<li>CTRL+ALT+T  把选中的代码放在 TRY{} IF{} ELSE{} 里 </li>
-<li>Ctrl + O 重写方法  </li>
-<li>Ctrl + I 实现方法 </li>
-<li>Ctr+shift+U 大小写转化  </li>
-<li>ALT+回车    导入包,自动修正  </li>
-<li>ALT+/       代码提示 </li>
-<li>CTRL+J      自动代码  </li>
-<li>Ctrl+Shift+J，整合两行为一行 </li>
-<li>CTRL+空格   代码提示  </li>
-<li>CTRL+SHIFT+SPACE 自动补全代码  </li>
-<li>CTRL+ALT+L  格式化代码  </li>
-<li>CTRL+ALT+I  自动缩进  </li>
-<li>CTRL+ALT+O  优化导入的类和包  </li>
-<li>ALT+INSERT  生成代码(如GET,SET方法,构造函数等)  </li>
-<li>CTRL+E      最近更改的代码  </li>
-<li>CTRL+ALT+SPACE  类名或接口名提示  </li>
-<li>CTRL+P   方法参数提示  </li>
-<li>CTRL+Q，可以看到当前方法的声明 </li>
-<li>Shift+F6  重构-重命名 (包、类、方法、变量、甚至注释等) </li>
-<li>Ctrl+Alt+V 提取变量 </li>
-</ol>
-<h3 id="查询快捷键"><a href="#查询快捷键" class="headerlink" title="查询快捷键"></a>查询快捷键</h3><p>Ctrl＋Shift＋Backspace可以跳转到上次编辑的地<br>CTRL+ALT+ left/right 前后导航编辑过的地方<br>ALT+7  靠左窗口显示当前文件的结构<br>Ctrl+F12 浮动显示当前文件的结构<br>ALT+F7 找到你的函数或者变量或者类的所有引用到的地方<br>CTRL+ALT+F7  找到你的函数或者变量或者类的所有引用到的地方<br>Ctrl+Shift+Alt+N 查找类中的方法或变量<br>双击SHIFT 在项目的所有目录查找文件<br>Ctrl+N   查找类<br>Ctrl+Shift+N 查找文件<br>CTRL+G   定位行<br>CTRL+F   在当前窗口查找文本<br>CTRL+SHIFT+F  在指定窗口查找文本<br>CTRL+R   在 当前窗口替换文本<br>CTRL+SHIFT+R  在指定窗口替换文本<br>ALT+SHIFT+C  查找修改的文件<br>CTRL+E   最近打开的文件<br>F3   向下查找关键字出现位置<br>SHIFT+F3  向上一个关键字出现位置<br>选中文本，按Alt+F3 ，高亮相同文本，F3逐个往下查找相同文本<br>F4   查找变量来源<br>CTRL+SHIFT+O  弹出显示查找内容<br>Ctrl+W 选中代码，连续按会有其他效果<br>F2 或Shift+F2 高亮错误或警告快速定位<br>Ctrl+Up/Down 光标跳转到第一行或最后一行下<br>Ctrl+B 快速打开光标处的类或方法<br>CTRL+ALT+B  找所有的子类<br>CTRL+SHIFT+B  找变量的类<br>Ctrl+Shift+上下键  上下移动代码<br>Ctrl+Alt+ left/right 返回至上次浏览的位置<br>Ctrl+X 删除行<br>Ctrl+D 复制行<br>Ctrl+/ 或 Ctrl+Shift+/  注释（// 或者/<em>…</em>/ ）<br>Ctrl+H 显示类结构图<br>Ctrl+Q 显示注释文档<br>Alt+F1 查找代码所在位置<br>Alt+1 快速打开或隐藏工程面板<br>Alt+ left/right 切换代码视图<br>ALT+ ↑/↓  在方法间快速移动定位<br>CTRL+ALT+ left/right 前后导航编辑过的地方<br>Ctrl＋Shift＋Backspace可以跳转到上次编辑的地<br>Alt+6    查找TODO </p>
-<h3 id="其他快捷键"><a href="#其他快捷键" class="headerlink" title="其他快捷键"></a>其他快捷键</h3><p>SHIFT+ENTER 另起一行<br>CTRL+Z   倒退(撤销)<br>CTRL+SHIFT+Z  向前(取消撤销)<br>CTRL+ALT+F12  资源管理器打开文件夹<br>ALT+F1   查找文件所在目录位置<br>SHIFT+ALT+INSERT 竖编辑模式<br>CTRL+F4  关闭当前窗口<br>Ctrl+Alt+V，可以引入变量。例如：new String(); 自动导入变量定义<br>Ctrl+~，快速切换方案（界面外观、代码风格、快捷键映射等菜单） </p>
-<h3 id="svn快捷键"><a href="#svn快捷键" class="headerlink" title="svn快捷键"></a>svn快捷键</h3><p>ctrl+k 提交代码到SVN<br>ctrl+t 更新代码 </p>
-<h3 id="调试快捷键"><a href="#调试快捷键" class="headerlink" title="调试快捷键"></a>调试快捷键</h3><p>其实常用的 就是F8 F7 F9 最值得一提的就是Drop Frame 可以让运行过的代码从头再来。</p>
-<p>alt+F8    debug时选中查看值<br>Alt+Shift+F9，选择 Debug<br>Alt+Shift+F10，选择 Run<br>Ctrl+Shift+F9，编译<br>Ctrl+Shift+F8，查看断点<br>F7，步入<br>Shift+F7，智能步入<br>Alt+Shift+F7，强制步入<br>F8，步过<br>Shift+F8，步出<br>Alt+Shift+F8，强制步过<br>Alt+F9，运行至光标处<br>Ctrl+Alt+F9，强制运行至光标处<br>F9，恢复程序<br>Alt+F10，定位到断点 </p>
-<h3 id="重构"><a href="#重构" class="headerlink" title="重构"></a>重构</h3><p>Ctrl+Alt+Shift+T，弹出重构菜单<br>Shift+F6，重命名<br>F6，移动<br>F5，复制<br>Alt+Delete，安全删除<br>Ctrl+Alt+N，内联 </p>
-<h2 id="十大Intellij-IDEA快捷键"><a href="#十大Intellij-IDEA快捷键" class="headerlink" title="十大Intellij IDEA快捷键"></a>十大Intellij IDEA快捷键</h2><p>Intellij IDEA中有很多快捷键让人爱不释手，stackoverflow上也有一些有趣的讨论。每个人都有自己的最爱，想排出个理想的榜单还真是困难。 </p>
-<p>以前也整理过Intellij的快捷键，这次就按照我日常开发时的使用频率，简单分类列一下我最喜欢的十大快捷-神-键吧。 </p>
-<h3 id="1-智能提示"><a href="#1-智能提示" class="headerlink" title="1 智能提示:"></a>1 智能提示:</h3><p>Intellij首当其冲的当然就是Intelligence智能！基本的代码提示用Ctrl+Space，还有更智能地按类型信息提示Ctrl+Shift+Space，但因为Intellij总是随着我们敲击而自动提示，所以很多时候都不会手动敲这两个快捷键(除非提示框消失了)。</p>
-<p>用F2/ Shift+F2移动到有错误的代码，Alt+Enter快速修复(即Eclipse中的Quick Fix功能)。当智能提示为我们自动补全方法名时，我们通常要自己补上行尾的反括号和分号，当括号嵌套很多层时会很麻烦，这时我们只需敲Ctrl+Shift+Enter就能自动补全末尾的字符。而且不只是括号，例如敲完if/for时也可以自动补上{}花括号。 </p>
-<p>最后要说一点，Intellij能够智能感知Spring、Hibernate等主流框架的配置文件和类，以静制动，在看似“静态”的外表下，智能地扫描理解你的项目是如何构造和配置的。 </p>
-<h3 id="2-重构"><a href="#2-重构" class="headerlink" title="2 重构:"></a>2 重构:</h3><p>Intellij重构是另一完爆Eclipse的功能，其智能程度令人瞠目结舌，比如提取变量时自动检查到所有匹配同时提取成一个变量等。尤其看过《重构-改善既有代码设计》之后，有了Intellij的配合简直是令人大呼过瘾！也正是强大的智能和重构功能，使Intellij下的TDD开发非常顺畅。</p>
-<p>切入正题，先说一个无敌的重构功能大汇总快捷键Ctrl+Shift+Alt+T，叫做Refactor This。按法有点复杂，但也符合Intellij的风格，很多快捷键都要双手完成，而不像Eclipse不少最有用的快捷键可以潇洒地单手完成(不知道算不算Eclipse的一大优点)，但各位用过Emacs的话就会觉得也没什么了(非Emacs黑)。</p>
-<p>此外，还有些最常用的重构技巧，因为太常用了，若每次都在Refactor This菜单里选的话效率有些低。比如Shift+F6直接就是改名，Ctrl+Alt+V则是提取变量。关注Java技术栈微信公众号，在后台回复关键字：IDEA，可以获取一份栈长整理的 IDEA 最新技术干货。 </p>
-<h3 id="3-代码生成"><a href="#3-代码生成" class="headerlink" title="3 代码生成:"></a>3 代码生成:</h3><p>这一点类似Eclipse，虽不是独到之处，但因为日常使用频率极高，所以还是罗列在榜单前面。常用的有fori/sout/psvm+Tab即可生成循环、System.out、main方法等boilerplate样板代码，用Ctrl+J可以查看所有模板。</p>
-<p>后面“辅助”一节中将会讲到Alt+Insert，在编辑窗口中点击可以生成构造函数、toString、getter/setter、重写父类方法等。这两个技巧实在太常用了，几乎每天都要生成一堆main、System.out和getter/setter。 </p>
-<p>另外，Intellij IDEA 13中加入了后缀自动补全功能(Postfix Completion)，比模板生成更加灵活和强大。例如要输入for(User user : users)只需输入user.for+Tab。再比如，要输入Date birthday = user.getBirthday();只需输入user.getBirthday().var+Tab即可。 </p>
-<h3 id="4-编辑："><a href="#4-编辑：" class="headerlink" title="4 编辑："></a>4 编辑：</h3><p>编辑中不得不说的一大神键就是能够自动按语法选中代码的Ctrl+W以及反向的Ctrl+Shift+W了。此外，Ctrl+Left/Right移动光标到前/后单词，Ctrl+[/]移动到前/后代码块，这些类Vim风格的光标移动也是一大亮点。以上Ctrl+Left/Right/[]加上Shift的话就能选中跳跃范围内的代码。Alt+Forward/Backward移动到前/后方法。还有些非常普通的像Ctrl+Y删除行、Ctrl+D复制行、Ctrl+折叠代码就不多说了。 </p>
-<p>关于光标移动再多扩展一点，除了Intellij本身已提供的功能外，我们还可以安装ideaVim或者emacsIDEAs享受到Vim的快速移动和Emacs的AceJump功能(超爽！)。</p>
-<p>另外，Intellij的书签功能也是不错的，用Ctrl+Shift+Num定义1-10书签(再次按这组快捷键则是删除书签)，然后通过Ctrl+Num跳转。这避免了多次使用前/下一编辑位置Ctrl+Left/Right来回跳转的麻烦，而且此快捷键默认与Windows热键冲突(默认多了Alt，与Windows改变显示器显示方向冲突，一不小心显示器就变成倒着显式的了，冏啊)。 </p>
-<h3 id="5-查找打开："><a href="#5-查找打开：" class="headerlink" title="5 查找打开："></a>5 查找打开：</h3><p>类似Eclipse，Intellij的Ctrl+N/Ctrl+Shift+N可以打开类或资源，但Intellij更加智能一些，我们输入的任何字符都将看作模糊匹配，省却了Eclipse中还有输入*的麻烦。最新版本的IDEA还加入了Search Everywhere功能，只需按Shift+Shift即可在一个弹出框中搜索任何东西，包括类、资源、配置项、方法等等。 </p>
-<p>类的继承关系则可用Ctrl+H打开类层次窗口，在继承层次上跳转则用Ctrl+B/Ctrl+Alt+B分别对应父类或父方法定义和子类或子方法实现，查看当前类的所有方法用Ctrl+F12。 </p>
-<p>要找类或方法的使用也很简单，Alt+F7。要查找文本的出现位置就用Ctrl+F/Ctrl+Shift+F在当前窗口或全工程中查找，再配合F3/Shift+F3前后移动到下一匹配处。 </p>
-<p>Intellij更加智能的又一佐证是在任意菜单或显示窗口，都可以直接输入你要找的单词，Intellij就会自动为你过滤。 关注Java技术栈微信公众号，在后台回复关键字：IDEA，可以获取一份栈长整理的 IDEA 最新技术干货。 </p>
-<h3 id="6-其他辅助："><a href="#6-其他辅助：" class="headerlink" title="6 其他辅助："></a>6 其他辅助：</h3><p>以上这些神键配上一些辅助快捷键，即可让你的双手90%以上的时间摆脱鼠标，专注于键盘仿佛在进行钢琴表演。这些不起眼却是至关重要的最后一块拼图有：</p>
-<p>Ø  命令：Ctrl+Shift+A可以查找所有Intellij的命令，并且每个命令后面还有其快捷键。所以它不仅是一大神键，也是查找学习快捷键的工具。 </p>
-<p>Ø  新建：Alt+Insert可以新建类、方法等任何东西。 </p>
-<p>Ø  格式化代码：格式化import列表Ctrl+Alt+O，格式化代码Ctrl+Alt+L。 </p>
-<p>Ø  切换窗口：Alt+Num，常用的有1-项目结构，3-搜索结果，4/5-运行调试。Ctrl+Tab切换标签页，Ctrl+E/Ctrl+Shift+E打开最近打开过的或编辑过的文件。 </p>
-<p>Ø  单元测试：Ctrl+Alt+T创建单元测试用例。 </p>
-<p>Ø  运行：Alt+Shift+F10运行程序，Shift+F9启动调试，Ctrl+F2停止。 </p>
-<p>Ø  调试：F7/F8/F9分别对应Step into，Step over，Continue。 </p>
-<p>此外还有些我自定义的，例如水平分屏Ctrl+|等，和一些神奇的小功能Ctrl+Shift+V粘贴很早以前拷贝过的，Alt+Shift+Insert进入到列模式进行按列选中。 </p>
-<p>Ø  Top #10切来切去：Ctrl+Tab</p>
-<p>Ø  Top #9选你所想：Ctrl+W</p>
-<p>Ø  Top #8代码生成：Template/Postfix +Tab</p>
-<p>Ø  Top #7发号施令：Ctrl+Shift+A</p>
-<p>Ø  Top #6无处藏身：Shift+Shift</p>
-<p>Ø  Top #5自动完成：Ctrl+Shift+Enter</p>
-<p>Ø  Top #4创造万物：Alt+Insert</p>
-<p>太难割舍，前三名并列吧！ </p>
-<p>Ø  Top #1智能补全：Ctrl+Shift+Space</p>
-<p>Ø  Top #1自我修复：Alt+Enter</p>
-<p>Ø  Top #1重构一切：Ctrl+Shift+Alt+T</p>
-<p>CTRL+ALT+ left/right 前后导航编辑过的地方<br>Ctrl＋Shift＋Backspace可以跳转到上次编辑的地方</p>
 
       
       <!-- reward -->

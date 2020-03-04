@@ -63,6 +63,329 @@
     
     
     
+    <article id="post-池的基本使用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/04/池的基本使用/">线程池的基本使用</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/04/池的基本使用/" class="article-date">
+  <time datetime="2020-03-04T09:39:53.000Z" itemprop="datePublished">2020-03-04</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="线程池的基本使用"><a href="#线程池的基本使用" class="headerlink" title="线程池的基本使用"></a>线程池的基本使用</h2><h3 id="线程池的参数："><a href="#线程池的参数：" class="headerlink" title="线程池的参数："></a>线程池的参数：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,// 核心线程数</span></span></span><br><span class="line"><span class="function"><span class="params">                              <span class="keyword">int</span> maximumPoolSize,// 最大线程数</span></span></span><br><span class="line"><span class="function"><span class="params">                              <span class="keyword">long</span> keepAliveTime,// 超过核心线程数的其他线程存活时间</span></span></span><br><span class="line"><span class="function"><span class="params">                              TimeUnit unit,// 超过核心线程数的其他线程存活时间单位</span></span></span><br><span class="line"><span class="function"><span class="params">                              BlockingQueue&lt;Runnable&gt; workQueue,// 阻塞队列</span></span></span><br><span class="line"><span class="function"><span class="params">                              ThreadFactory threadFactory,// 线程创建工厂</span></span></span><br><span class="line"><span class="function"><span class="params">                              RejectedExecutionHandler handler)</span> <span class="comment">// 拒绝策略</span></span></span><br></pre></td></tr></table></figure>
+<h3 id="阻塞队列："><a href="#阻塞队列：" class="headerlink" title="阻塞队列："></a>阻塞队列：</h3><table>
+<thead>
+<tr>
+<th>类名</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ArrayBlockingQueue</code></td>
+<td>初始化是设置queue的大小</td>
+</tr>
+<tr>
+<td><code>LinkedBlockingQueue</code></td>
+<td>链表实现的有界阻塞队列, 此队列的默认和最大长度为<code>Integer.MAX_VALUE</code>。此队列按照先进先出的原则对元素进行排序</td>
+</tr>
+<tr>
+<td><code>SynchronousQueue</code></td>
+<td>不存储元素的阻塞队列, 每一个 put 操作必须等待一个 take 操作，否则不能继续添加元素。</td>
+</tr>
+<tr>
+<td><code>PriorityBlockingQueue</code></td>
+<td>支持优先级排序的无界阻塞队列, 默认情况下元素采取自然顺序升序排列。也可以自定义类实现 <code>compareTo()</code>方法来指定元素排序规则，或者初始化 <code>PriorityBlockingQueue</code> 时，指定构造参数 Comparator 来对元素进行排序。</td>
+</tr>
+<tr>
+<td><code>DelayQueue</code></td>
+<td>优先级队列实现的无界阻塞队列</td>
+</tr>
+<tr>
+<td><code>LinkedTransferQueue</code></td>
+<td>链表实现的无界阻塞队列</td>
+</tr>
+<tr>
+<td><code>LinkedBlockingDeque</code></td>
+<td>链表实现的双向阻塞队列</td>
+</tr>
+</tbody>
+</table>
+<h3 id="阻塞队列的操作："><a href="#阻塞队列的操作：" class="headerlink" title="阻塞队列的操作："></a>阻塞队列的操作：</h3><h5 id="增加："><a href="#增加：" class="headerlink" title="增加："></a>增加：</h5><table>
+<thead>
+<tr>
+<th>API</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>add</td>
+<td>往Queue里添加数据，如果队列满了，抛出异常</td>
+</tr>
+<tr>
+<td>offer</td>
+<td>往Queue里添加数据，添加成功return true，添加失败return false</td>
+</tr>
+<tr>
+<td>enqueue(不能直接使用)</td>
+<td>添加数据的具体操作，添加完成会signal()唤醒阻塞点线程</td>
+</tr>
+<tr>
+<td>put</td>
+<td>添加数据，阻塞式添加。</td>
+</tr>
+</tbody>
+</table>
+<h5 id="取出："><a href="#取出：" class="headerlink" title="取出："></a>取出：</h5><table>
+<thead>
+<tr>
+<th>API</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>take</td>
+<td>阻塞式取值</td>
+</tr>
+<tr>
+<td>dequeue(不可直接使用)</td>
+<td>取值核心逻辑</td>
+</tr>
+<tr>
+<td>poll</td>
+<td>非阻塞时取值</td>
+</tr>
+</tbody>
+</table>
+<h5 id="删除："><a href="#删除：" class="headerlink" title="删除："></a>删除：</h5><p>remove删除数据。</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-ring-的事务传播性" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/04/ring-的事务传播性/">Spring 的事务传播性</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/04/ring-的事务传播性/" class="article-date">
+  <time datetime="2020-03-04T07:45:24.000Z" itemprop="datePublished">2020-03-04</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="spring-的事务传播性"><a href="#spring-的事务传播性" class="headerlink" title="spring 的事务传播性"></a>spring 的事务传播性</h3><table>
+<thead>
+<tr>
+<th>常量名称</th>
+<th>常量解释</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PROPAGATION_REQUIRED</td>
+<td>spring中的默认事务传播机制。支持当前事务，如果当前没有事务，就新建一个事务。</td>
+</tr>
+<tr>
+<td>PROPAGATION_REQUIRES_NEW</td>
+<td>新建事务，如果当前存在事务，则将当前事务挂起。新建的事务和被挂起的事务没有关联，是两个独立的事务，外层事务失败回滚后，不会影响到内层的事务。内层事务失败抛出异常后，外层事务捕获，也可以不处理回滚操作。</td>
+</tr>
+<tr>
+<td>PROPAGITION_SUPPORTS</td>
+<td>支持当前事务，如果当前没有事务，就以非事务方式运行</td>
+</tr>
+<tr>
+<td>PROPAGITION_MANDATORY</td>
+<td>支持当前事务，如果当前没有事务，则抛出异常。</td>
+</tr>
+<tr>
+<td>PROPAGITION_NOT_SUPPORTED</td>
+<td>以非事务方式运行，如果当前存在事务，则将当前事务挂起</td>
+</tr>
+<tr>
+<td>PROPAGITION_NEVER</td>
+<td>以非事务方式运行，如果当前存在事务，则抛出异常。</td>
+</tr>
+<tr>
+<td>PROPAGITION_NESTED</td>
+<td>如果一个活动事务存在，则运行在一个嵌套事务中。如果没有活动事务，则按REQUIRED运行。它使用了一个单独的事务，这个事务拥有多个可以回滚的保存点。内部事务的回滚不会对外部事物造成影响。他只对DataSourceTransationManager事务管理器起效。</td>
+</tr>
+</tbody>
+</table>
+<p><code>REQUIRED</code> 和 <code>REQUIRES_NEW</code> : 两个方法必须在不同的类中才会生效，才会创建新的事务。否则只会创建一个。    </p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-浓缩和悲观锁" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2020/03/04/浓缩和悲观锁/">乐观锁和悲观锁</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2020/03/04/浓缩和悲观锁/" class="article-date">
+  <time datetime="2020-03-04T07:42:29.000Z" itemprop="datePublished">2020-03-04</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h3 id="乐观锁"><a href="#乐观锁" class="headerlink" title="乐观锁"></a>乐观锁</h3><p>认为同一时间访问共享资源的线程不会冲突，所以采用共享资源的状态对资源进行修改。CAS操作也是乐观锁的体现。适合读多写少的操作。效率较高。</p>
+<p>乐观锁的实现方式：</p>
+<p>1、使用version方式，版本号控制对数据的操作</p>
+<p>2、JDK的CAS操作就是乐观锁的一种实现。但是CAS可能会出现“ABA”的问题。</p>
+<h4 id="“ABA”问题："><a href="#“ABA”问题：" class="headerlink" title="“ABA”问题："></a>“ABA”问题：</h4><p>CAS操作表示<code>compareAndSet</code>,提供了三个参数，旧值V，预期值E，更新值U，当V和E相等时，才会对数据进行操作。但是操作时可能出现了其他线程对数据操作的情况：<code>A --&gt; B --&gt;A</code>，其他线程将数据改为B后又改回成A。所以前面的线程会对数据操作成功。类似于数据库的<code>脏读</code>问题 。</p>
+<h4 id="如何解决“ABA”问题"><a href="#如何解决“ABA”问题" class="headerlink" title="如何解决“ABA”问题"></a>如何解决“ABA”问题</h4><p>采用<code>version</code>版本号控制，操作一次版本号<code>version</code>增加<code>1</code>，后续操作时带上参数<code>version</code>。版本号一直才会对数据操作。</p>
+<h3 id="悲观锁"><a href="#悲观锁" class="headerlink" title="悲观锁"></a>悲观锁</h3><p>认为同一时间一定会有多个线程访问同一静态资源，所以采用对共享资源加锁的方式保证数据的安全性，如数据库操作的for update操作。</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-ava中的类加载顺序" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -595,210 +918,6 @@
 <p>Ø  Top #1自我修复：Alt+Enter</p>
 <p>Ø  Top #1重构一切：Ctrl+Shift+Alt+T</p>
 <p>CTRL+ALT+ left/right 前后导航编辑过的地方<br>Ctrl＋Shift＋Backspace可以跳转到上次编辑的地方</p>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-ntos7-配置jdk" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/12/30/ntos7-配置jdk/">centos7 配置jdk</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/12/30/ntos7-配置jdk/" class="article-date">
-  <time datetime="2019-12-30T02:17:41.000Z" itemprop="datePublished">2019-12-30</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="下载jdk压缩包"><a href="#下载jdk压缩包" class="headerlink" title="下载jdk压缩包"></a>下载jdk压缩包</h1><p>链接：<a href="https://pan.baidu.com/s/1As4LjS8FrunJhkP16B9Xdg" target="_blank" rel="noopener">https://pan.baidu.com/s/1As4LjS8FrunJhkP16B9Xdg</a><br>提取码：79es<br>复制这段内容后打开百度网盘手机App，操作更方便哦</p>
-<h1 id="将jdk压缩包上传至centos7中"><a href="#将jdk压缩包上传至centos7中" class="headerlink" title="将jdk压缩包上传至centos7中"></a>将jdk压缩包上传至centos7中</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">rz</span><br></pre></td></tr></table></figure>
-<h1 id="解压jdk压缩包"><a href="#解压jdk压缩包" class="headerlink" title="解压jdk压缩包"></a>解压jdk压缩包</h1><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u231-linux-x64.tar.gz</span><br></pre></td></tr></table></figure>
-<h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-<p>将下面的代码复制到最后：<br>将第一行中路径修改为解压后的jdk目录位置</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/java/jdk/jdk1.8.0_231</span><br><span class="line"></span><br><span class="line">export PATH=$JAVA_HOME/bin:$PATH</span><br><span class="line"></span><br><span class="line">exportCLASSPATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-ea创建maven很慢时，设置属性" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/12/26/ea创建maven很慢时，设置属性/">idea创建maven很慢时，设置属性</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/12/26/ea创建maven很慢时，设置属性/" class="article-date">
-  <time datetime="2019-12-26T02:46:32.000Z" itemprop="datePublished">2019-12-26</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-DarchetypeCatalog=internal</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-entos-7安装redis" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/12/18/entos-7安装redis/">centos 7安装redis</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/12/18/entos-7安装redis/" class="article-date">
-  <time datetime="2019-12-18T02:06:59.000Z" itemprop="datePublished">2019-12-18</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="普通安装"><a href="#普通安装" class="headerlink" title="普通安装"></a>普通安装</h1><h2 id="下载安装包"><a href="#下载安装包" class="headerlink" title="下载安装包"></a>下载安装包</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget http://download.redis.io/releases/redis-5.0.7.tar.gz</span><br></pre></td></tr></table></figure>
-<h2 id="解压文件"><a href="#解压文件" class="headerlink" title="解压文件"></a>解压文件</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf redis-5.0.7</span><br></pre></td></tr></table></figure>
-<h2 id="编译"><a href="#编译" class="headerlink" title="编译"></a>编译</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd redis-5.0.7</span><br><span class="line"></span><br><span class="line">make</span><br></pre></td></tr></table></figure>
-<h2 id="编译可能出现的问题"><a href="#编译可能出现的问题" class="headerlink" title="编译可能出现的问题"></a>编译可能出现的问题</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">make[1]: [persist-settings] Error 2 (ignored)</span><br><span class="line">    CC adlist.o</span><br><span class="line"></span><br><span class="line">出现该问题时：错误是因为一些依赖包未安装</span><br><span class="line">yum -y install gcc gcc-c++ libstdc++-devel   解决</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">zmalloc.h:50:31: fatal error: jemalloc/jemalloc.h: No such file or directory</span><br><span class="line"> #include &lt;jemalloc/jemalloc.h&gt;</span><br><span class="line"> </span><br><span class="line"> 出现该问题时：make MALLOC=libc  解决</span><br></pre></td></tr></table></figure>
-<h2 id="redis设置登录密码"><a href="#redis设置登录密码" class="headerlink" title="redis设置登录密码"></a>redis设置登录密码</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在redis.conf 配置文件添加`requirepass`属性保存</span><br></pre></td></tr></table></figure>
-<h2 id="redis设置后台启动"><a href="#redis设置后台启动" class="headerlink" title="redis设置后台启动"></a>redis设置后台启动</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">在redis.conf 配置文件设置`daemonize yes`属性保存</span><br></pre></td></tr></table></figure>
-<h1 id="使用docker-compose安装redis"><a href="#使用docker-compose安装redis" class="headerlink" title="使用docker-compose安装redis"></a>使用docker-compose安装redis</h1><h2 id="创建docker-compose-yml文件"><a href="#创建docker-compose-yml文件" class="headerlink" title="创建docker-compose.yml文件"></a>创建docker-compose.yml文件</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">version:</span> <span class="string">'2'</span></span><br><span class="line"><span class="attr">services:</span></span><br><span class="line"><span class="attr">    redis:</span></span><br><span class="line"><span class="attr">      image:</span> <span class="attr">redis:5.0.5</span></span><br><span class="line"><span class="attr">      container_name:</span> <span class="string">redis</span></span><br><span class="line"><span class="attr">      command:</span> <span class="string">redis-server</span> <span class="bullet">--requirepass</span> <span class="number">123456</span></span><br><span class="line"><span class="attr">      ports:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">"16379:6379"</span></span><br><span class="line"><span class="attr">      volumes:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="string">./data:/data</span></span><br></pre></td></tr></table></figure>
-<h2 id="启动docker-compose"><a href="#启动docker-compose" class="headerlink" title="启动docker-compose"></a>启动docker-compose</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker-compose up -d</span><br></pre></td></tr></table></figure>
-<h2 id="使用redis命令行客户端"><a href="#使用redis命令行客户端" class="headerlink" title="使用redis命令行客户端"></a>使用redis命令行客户端</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">先查看redis的容器id</span><br><span class="line">docker ps </span><br><span class="line">进入redis容器</span><br><span class="line">docker exec -it 1742ad5e9da8 bash</span><br><span class="line">启动redis客户端</span><br><span class="line">redis-cli -h 127.0.0.1 -p 6379 -a 123456</span><br></pre></td></tr></table></figure>
 
       
       <!-- reward -->

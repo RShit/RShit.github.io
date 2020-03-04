@@ -63,6 +63,231 @@
     
     
     
+    <article id="post-sql去除语句" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/07/30/sql去除语句/">mysql去重语句</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/07/30/sql去除语句/" class="article-date">
+  <time datetime="2019-07-30T07:41:27.000Z" itemprop="datePublished">2019-07-30</time>
+</a>
+      
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span>(u.userId) <span class="keyword">FROM</span> <span class="string">`user`</span> u <span class="keyword">where</span> u.status=<span class="string">'1'</span>;</span><br></pre></td></tr></table></figure>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-ea去除重复代码检测" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/07/26/ea去除重复代码检测/">idea去除重复代码检测</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/07/26/ea去除重复代码检测/" class="article-date">
+  <time datetime="2019-07-26T09:36:00.000Z" itemprop="datePublished">2019-07-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/idea/">idea</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="如图："><a href="#如图：" class="headerlink" title="如图："></a>如图：</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="\images\pasted-6.png" alt title>
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>将红框部分去选勾选</p>
+
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/idea/">idea</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
+    <article id="post-xcel导出poi处理及table转为excel" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+
+  <div class="article-inner">
+    
+    <header class="article-header">
+       
+<h2 itemprop="name">
+  <a class="article-title" href="/2019/07/26/xcel导出poi处理及table转为excel/">excel导出poi处理及table转为excel</a>
+</h2>
+  
+
+    </header>
+    
+
+    
+    <div class="article-meta">
+      <a href="/2019/07/26/xcel导出poi处理及table转为excel/" class="article-date">
+  <time datetime="2019-07-26T08:49:00.000Z" itemprop="datePublished">2019-07-26</time>
+</a>
+      
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/excel/">excel</a>
+  </div>
+
+      
+      
+      
+    </div>
+    
+
+    
+
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+      <h2 id="poi导出"><a href="#poi导出" class="headerlink" title="poi导出"></a>poi导出</h2><p>使用poi导出大量数据时，可以使用 <strong>SXSSFWorkbook</strong></p>
+<h3 id="使用方法："><a href="#使用方法：" class="headerlink" title="使用方法："></a>使用方法：</h3><ol>
+<li>导入poi包及poi-ooxml包</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;poi&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;3.17&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br><span class="line">        &lt;dependency&gt;</span><br><span class="line">            &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;</span><br><span class="line">            &lt;version&gt;3.17&lt;/version&gt;</span><br><span class="line">        &lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<ol start="2">
+<li>具体代码</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.liuyy.excel;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.apache.poi.ss.usermodel.Font;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.xssf.streaming.SXSSFCell;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.xssf.streaming.SXSSFRow;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.xssf.streaming.SXSSFSheet;</span><br><span class="line"><span class="keyword">import</span> org.apache.poi.xssf.streaming.SXSSFWorkbook;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span> liuyy</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@className</span> PoiExcelDemo</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span> TODO</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@date</span> 2019/7/26 16:55</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PoiExcelDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        exportExcel(<span class="string">"数据导出.xls"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exportExcel</span><span class="params">(String fileName)</span></span>&#123;</span><br><span class="line">        SXSSFWorkbook workbook = <span class="keyword">new</span> SXSSFWorkbook();</span><br><span class="line">        <span class="comment">//输出Excel文件</span></span><br><span class="line">        FileOutputStream output = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">//添加Worksheet（不添加sheet时生成的xls文件打开时会报错)</span></span><br><span class="line">            String sheetName = <span class="string">"数据导出"</span>;</span><br><span class="line">            SXSSFSheet sheet = workbook.createSheet(sheetName);</span><br><span class="line">            <span class="comment">// 设置缺省列高</span></span><br><span class="line">            sheet.setDefaultRowHeightInPoints(<span class="number">20</span>);</span><br><span class="line">            <span class="comment">// 设置缺省列宽</span></span><br><span class="line">            sheet.setDefaultColumnWidth(<span class="number">20</span>);</span><br><span class="line">            <span class="comment">// 设置字体</span></span><br><span class="line">            Font fontStyle = workbook.createFont();</span><br><span class="line">            fontStyle.setFontName(<span class="string">"宋体"</span>);</span><br><span class="line">            fontStyle.setFontHeightInPoints((<span class="keyword">short</span>) <span class="number">20</span>);</span><br><span class="line">            <span class="comment">// 创建XSSFRow对象</span></span><br><span class="line">            <span class="comment">// 创建第一行-表头</span></span><br><span class="line">            SXSSFRow rowHead = sheet.createRow(<span class="number">0</span>);</span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">8</span>; i++) &#123;</span><br><span class="line">                <span class="comment">//创建XSSFCell对象</span></span><br><span class="line">                SXSSFCell cellHead = rowHead.createCell(i);</span><br><span class="line">                <span class="comment">//设置单元格的值</span></span><br><span class="line">                cellHead.setCellValue(i);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// 创建具体数据</span></span><br><span class="line">            <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">100</span>; i++) &#123;</span><br><span class="line">                <span class="comment">// 第i+1行</span></span><br><span class="line">                SXSSFRow row = sheet.createRow(i + <span class="number">1</span>);</span><br><span class="line">                row.createCell(<span class="number">0</span>).setCellValue(<span class="string">"第1列"</span>);</span><br><span class="line">                row.createCell(<span class="number">1</span>).setCellValue(<span class="string">"第2列"</span>);</span><br><span class="line">                row.createCell(<span class="number">2</span>).setCellValue(<span class="string">"第3列"</span>);</span><br><span class="line">                row.createCell(<span class="number">3</span>).setCellValue(<span class="string">"第4列"</span>);</span><br><span class="line">                row.createCell(<span class="number">4</span>).setCellValue(<span class="string">"第5列"</span>);</span><br><span class="line">                row.createCell(<span class="number">5</span>).setCellValue(<span class="string">"第6列"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">            output = <span class="keyword">new</span> FileOutputStream(fileName);</span><br><span class="line">            workbook.write(output);</span><br><span class="line">            output.flush();</span><br><span class="line">            workbook.close();</span><br><span class="line">            output.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                workbook.close();</span><br><span class="line">                output.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<ol start="3">
+<li><p>结果如果所示：</p>
+<img src="/2019/07/26/xcel导出poi处理及table转为excel/pasted-5.png" title="excel">
+</li>
+</ol>
+<h2 id="table导出"><a href="#table导出" class="headerlink" title="table导出"></a>table导出</h2><p>代码如下：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//获取表格</span></span><br><span class="line"><span class="keyword">var</span> exportFileContent = <span class="built_in">document</span>.getElementById(<span class="string">"showTable"</span>).outerHTML;</span><br><span class="line"><span class="comment">//设置格式为Excel，表格内容通过btoa转化为base64，此方法只在文件较小时使用(小于1M)</span></span><br><span class="line"><span class="comment">//exportFileContent = window.btoa(unescape(encodeURIComponent(exportFileContent)));</span></span><br><span class="line"><span class="comment">//var link = "data:"+MIMEType+";base64," + exportFileContent;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//使用Blob</span></span><br><span class="line"><span class="keyword">var</span> blob = <span class="keyword">new</span> Blob([exportFileContent], &#123;<span class="attr">type</span>: <span class="string">"text/plain;charset=utf-8"</span>&#125;);</span><br><span class="line"><span class="comment">//解决中文乱码问题</span></span><br><span class="line">blob =  <span class="keyword">new</span> Blob([<span class="built_in">String</span>.fromCharCode(<span class="number">0xFEFF</span>), blob], &#123;<span class="attr">type</span>: blob.type&#125;);</span><br><span class="line"><span class="comment">//设置链接</span></span><br><span class="line"><span class="keyword">var</span> link = <span class="built_in">window</span>.URL.createObjectURL(blob);</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="built_in">document</span>.createElement(<span class="string">"a"</span>);    <span class="comment">//创建a标签</span></span><br><span class="line">a.download = filenName+<span class="string">".xls"</span>;                <span class="comment">//设置被下载的超链接目标（文件名）</span></span><br><span class="line">a.href = link;                            <span class="comment">//设置a标签的链接</span></span><br><span class="line"><span class="built_in">document</span>.body.appendChild(a);            <span class="comment">//a标签添加到页面</span></span><br><span class="line">a.click();                                <span class="comment">//设置a标签触发单击事件</span></span><br><span class="line"><span class="built_in">document</span>.body.removeChild(a);            <span class="comment">//移除a标签</span></span><br></pre></td></tr></table></figure>
+      
+      <!-- reward -->
+      
+    </div>
+    
+    
+      <!-- copyright -->
+      
+    <footer class="article-footer">
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
+
+
+    </footer>
+
+  </div>
+
+  
+
+  
+  
+  
+
+  
+
+</article>
+    
     <article id="post-nteger-MAX-VALUE-面试题" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
@@ -631,254 +856,6 @@
       
       
   <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/">linux</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-RL与URI的区别" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/06/05/RL与URI的区别/">URL与URI的区别</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/06/05/RL与URI的区别/" class="article-date">
-  <time datetime="2019-06-05T08:20:36.000Z" itemprop="datePublished">2019-06-05</time>
-</a>
-      
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h1 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h1><h2 id="URL"><a href="#URL" class="headerlink" title="URL"></a>URL</h2><blockquote>
-<p>   统一资源定位符<br>   示例:<a href="http://localhost:8081/spring/demo/query?name=1" target="_blank" rel="noopener">http://localhost:8081/spring/demo/query?name=1</a></p>
-</blockquote>
-<h2 id="URI"><a href="#URI" class="headerlink" title="URI"></a>URI</h2><blockquote>
-<p>   统一资源标识符<br>   示例:/spring/demo/query</p>
-</blockquote>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-代码示例" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/05/29/代码示例/">Arrays.asList()的使用</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/05/29/代码示例/" class="article-date">
-  <time datetime="2019-05-29T02:44:00.000Z" itemprop="datePublished">2019-05-29</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h2 id="Arrays-asList-的使用"><a href="#Arrays-asList-的使用" class="headerlink" title="Arrays.asList()的使用"></a>Arrays.asList()的使用</h2><h3 id="代码："><a href="#代码：" class="headerlink" title="代码："></a>代码：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ArraysToListTest</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span>[] nums = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">        printArrays(nums);</span><br><span class="line">        List&lt;<span class="keyword">int</span>[]&gt; ints = Arrays.asList(nums);</span><br><span class="line">        printArrays(ints);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        Integer[] integers = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">        printArrays(integers);</span><br><span class="line">        List&lt;Integer&gt; integerList = Arrays.asList(integers);</span><br><span class="line">        printArrays(integerList);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArrays</span><span class="params">(List list)</span></span>&#123;</span><br><span class="line">        list.forEach(o -&gt; &#123;</span><br><span class="line">            <span class="keyword">if</span> (o <span class="keyword">instanceof</span> <span class="keyword">int</span>[]) &#123;</span><br><span class="line">                printArrays((<span class="keyword">int</span>[]) o);</span><br><span class="line">            &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">                System.out.println(o);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArrays</span><span class="params">(Integer[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = nums[i];</span><br><span class="line">            System.out.print(num+<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printArrays</span><span class="params">(<span class="keyword">int</span>[] nums)</span></span>&#123;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; nums.length; i++) &#123;</span><br><span class="line">            <span class="keyword">int</span> num = nums[i];</span><br><span class="line">            System.out.print(num+<span class="string">" "</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="总结："><a href="#总结：" class="headerlink" title="总结："></a>总结：</h3><blockquote>
-<p>   当使用Arrays.asList(nums);转换的数组内容为基本数据类型时，转换后的list集合的存放的也是这个基本数据类型的数组，而不是这个基本数据类型的值。</p>
-</blockquote>
-<blockquote>
-<p>   如果要对转换后的list进行增删改操作，则需要以new的方式来创建list</p>
-</blockquote>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p><strong>使用其包装类型:</strong></p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Integer[] integers = &#123;<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>&#125;;</span><br><span class="line">List&lt;Integer&gt; integerList = <span class="keyword">new</span> ArrayList&lt;&gt;(Arrays.asList(integers));</span><br></pre></td></tr></table></figure>
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-
-    </footer>
-
-  </div>
-
-  
-
-  
-  
-  
-
-  
-
-</article>
-    
-    <article id="post-模式" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-
-  <div class="article-inner">
-    
-    <header class="article-header">
-       
-<h2 itemprop="name">
-  <a class="article-title" href="/2019/05/29/模式/">单例模式的基础知识</a>
-</h2>
-  
-
-    </header>
-    
-
-    
-    <div class="article-meta">
-      <a href="/2019/05/29/模式/" class="article-date">
-  <time datetime="2019-05-29T01:28:00.000Z" itemprop="datePublished">2019-05-29</time>
-</a>
-      
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/java/">java</a>
-  </div>
-
-      
-      
-      
-    </div>
-    
-
-    
-
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-      <h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><h3 id="单例模式的优缺点"><a href="#单例模式的优缺点" class="headerlink" title="单例模式的优缺点"></a>单例模式的优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
-<li>内存消耗小</li>
-<li>全局只有一个实例</li>
-</ul>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><ul>
-<li>没有接口，扩展困难</li>
-<li>如果要扩展单例，只能修改代码</li>
-</ul>
-<h3 id="创建单例的方法"><a href="#创建单例的方法" class="headerlink" title="创建单例的方法"></a>创建单例的方法</h3><h4 id="饿汉式模式"><a href="#饿汉式模式" class="headerlink" title="饿汉式模式"></a>饿汉式模式</h4><ul>
-<li>直接创建-消耗内存-线程不安全</li>
-<li>静态创建-线程不安全</li>
-</ul>
-<h4 id="懒汉式模式"><a href="#懒汉式模式" class="headerlink" title="懒汉式模式"></a>懒汉式模式</h4><ul>
-<li>判断为空再创建-线程不安全</li>
-<li>双重检验为空再创建 使用synchronize关键字-线程安全</li>
-<li>静态内部类创建-线程安全</li>
-</ul>
-<h4 id="注册式创建"><a href="#注册式创建" class="headerlink" title="注册式创建"></a>注册式创建</h4><ul>
-<li>简单注册-spring</li>
-<li>枚举类创建</li>
-</ul>
-<h4 id="序列化"><a href="#序列化" class="headerlink" title="序列化"></a>序列化</h4><h4 id="线程池"><a href="#线程池" class="headerlink" title="线程池"></a>线程池</h4><h3 id="关于单例模式的问题"><a href="#关于单例模式的问题" class="headerlink" title="关于单例模式的问题"></a>关于单例模式的问题</h3><h4 id="spring的单例会被回收吗？"><a href="#spring的单例会被回收吗？" class="headerlink" title="spring的单例会被回收吗？"></a>spring的单例会被回收吗？</h4><ul>
-<li>注册式单例，被保存在ioc的缓存容器中，给每个实例起个名字，叫beanName、id</li>
-<li>ioc容器持有单例对象的引用</li>
-<li>当对象为null或引用不被任何地方所持有时会被回收</li>
-<li>ioc容器本身也是个单例，ioc容器什么时候被回收，那么ioc中的beanName也就什么时候被回收</li>
-<li>ioc容器实在spring启动时初始化，在spring销毁时被回收</li>
-<li>spring中的单例Bean跟ioc容器同生死</li>
-</ul>
-<h4 id="spring的单例是线程安全的吗？"><a href="#spring的单例是线程安全的吗？" class="headerlink" title="spring的单例是线程安全的吗？"></a>spring的单例是线程安全的吗？</h4><ul>
-<li>它由在beanFactory中由反射机制创建，被缓存到ioc容器中，相当于new Object()</li>
-<li>所以他是线程安全的</li>
-</ul>
-
-      
-      <!-- reward -->
-      
-    </div>
-    
-    
-      <!-- copyright -->
-      
-    <footer class="article-footer">
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/单例模式/">单例模式</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/设计模式/">设计模式</a></li></ul>
 
 
     </footer>

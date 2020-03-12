@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
   <title>
-    线程池的基本使用 |  Hexo
+    redis的使用及集群 |  Hexo
   </title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   
@@ -29,14 +29,14 @@
   <div id="app">
     <main class="content">
       <section class="outer">
-  <article id="post-池的基本使用" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  <article id="post-edis的使用及集群" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
 
   <div class="article-inner">
     
     <header class="article-header">
        
 <h1 class="article-title sea-center" style="border-left:0" itemprop="name">
-  线程池的基本使用
+  redis的使用及集群
 </h1>
   
 
@@ -45,8 +45,8 @@
 
     
     <div class="article-meta">
-      <a href="/2020/03/04/池的基本使用/" class="article-date">
-  <time datetime="2020-03-04T09:39:53.000Z" itemprop="datePublished">2020-03-04</time>
+      <a href="/2020/03/12/edis的使用及集群/" class="article-date">
+  <time datetime="2020-03-12T06:30:32.000Z" itemprop="datePublished">2020-03-12</time>
 </a>
       
       
@@ -56,7 +56,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-quill-pen-line"></i>
             <span class="post-meta-item-text"> 字数统计:</span>
-            <span class="post-count">432字</span>
+            <span class="post-count">1.1k字</span>
         </span>
     </span>
 
@@ -65,7 +65,7 @@
         <span class="post-meta-item-icon">
             <i class="ri-book-open-line"></i>
             <span class="post-meta-item-text"> 阅读时长≈</span>
-            <span class="post-count">1分钟</span>
+            <span class="post-count">3分钟</span>
         </span>
     </span>
 </div>
@@ -92,94 +92,49 @@
       
 
       
-      <h2 id="线程池的基本使用"><a href="#线程池的基本使用" class="headerlink" title="线程池的基本使用"></a>线程池的基本使用</h2><h3 id="线程池的参数："><a href="#线程池的参数：" class="headerlink" title="线程池的参数："></a>线程池的参数：</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">ThreadPoolExecutor</span><span class="params">(<span class="keyword">int</span> corePoolSize,// 核心线程数</span></span></span><br><span class="line"><span class="function"><span class="params">                              <span class="keyword">int</span> maximumPoolSize,// 最大线程数</span></span></span><br><span class="line"><span class="function"><span class="params">                              <span class="keyword">long</span> keepAliveTime,// 超过核心线程数的其他线程存活时间</span></span></span><br><span class="line"><span class="function"><span class="params">                              TimeUnit unit,// 超过核心线程数的其他线程存活时间单位</span></span></span><br><span class="line"><span class="function"><span class="params">                              BlockingQueue&lt;Runnable&gt; workQueue,// 阻塞队列</span></span></span><br><span class="line"><span class="function"><span class="params">                              ThreadFactory threadFactory,// 线程创建工厂</span></span></span><br><span class="line"><span class="function"><span class="params">                              RejectedExecutionHandler handler)</span> <span class="comment">// 拒绝策略</span></span></span><br></pre></td></tr></table></figure>
-<h3 id="阻塞队列："><a href="#阻塞队列：" class="headerlink" title="阻塞队列："></a>阻塞队列：</h3><table>
-<thead>
-<tr>
-<th>类名</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><code>ArrayBlockingQueue</code></td>
-<td>初始化是设置queue的大小</td>
-</tr>
-<tr>
-<td><code>LinkedBlockingQueue</code></td>
-<td>链表实现的有界阻塞队列, 此队列的默认和最大长度为<code>Integer.MAX_VALUE</code>。此队列按照先进先出的原则对元素进行排序</td>
-</tr>
-<tr>
-<td><code>SynchronousQueue</code></td>
-<td>不存储元素的阻塞队列, 每一个 put 操作必须等待一个 take 操作，否则不能继续添加元素。</td>
-</tr>
-<tr>
-<td><code>PriorityBlockingQueue</code></td>
-<td>支持优先级排序的无界阻塞队列, 默认情况下元素采取自然顺序升序排列。也可以自定义类实现 <code>compareTo()</code>方法来指定元素排序规则，或者初始化 <code>PriorityBlockingQueue</code> 时，指定构造参数 Comparator 来对元素进行排序。</td>
-</tr>
-<tr>
-<td><code>DelayQueue</code></td>
-<td>优先级队列实现的无界阻塞队列</td>
-</tr>
-<tr>
-<td><code>LinkedTransferQueue</code></td>
-<td>链表实现的无界阻塞队列</td>
-</tr>
-<tr>
-<td><code>LinkedBlockingDeque</code></td>
-<td>链表实现的双向阻塞队列</td>
-</tr>
-</tbody>
-</table>
-<h3 id="阻塞队列的操作："><a href="#阻塞队列的操作：" class="headerlink" title="阻塞队列的操作："></a>阻塞队列的操作：</h3><h5 id="增加："><a href="#增加：" class="headerlink" title="增加："></a>增加：</h5><table>
-<thead>
-<tr>
-<th>API</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>add</td>
-<td>往Queue里添加数据，如果队列满了，抛出异常</td>
-</tr>
-<tr>
-<td>offer</td>
-<td>往Queue里添加数据，添加成功return true，添加失败return false</td>
-</tr>
-<tr>
-<td>enqueue(不能直接使用)</td>
-<td>添加数据的具体操作，添加完成会signal()唤醒阻塞点线程</td>
-</tr>
-<tr>
-<td>put</td>
-<td>添加数据，阻塞式添加。</td>
-</tr>
-</tbody>
-</table>
-<h5 id="取出："><a href="#取出：" class="headerlink" title="取出："></a>取出：</h5><table>
-<thead>
-<tr>
-<th>API</th>
-<th>说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>take</td>
-<td>阻塞式取值</td>
-</tr>
-<tr>
-<td>dequeue(不可直接使用)</td>
-<td>取值核心逻辑</td>
-</tr>
-<tr>
-<td>poll</td>
-<td>非阻塞时取值</td>
-</tr>
-</tbody>
-</table>
-<h5 id="删除："><a href="#删除：" class="headerlink" title="删除："></a>删除：</h5><p>remove删除数据。</p>
+      <h2 id="redis数据结构-："><a href="#redis数据结构-：" class="headerlink" title="redis数据结构 ："></a>redis数据结构 ：</h2><h3 id="string"><a href="#string" class="headerlink" title="string:"></a>string:</h3><p><code>set key,value ,set key value ex time</code></p>
+<h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>所有的键值对的键和值的长度都小于等于64byte，哈希对象保存的键值对数量都小于512：ziplist，hashtable 对象 </p>
+<h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>quicklist 消息队列</p>
+<h3 id="set"><a href="#set" class="headerlink" title="set"></a>set</h3><p>inset：如果元素类型都是整型，并且元素个数不小于512，hashtab，点赞，互相关注</p>
+<h3 id="zset"><a href="#zset" class="headerlink" title="zset"></a>zset</h3><p>元素数量小于128，所有member的长度小于64字节使用ziplist，否则升级为skiplist，热点排序 ，有一个score</p>
+<h2 id="redis常用命令"><a href="#redis常用命令" class="headerlink" title="redis常用命令"></a>redis常用命令</h2><h3 id="list-1"><a href="#list-1" class="headerlink" title="list"></a>list</h3><p>lpush：左插入数据</p>
+<p>lpushx：做插入数据， 前提条件是key存在并且key为列表</p>
+<p>rpush：右插入</p>
+<p>rpushx：右插入， 前提条件是key存在并且key为列表</p>
+<p>rpop：右弹出</p>
+<p>lpop：左弹出</p>
+<p>lrange：弹出一个范围内的数据</p>
+<p>blpop：左阻塞式的弹出</p>
+<p>brpop：右阻塞式的弹出</p>
+<h3 id="set-1"><a href="#set-1" class="headerlink" title="set"></a>set</h3><p>1、set：sadd添加，spop删除，smembers 查看所有元素，sinter交集，sunion合集，sdiff差集</p>
+<h3 id="map-1"><a href="#map-1" class="headerlink" title="map"></a>map</h3><h3 id="zset-1"><a href="#zset-1" class="headerlink" title="zset"></a>zset</h3><h3 id="string-1"><a href="#string-1" class="headerlink" title="string"></a>string</h3><h2 id="redis热点数据："><a href="#redis热点数据：" class="headerlink" title="redis热点数据："></a>redis热点数据：</h2><p>1、客户端统计的方式</p>
+<p>2、代理层：TwemProxy或 Codis</p>
+<p>3、服务端统计：monitor监控，但是只能监控到一个节点</p>
+<p>4、机器层面：抓包的形式</p>
+<h2 id="redis查看内存使用信息："><a href="#redis查看内存使用信息：" class="headerlink" title="redis查看内存使用信息："></a>redis查看内存使用信息：</h2><p><code>info memory</code></p>
+<h2 id="Redis主从复制"><a href="#Redis主从复制" class="headerlink" title="Redis主从复制"></a>Redis主从复制</h2><p>master node 第一次执行全量复制，通过bgsave命令在本地生成一份RDB文件，将RDB快照文件发送给slave节点，slave node 会先清空自己的旧数据，然后从RDB文件中加载数据。</p>
+<h3 id="在生成rdb文件中，master-node-如果接收到新的写命令怎么办？"><a href="#在生成rdb文件中，master-node-如果接收到新的写命令怎么办？" class="headerlink" title="在生成rdb文件中，master node 如果接收到新的写命令怎么办？"></a>在生成rdb文件中，master node 如果接收到新的写命令怎么办？</h3><p>master会把所有的新的写命令缓存在内存中，在slave node 保存了RDB文件之后，再讲新的命令复制给slave node</p>
+<h3 id="主从复制的不足："><a href="#主从复制的不足：" class="headerlink" title="主从复制的不足："></a>主从复制的不足：</h3><p>1、当RDB文件过大时同步非常耗时</p>
+<p>2、在一主多从情况下，当master node 挂了后。对外服务就不可用了，单点问题并没有解决。如果每次都手动把之前的服务器切换为主服务器，这就比较费力。</p>
+<h2 id="可用性保证之sentinel"><a href="#可用性保证之sentinel" class="headerlink" title="可用性保证之sentinel"></a>可用性保证之sentinel</h2><p>sentinel是一个监听，监听redis集群中的master和slave，如果master一定时间内没有给sentinel回复消息，则将master标记为下线，然后把某一个slave标记为master，应用每一次都从这个监控服务器拿到master的地址。</p>
+<p>sentinel通过info命令来获取到redis集群中的节点的信息。</p>
+<p>服务下线：当sentinel监听到master节点下线后，会进行故障转移</p>
+<p>故障转移：故障转移的第一步就是在sentinel集群中选举出一个leader节点，然后让这个leader指定出一个master节点。</p>
+<h3 id="sentinel集群选举算法"><a href="#sentinel集群选举算法" class="headerlink" title="sentinel集群选举算法"></a>sentinel集群选举算法</h3><p>类似raft算法。raft算法：首先会生成一个150-300ms的时间，默认最小时间的为leader，如果时间一样则再次生成时间。</p>
+<p>1、master客观下线会触发选举，而不是过了时间才会</p>
+<p>2、leader并不会把自己成为leader的信息发送给其他sentinel节点。其他sentinel等待leader从slave选举出master后，检测新的master节点正常运行后，就会去掉客观下线的标识，从而不需要进入故障转移流程。</p>
+<h3 id="sentienl根据什么来指定master节点："><a href="#sentienl根据什么来指定master节点：" class="headerlink" title="sentienl根据什么来指定master节点："></a>sentienl根据什么来指定master节点：</h3><p>1、断开连接时间：如果与哨兵连接断开时间过长，超过了某个阈值，就直接失去了选举权，</p>
+<p>2、优先级：如果拥有了选举权，那就判断谁的优先级更高，数值越小优先级越高</p>
+<p>3、复制数量：如果优先级也一样，就判断谁从master节点中复制的数据最多。</p>
+<p>4、进程id：如果复制数量一样，就选择进程id最小的那个。</p>
+<h3 id="哨兵机制的不足："><a href="#哨兵机制的不足：" class="headerlink" title="哨兵机制的不足："></a>哨兵机制的不足：</h3><p>主从切换中会丢失数据，因为只有一个master，salve节点 的数据使用RDB文件复制的。</p>
+<p>只能单点写，没有解决扩容的问题</p>
+<p>如果数据量过大，我们就需要多个master-slave的group</p>
+<h2 id="redis数据的分片"><a href="#redis数据的分片" class="headerlink" title="redis数据的分片"></a>redis数据的分片</h2><h3 id="客户端实现"><a href="#客户端实现" class="headerlink" title="客户端实现"></a>客户端实现</h3><p>客户端根据key进行hash计算，来进行分片。</p>
+<p>ShardedJedis</p>
+<h3 id="代理层"><a href="#代理层" class="headerlink" title="代理层"></a>代理层</h3><p>将分片逻辑提取出来，运行一个独立的代理服务，客户端连接到这个代理服务，代理服务做请求转发。</p>
+<p>Twemproxy，Codis</p>
+<h3 id="服务层"><a href="#服务层" class="headerlink" title="服务层"></a>服务层</h3><p>Redis Cluster</p>
 
       
       <!-- reward -->
@@ -244,7 +199,7 @@
     <a class="modal-close" href="javascript:;"><i class="ri-close-circle-line"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/LBraveHeart/2020/03/04/池的基本使用/" alt="微信分享二维码">
+      <img src="//api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://github.com/LBraveHeart/2020/03/12/edis的使用及集群/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -260,19 +215,10 @@
   
   <nav class="article-nav">
     
+    
       <a href="/2020/03/04/va面试题整理/" class="article-nav-link">
-        <strong class="article-nav-caption">上一篇</strong>
-        <div class="article-nav-title">
-          
-            Java面试题整理
-          
-        </div>
-      </a>
-    
-    
-      <a href="/2020/03/04/ring-的事务传播性/" class="article-nav-link">
         <strong class="article-nav-caption">下一篇</strong>
-        <div class="article-nav-title">Spring 的事务传播性</div>
+        <div class="article-nav-title">Java面试题整理</div>
       </a>
     
   </nav>

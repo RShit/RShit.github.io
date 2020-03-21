@@ -3,13 +3,19 @@
   <entry>
     <title>一条http请求的处理过程</title>
     <url>/2020/03/21/%E6%9D%A1http%E8%AF%B7%E6%B1%82%E7%9A%84%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B/</url>
-    <content><![CDATA[<h1 id="一条http请求的处理过程"><a href="#一条http请求的处理过程" class="headerlink" title="一条http请求的处理过程"></a>一条http请求的处理过程</h1><p><a href="../images/http请求.png">image-20200320131945951</a></p>
+    <content><![CDATA[<h1 id="一条http请求的处理过程"><a href="#一条http请求的处理过程" class="headerlink" title="一条http请求的处理过程"></a>一条http请求的处理过程</h1><p><img src="../images/http请求.png" alt="http请求"></p>
 <h2 id="client发送请求"><a href="#client发送请求" class="headerlink" title="client发送请求"></a>client发送请求</h2><h2 id="DNS解析请求得域名-—-gt-ip地址"><a href="#DNS解析请求得域名-—-gt-ip地址" class="headerlink" title="DNS解析请求得域名 —&gt; ip地址"></a>DNS解析请求得域名 —&gt; ip地址</h2><h2 id="TCP-IP-UDP-IP四层传输协议"><a href="#TCP-IP-UDP-IP四层传输协议" class="headerlink" title="TCP/IP,UDP/IP四层传输协议"></a>TCP/IP,UDP/IP四层传输协议</h2><h3 id="应用层"><a href="#应用层" class="headerlink" title="应用层"></a>应用层</h3><p>发送http请求</p>
 <h3 id="传输层"><a href="#传输层" class="headerlink" title="传输层"></a>传输层</h3><p>组装TCP头信息 —&gt; 【TCP头信息】【http请求报文】</p>
 <h3 id="网络层"><a href="#网络层" class="headerlink" title="网络层"></a>网络层</h3><p>组装IP信息 —&gt; 【ip信息】【TCP头信息】【http请求报文】</p>
 <h3 id="网络接口层"><a href="#网络接口层" class="headerlink" title="网络接口层"></a>网络接口层</h3><p>组装MAC信息 —&gt; 【MAC信息】【ip信息】【TCP头信息】【http请求报文】</p>
 <h2 id="网络接口层发送数据"><a href="#网络接口层发送数据" class="headerlink" title="网络接口层发送数据"></a>网络接口层发送数据</h2><p>发送这样的数据：[01010110101010]</p>
 <h2 id="目标服务器处理数据"><a href="#目标服务器处理数据" class="headerlink" title="目标服务器处理数据"></a>目标服务器处理数据</h2>]]></content>
+      <categories>
+        <category>网络通讯</category>
+      </categories>
+      <tags>
+        <tag>http</tag>
+      </tags>
   </entry>
   <entry>
     <title>redis的使用及集群</title>

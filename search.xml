@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>redis的使用及集群</title>
-    <url>/2020/03/12/edis%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4/</url>
+    <url>/2020/03/12/dis%E7%9A%84%E4%BD%BF%E7%94%A8%E5%8F%8A%E9%9B%86%E7%BE%A4/</url>
     <content><![CDATA[<h2 id="redis数据结构-："><a href="#redis数据结构-：" class="headerlink" title="redis数据结构 ："></a>redis数据结构 ：</h2><h3 id="string"><a href="#string" class="headerlink" title="string:"></a>string:</h3><p><code>set key,value ,set key value ex time</code></p>
 <h3 id="map"><a href="#map" class="headerlink" title="map"></a>map</h3><p>所有的键值对的键和值的长度都小于等于64byte，哈希对象保存的键值对数量都小于512：ziplist，hashtable 对象 </p>
 <h3 id="list"><a href="#list" class="headerlink" title="list"></a>list</h3><p>quicklist 消息队列</p>
@@ -687,7 +687,7 @@
 <li>内存大小</li>
 <li>文件句柄的限制</li>
 <li>ulimit -n 默认是1024</li>
-<li>带宽的资源<br>5.</li>
+<li>带宽的资源</li>
 </ol>
 ]]></content>
       <categories>

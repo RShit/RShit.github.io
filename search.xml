@@ -47,6 +47,12 @@
 <p>Twemproxy，Codis</p>
 <h3 id="服务层"><a href="#服务层" class="headerlink" title="服务层"></a>服务层</h3><p>Redis Cluster</p>
 ]]></content>
+      <categories>
+        <category>redis</category>
+      </categories>
+      <tags>
+        <tag>redis</tag>
+      </tags>
   </entry>
   <entry>
     <title>Java面试题整理</title>

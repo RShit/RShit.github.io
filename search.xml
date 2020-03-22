@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>HashMap和Hashtable的比较</title>
+    <url>/2020/03/22/ashMap%E5%92%8CHashtable%E7%9A%84%E6%AF%94%E8%BE%83/</url>
+    <content><![CDATA[<h1 id="HashMap和Hashtable的比较"><a href="#HashMap和Hashtable的比较" class="headerlink" title="HashMap和Hashtable的比较"></a>HashMap和Hashtable的比较</h1><h2 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h2><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>都是数组 + 链表的形式</p>
+<h3 id="存值方式"><a href="#存值方式" class="headerlink" title="存值方式"></a>存值方式</h3><p>都是根据key的hash计算，再将(key,value)组装为Entry或Node</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><h3 id="put区别"><a href="#put区别" class="headerlink" title="put区别"></a>put区别</h3><p>1、HashMap允许key和value都为null，而Hashtable不允许</p>
+<p>2、HashMap是线程不安全的，Hashtable是线程安全的。</p>
+<p>3、HashMap存值，在链表长度 &gt; 8 并且 数组长度 &lt; 64，会进行扩容，如果数组长度 &gt; 64，则将链表转换为红黑树。</p>
+<p>Hashtable存值只有在table的size达到临界值时才会进行扩容</p>
+<p>4、HashMap在链表存值时尾部插入，而Hashtable是头部插入</p>
+]]></content>
+  </entry>
+  <entry>
     <title>HashMap原理分析(一)</title>
     <url>/2020/03/21/ashMap%E5%8E%9F%E7%90%86%E5%88%86%E6%9E%90-%E4%B8%80/</url>
     <content><![CDATA[<h1 id="HashMap的底层原理-一"><a href="#HashMap的底层原理-一" class="headerlink" title="HashMap的底层原理(一)"></a>HashMap的底层原理(一)</h1><h2 id="组成结构"><a href="#组成结构" class="headerlink" title="组成结构"></a>组成结构</h2><p>数据 + 链表的形式+红黑树</p>
@@ -866,6 +878,34 @@
       </tags>
   </entry>
   <entry>
+    <title>Java Integer(-128~127)值的==和equals比较</title>
+    <url>/2019/05/29/va-Integer-128-127-%E5%80%BC%E7%9A%84-%E5%92%8Cequals%E6%AF%94%E8%BE%83/</url>
+    <content><![CDATA[<h3 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h3><p><em>有如下代码：</em></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer i1 = <span class="number">127</span>;</span><br><span class="line">Integer i2 = <span class="number">127</span>;</span><br><span class="line">System.out.print(i1+<span class="string">" == "</span>+i2+<span class="string">" :"</span>+(i1 == i2));</span><br><span class="line">System.out.println(<span class="string">"    "</span>+i1+<span class="string">".equals("</span>+i2+<span class="string">") :"</span>+(i1.equals(i2)));</span><br><span class="line"></span><br><span class="line">Integer i3 = <span class="number">128</span>;</span><br><span class="line">Integer i4 = <span class="number">128</span>;</span><br><span class="line">System.out.print(i3+<span class="string">" == "</span>+i4+<span class="string">" :"</span>+(i3 == i4));</span><br><span class="line">System.out.println(<span class="string">"   "</span>+i3+<span class="string">".equals("</span>+i4+<span class="string">") :"</span>+(i3.equals(i4)));</span><br><span class="line"></span><br><span class="line">Integer i5 = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">Integer i6 = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">System.out.print(i5+<span class="string">" == "</span>+i6+<span class="string">" :"</span>+(i5 == i6));</span><br><span class="line">System.out.println(<span class="string">"   "</span>+i5+<span class="string">".equals("</span>+i6+<span class="string">") :"</span>+(i5.equals(i6)));</span><br><span class="line"></span><br><span class="line">Integer i7 = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">Integer i8 = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">System.out.print(i7+<span class="string">" == "</span>+i8+<span class="string">" :"</span>+(i7 == i8));</span><br><span class="line">System.out.println(<span class="string">"   "</span>+i7+<span class="string">".equals("</span>+i8+<span class="string">") :"</span>+(i7.equals(i8)));</span><br><span class="line"></span><br><span class="line">Integer i9 = <span class="keyword">new</span> Integer(<span class="number">40</span>);</span><br><span class="line">Integer i10 = <span class="keyword">new</span> Integer(<span class="number">40</span>);</span><br><span class="line">Integer i11 = <span class="keyword">new</span> Integer(<span class="number">0</span>);</span><br><span class="line">System.out.println(<span class="string">"i9=i10+i11   "</span> + (i9 == i10 + i11));</span><br></pre></td></tr></table></figure>
+<p><em>输出结果如下：</em></p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">127</span> == <span class="number">127</span> :<span class="keyword">true</span>    <span class="number">127</span>.equals(<span class="number">127</span>) :<span class="keyword">true</span></span><br><span class="line"><span class="number">128</span> == <span class="number">128</span> :<span class="keyword">false</span>   <span class="number">128</span>.equals(<span class="number">128</span>) :<span class="keyword">true</span></span><br><span class="line"><span class="number">127</span> == <span class="number">127</span> :<span class="keyword">false</span>   <span class="number">127</span>.equals(<span class="number">127</span>) :<span class="keyword">true</span></span><br><span class="line"><span class="number">128</span> == <span class="number">128</span> :<span class="keyword">false</span>   <span class="number">128</span>.equals(<span class="number">128</span>) :<span class="keyword">true</span></span><br><span class="line">i9=i10+i11   <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
+<p><em>总结:</em></p>
+<blockquote>
+<ol>
+<li>在-128~127的Integer值如果以<code>Integer x = value;</code>的方式赋值的Integer值在进行==和equals比较时，都会返回true</li>
+<li>在-128~127之外的以<code>Integer x = value;</code>的方式赋值的Integer值在进行==和equals比较时，返回结果并不下相同</li>
+<li>无论是在-128~127还是之外的Integer值如果以<code>Integer x = new Integer(value);</code>的方式赋值的Integer值在进行==和equals比较时,返回结果都并不x相同</li>
+<li>因为Java里面对处在在-128~127之间的使用<code>Integer x = value;</code>赋值的Integer值，用的是原生数据类型int，会在内存里供重用，也就是说这之间的Integer值进行==比较时只是进行int原生数据类型的数值比较，而超出-128~127的范围，进行==比较时是进行地址及数值比较。</li>
+<li>而对于所有以<code>Integer x = new Integer(value);</code>赋值的Integer值，使用== 比较时是进行地址及数值比较。</li>
+<li>语句 i9 == i10 + i11，因为+这个操作符不适用于 Integer 对象，首先 i10 和 i11 进行自动拆箱操作，进行数值相加，即 i9 == 40。然后 Integer 对象无法与数值进行直接比较，所以 i9 自动拆箱转为 int 值 40，最终这条语句转为 40 == 40 进行数值比较</li>
+<li>所以在比较包装类型的值时，必须使用equals进行比较</li>
+</ol>
+</blockquote>
+]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+        <tag>Integer</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>单例模式的基础知识</title>
     <url>/2019/05/29/%E6%A8%A1%E5%BC%8F/</url>
     <content><![CDATA[<h2 id="单例模式"><a href="#单例模式" class="headerlink" title="单例模式"></a>单例模式</h2><h3 id="单例模式的优缺点"><a href="#单例模式的优缺点" class="headerlink" title="单例模式的优缺点"></a>单例模式的优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><ul>
@@ -908,34 +948,6 @@
       <tags>
         <tag>设计模式</tag>
         <tag>单例模式</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java Integer(-128~127)值的==和equals比较</title>
-    <url>/2019/05/29/va-Integer-128-127-%E5%80%BC%E7%9A%84-%E5%92%8Cequals%E6%AF%94%E8%BE%83/</url>
-    <content><![CDATA[<h3 id="Integer"><a href="#Integer" class="headerlink" title="Integer"></a>Integer</h3><p><em>有如下代码：</em></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line">Integer i1 = <span class="number">127</span>;</span><br><span class="line">Integer i2 = <span class="number">127</span>;</span><br><span class="line">System.out.print(i1+<span class="string">" == "</span>+i2+<span class="string">" :"</span>+(i1 == i2));</span><br><span class="line">System.out.println(<span class="string">"    "</span>+i1+<span class="string">".equals("</span>+i2+<span class="string">") :"</span>+(i1.equals(i2)));</span><br><span class="line"></span><br><span class="line">Integer i3 = <span class="number">128</span>;</span><br><span class="line">Integer i4 = <span class="number">128</span>;</span><br><span class="line">System.out.print(i3+<span class="string">" == "</span>+i4+<span class="string">" :"</span>+(i3 == i4));</span><br><span class="line">System.out.println(<span class="string">"   "</span>+i3+<span class="string">".equals("</span>+i4+<span class="string">") :"</span>+(i3.equals(i4)));</span><br><span class="line"></span><br><span class="line">Integer i5 = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">Integer i6 = <span class="keyword">new</span> Integer(<span class="number">127</span>);</span><br><span class="line">System.out.print(i5+<span class="string">" == "</span>+i6+<span class="string">" :"</span>+(i5 == i6));</span><br><span class="line">System.out.println(<span class="string">"   "</span>+i5+<span class="string">".equals("</span>+i6+<span class="string">") :"</span>+(i5.equals(i6)));</span><br><span class="line"></span><br><span class="line">Integer i7 = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">Integer i8 = <span class="keyword">new</span> Integer(<span class="number">128</span>);</span><br><span class="line">System.out.print(i7+<span class="string">" == "</span>+i8+<span class="string">" :"</span>+(i7 == i8));</span><br><span class="line">System.out.println(<span class="string">"   "</span>+i7+<span class="string">".equals("</span>+i8+<span class="string">") :"</span>+(i7.equals(i8)));</span><br><span class="line"></span><br><span class="line">Integer i9 = <span class="keyword">new</span> Integer(<span class="number">40</span>);</span><br><span class="line">Integer i10 = <span class="keyword">new</span> Integer(<span class="number">40</span>);</span><br><span class="line">Integer i11 = <span class="keyword">new</span> Integer(<span class="number">0</span>);</span><br><span class="line">System.out.println(<span class="string">"i9=i10+i11   "</span> + (i9 == i10 + i11));</span><br></pre></td></tr></table></figure>
-<p><em>输出结果如下：</em></p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="number">127</span> == <span class="number">127</span> :<span class="keyword">true</span>    <span class="number">127</span>.equals(<span class="number">127</span>) :<span class="keyword">true</span></span><br><span class="line"><span class="number">128</span> == <span class="number">128</span> :<span class="keyword">false</span>   <span class="number">128</span>.equals(<span class="number">128</span>) :<span class="keyword">true</span></span><br><span class="line"><span class="number">127</span> == <span class="number">127</span> :<span class="keyword">false</span>   <span class="number">127</span>.equals(<span class="number">127</span>) :<span class="keyword">true</span></span><br><span class="line"><span class="number">128</span> == <span class="number">128</span> :<span class="keyword">false</span>   <span class="number">128</span>.equals(<span class="number">128</span>) :<span class="keyword">true</span></span><br><span class="line">i9=i10+i11   <span class="keyword">true</span></span><br></pre></td></tr></table></figure>
-<p><em>总结:</em></p>
-<blockquote>
-<ol>
-<li>在-128~127的Integer值如果以<code>Integer x = value;</code>的方式赋值的Integer值在进行==和equals比较时，都会返回true</li>
-<li>在-128~127之外的以<code>Integer x = value;</code>的方式赋值的Integer值在进行==和equals比较时，返回结果并不下相同</li>
-<li>无论是在-128~127还是之外的Integer值如果以<code>Integer x = new Integer(value);</code>的方式赋值的Integer值在进行==和equals比较时,返回结果都并不x相同</li>
-<li>因为Java里面对处在在-128~127之间的使用<code>Integer x = value;</code>赋值的Integer值，用的是原生数据类型int，会在内存里供重用，也就是说这之间的Integer值进行==比较时只是进行int原生数据类型的数值比较，而超出-128~127的范围，进行==比较时是进行地址及数值比较。</li>
-<li>而对于所有以<code>Integer x = new Integer(value);</code>赋值的Integer值，使用== 比较时是进行地址及数值比较。</li>
-<li>语句 i9 == i10 + i11，因为+这个操作符不适用于 Integer 对象，首先 i10 和 i11 进行自动拆箱操作，进行数值相加，即 i9 == 40。然后 Integer 对象无法与数值进行直接比较，所以 i9 自动拆箱转为 int 值 40，最终这条语句转为 40 == 40 进行数值比较</li>
-<li>所以在比较包装类型的值时，必须使用equals进行比较</li>
-</ol>
-</blockquote>
-]]></content>
-      <categories>
-        <category>java</category>
-      </categories>
-      <tags>
-        <tag>java</tag>
-        <tag>Integer</tag>
       </tags>
   </entry>
   <entry>

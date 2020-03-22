@@ -20,18 +20,19 @@
     var CONFIG = {"hostname":"github.com","root":"/","scheme":"Pisces","version":"7.7.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":true,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
   </script>
 
-  <meta name="description" content="仰面朝天，知此身渺渺，沧海一粟">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="https://github.com/LBraveHeart/tags/idea/index.html">
+  <meta name="description" content="HashMap和Hashtable的比较共同点结构都是数组 + 链表的形式 存值方式都是根据key的hash计算，再将(key,value)组装为Entry或Node 区别put区别1、HashMap允许key和value都为null，而Hashtable不允许 2、HashMap是线程不安全的，Hashtable是线程安全的。 3、HashMap存值，在链表长度 &amp;gt; 8 并且 数组长度 &amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="HashMap和Hashtable的比较">
+<meta property="og:url" content="https://github.com/LBraveHeart/2020/03/22/ashMap和Hashtable的比较/index.html">
 <meta property="og:site_name" content="Hexo">
-<meta property="og:description" content="仰面朝天，知此身渺渺，沧海一粟">
+<meta property="og:description" content="HashMap和Hashtable的比较共同点结构都是数组 + 链表的形式 存值方式都是根据key的hash计算，再将(key,value)组装为Entry或Node 区别put区别1、HashMap允许key和value都为null，而Hashtable不允许 2、HashMap是线程不安全的，Hashtable是线程安全的。 3、HashMap存值，在链表长度 &amp;gt; 8 并且 数组长度 &amp;">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2020-03-22T08:39:46.558Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hexo">
-<meta name="twitter:description" content="仰面朝天，知此身渺渺，沧海一粟">
+<meta name="twitter:title" content="HashMap和Hashtable的比较">
+<meta name="twitter:description" content="HashMap和Hashtable的比较共同点结构都是数组 + 链表的形式 存值方式都是根据key的hash计算，再将(key,value)组装为Entry或Node 区别put区别1、HashMap允许key和value都为null，而Hashtable不允许 2、HashMap是线程不安全的，Hashtable是线程安全的。 3、HashMap存值，在链表长度 &amp;gt; 8 并且 数组长度 &amp;">
 
-<link rel="canonical" href="https://github.com/LBraveHeart/tags/idea/">
+<link rel="canonical" href="https://github.com/LBraveHeart/2020/03/22/ashMap和Hashtable的比较/">
 
 
 <script id="page-configurations">
@@ -39,11 +40,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false
+    isPost : true
   };
 </script>
 
-  <title>标签: idea | Hexo</title>
+  <title>HashMap和Hashtable的比较 | Hexo</title>
   
 
 
@@ -176,50 +177,98 @@
           <div class="content">
             
 
+  <div class="posts-expand">
+      
   
   
-  
-  <div class="post-block">
-    <div class="posts-collapse">
-      <div class="collection-title">
-        <h1 class="collection-header">idea
-          <small>标签</small>
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://github.com/LBraveHeart/2020/03/22/ashMap和Hashtable的比较/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="liu666">
+      <meta itemprop="description" content="仰面朝天，知此身渺渺，沧海一粟">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Hexo">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          HashMap和Hashtable的比较
         </h1>
-      </div>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2020-03-22 16:39:44 / 修改时间：16:39:46" itemprop="dateCreated datePublished" datetime="2020-03-22T16:39:44+08:00">2020-03-22</time>
+            </span>
+
+          <br>
+            <span class="post-meta-item" title="本文字数">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-file-word-o"></i>
+              </span>
+                <span class="post-meta-item-text">本文字数：</span>
+              <span>296</span>
+            </span>
+            <span class="post-meta-item" title="阅读时长">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-clock-o"></i>
+              </span>
+                <span class="post-meta-item-text">阅读时长 &asymp;</span>
+              <span>1 分钟</span>
+            </span>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    <div class="collection-year">
-      <h1 class="collection-header">2019</h1>
+        <h1 id="HashMap和Hashtable的比较"><a href="#HashMap和Hashtable的比较" class="headerlink" title="HashMap和Hashtable的比较"></a>HashMap和Hashtable的比较</h1><h2 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h2><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>都是数组 + 链表的形式</p>
+<h3 id="存值方式"><a href="#存值方式" class="headerlink" title="存值方式"></a>存值方式</h3><p>都是根据key的hash计算，再将(key,value)组装为Entry或Node</p>
+<h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><h3 id="put区别"><a href="#put区别" class="headerlink" title="put区别"></a>put区别</h3><p>1、HashMap允许key和value都为null，而Hashtable不允许</p>
+<p>2、HashMap是线程不安全的，Hashtable是线程安全的。</p>
+<p>3、HashMap存值，在链表长度 &gt; 8 并且 数组长度 &lt; 64，会进行扩容，如果数组长度 &gt; 64，则将链表转换为红黑树。</p>
+<p>Hashtable存值只有在table的size达到临界值时才会进行扩容</p>
+<p>4、HashMap在链表存值时尾部插入，而Hashtable是头部插入</p>
+
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+    
+    
+    
 
-      <div class="post-meta">
-        <time itemprop="dateCreated"
-              datetime="2019-07-26T17:36:00+08:00"
-              content="2019-07-26">
-          07-26
-        </time>
-      </div>
+      <footer class="post-footer">
 
-      <h2 class="post-title">
-          <a class="post-title-link" href="/2019/07/26/ea去除重复代码检测/" itemprop="url">
-            <span itemprop="name">idea去除重复代码检测</span>
-          </a>
-      </h2>
+        
 
-    </header>
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/03/21/ashMap原理分析-一/" rel="prev" title="HashMap原理分析(一)">
+      <i class="fa fa-chevron-left"></i> HashMap原理分析(一)
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
   </article>
+  
+  
+  
 
-    </div>
   </div>
-  
-  
-  
-
-  
-
 
 
           </div>
@@ -270,6 +319,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HashMap和Hashtable的比较"><span class="nav-number">1.</span> <span class="nav-text">HashMap和Hashtable的比较</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#共同点"><span class="nav-number">1.1.</span> <span class="nav-text">共同点</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#结构"><span class="nav-number">1.1.1.</span> <span class="nav-text">结构</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#存值方式"><span class="nav-number">1.1.2.</span> <span class="nav-text">存值方式</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#区别"><span class="nav-number">1.2.</span> <span class="nav-text">区别</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#put区别"><span class="nav-number">1.2.1.</span> <span class="nav-text">put区别</span></a></li></ol></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 

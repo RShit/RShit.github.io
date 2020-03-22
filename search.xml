@@ -2,7 +2,7 @@
 <search>
   <entry>
     <title>HashMap和Hashtable的比较</title>
-    <url>/2020/03/22/ashMap%E5%92%8CHashtable%E7%9A%84%E6%AF%94%E8%BE%83/</url>
+    <url>/2020/03/22/shMap%E5%92%8CHashtable%E7%9A%84%E6%AF%94%E8%BE%83/</url>
     <content><![CDATA[<h1 id="HashMap和Hashtable的比较"><a href="#HashMap和Hashtable的比较" class="headerlink" title="HashMap和Hashtable的比较"></a>HashMap和Hashtable的比较</h1><h2 id="共同点"><a href="#共同点" class="headerlink" title="共同点"></a>共同点</h2><h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p>都是数组 + 链表的形式</p>
 <h3 id="存值方式"><a href="#存值方式" class="headerlink" title="存值方式"></a>存值方式</h3><p>都是根据key的hash计算，再将(key,value)组装为Entry或Node</p>
 <h2 id="区别"><a href="#区别" class="headerlink" title="区别"></a>区别</h2><h3 id="put区别"><a href="#put区别" class="headerlink" title="put区别"></a>put区别</h3><p>1、HashMap允许key和value都为null，而Hashtable不允许</p>

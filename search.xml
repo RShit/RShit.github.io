@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>git切换分支</title>
+    <url>/2020/04/14/it%E5%88%87%E6%8D%A2%E5%88%86%E6%94%AF/</url>
+    <content><![CDATA[<h2 id="远程拉取项目"><a href="#远程拉取项目" class="headerlink" title="远程拉取项目"></a>远程拉取项目</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git clone xxxx.git</span><br></pre></td></tr></table></figure>
+<h2 id="查看分支"><a href="#查看分支" class="headerlink" title="查看分支"></a>查看分支</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+<h2 id="切换分支"><a href="#切换分支" class="headerlink" title="切换分支"></a>切换分支</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git checkout -b dev origin/dev</span><br></pre></td></tr></table></figure>
+<h2 id="从指定分支更新项目"><a href="#从指定分支更新项目" class="headerlink" title="从指定分支更新项目"></a>从指定分支更新项目</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git pull origin dev</span><br></pre></td></tr></table></figure>
+<h2 id="提交分支"><a href="#提交分支" class="headerlink" title="提交分支"></a>提交分支</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push origin dev</span><br></pre></td></tr></table></figure>
+<h2 id="连接分支"><a href="#连接分支" class="headerlink" title="连接分支"></a>连接分支</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git push -set upstream</span><br></pre></td></tr></table></figure>
+<h2 id="查看当前-远程url"><a href="#查看当前-远程url" class="headerlink" title="查看当前 远程url"></a>查看当前 远程url</h2><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+<h2 id="git-帮助文档"><a href="#git-帮助文档" class="headerlink" title="git 帮助文档"></a>git 帮助文档</h2><p><a href="https://help.github.com/cn/github/using-git/pushing-commits-to-a-remote-repository" target="_blank" rel="noopener">git帮助文档</a></p>
+]]></content>
+  </entry>
+  <entry>
     <title>Netty的基本使用</title>
     <url>/2020/03/25/etty%E7%9A%84%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8/</url>
     <content><![CDATA[<h1 id="Netty的基本使用"><a href="#Netty的基本使用" class="headerlink" title="Netty的基本使用"></a>Netty的基本使用</h1><h2 id="服务端定义"><a href="#服务端定义" class="headerlink" title="服务端定义"></a>服务端定义</h2><h3 id="开启服务端端口"><a href="#开启服务端端口" class="headerlink" title="开启服务端端口"></a>开启服务端端口</h3><figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyServer</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        EventLoopGroup boseGroup = <span class="keyword">new</span> NioEventLoopGroup();</span><br><span class="line">        EventLoopGroup workerGroup = <span class="keyword">new</span> NioEventLoopGroup();</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            ServerBootstrap serverBootstrap = <span class="keyword">new</span> ServerBootstrap();</span><br><span class="line">            <span class="comment">// handler 只针对boseGroup</span></span><br><span class="line">            <span class="comment">// childHandler 经过boseGroup后再经过workerGroup</span></span><br><span class="line">            serverBootstrap.group(boseGroup,workerGroup).channel(NioServerSocketChannel.class)</span><br><span class="line">                    .childHandler(<span class="keyword">new</span> MyServerInitializer());</span><br><span class="line">            ChannelFuture channelFuture = serverBootstrap.bind(<span class="number">8899</span>).sync();</span><br><span class="line">            channelFuture.channel().closeFuture().sync();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">        &#125;<span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            boseGroup.shutdownGracefully();</span><br><span class="line">            workerGroup.shutdownGracefully();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -609,8 +622,8 @@
         <category>linux</category>
       </categories>
       <tags>
-        <tag>centos7</tag>
         <tag>jdk1.8</tag>
+        <tag>centos7</tag>
       </tags>
   </entry>
   <entry>
@@ -621,8 +634,8 @@
         <category>idea</category>
       </categories>
       <tags>
-        <tag>idea</tag>
         <tag>maven</tag>
+        <tag>idea</tag>
       </tags>
   </entry>
   <entry>
@@ -703,8 +716,8 @@
       </categories>
       <tags>
         <tag>mysql</tag>
-        <tag>centos7</tag>
         <tag>工具使用</tag>
+        <tag>centos7</tag>
       </tags>
   </entry>
   <entry>
